@@ -24,6 +24,10 @@ Web para contratar y gestionar seguros de centros deportivos.
 - Rutas relativas: la web funciona en la raíz de cualquier subdominio.
 - Se despliega solo en un subdominio de pruebas, nunca en el dominio principal.
 
+## Caché del CDN de Hostinger
+
+El CDN guarda los CSS y JS durante 7 días (el HTML no). Al cambiar un CSS o JS, sube el número de versión en los enlaces de todas las páginas (`estilos.css?v=2` → `?v=3`) o purga la caché del CDN en hPanel.
+
 ## Probar en local
 
 Abrir `index.html` en el navegador o servir la carpeta con cualquier servidor estático.

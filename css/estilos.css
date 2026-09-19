@@ -52,7 +52,8 @@ p { margin: 0; }
 .display-m { font-size: 44px; }
 .display-s { font-family: var(--display); font-weight: 700; font-size: 30px; line-height: 1.05; text-transform: uppercase; }
 .display-xs { font-family: var(--display); font-weight: 700; font-size: 22px; line-height: 1.1; text-transform: uppercase; }
-.marca-lima { background: var(--lima); padding: 0 .1em; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+/* El fondo solo cubre la franja de las letras: con line-height < 1 el fondo completo pisaría la línea de arriba */
+.marca-lima { background: linear-gradient(var(--lima), var(--lima)) 0 55% / 100% .86em no-repeat; padding: 0 .1em; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
 .antetitulo { font-size: 14px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--texto-3); }
 .entradilla { font-size: 21px; line-height: 1.55; color: var(--texto-2); }
 .nota { font-size: 15px; line-height: 1.5; color: var(--texto-3); }

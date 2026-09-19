@@ -1,0 +1,6 @@
+# Versión de prueba: que ningún buscador la indexe, aunque ignore robots.txt
+<IfModule mod_headers.c>
+  Header set X-Robots-Tag "noindex, nofollow"
+</IfModule>
+# No listar el contenido de las carpetas
+Options -Indexes

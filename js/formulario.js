@@ -43,21 +43,28 @@
     if (parametro('utm_source')) el.canal.value = parametro('utm_source');
     if (parametro('utm_campaign')) el.campana.value = parametro('utm_campaign');
 
-    var casilla = form.querySelector('[data-toggle-contacto]');
     var bloque = form.querySelector('[data-campos-contacto]');
+    function eleccion(nombre) {
+      var marcada = form.querySelector('input[name="' + nombre + '"]:checked');
+      return marcada ? marcada.value : '';
+    }
     function actualizarContacto() {
-      var on = casilla.checked;
+      var on = eleccion('quiere_contacto') === 'si';
       bloque.hidden = !on;
       ['nombre', 'telefono', 'centro', 'mensaje'].forEach(function (n) {
         el[n].disabled = !on;                 // si no pide contacto, estos datos no se envían
         if (n !== 'mensaje') el[n].required = on;
       });
     }
-    if (casilla && bloque) {
-      if (parametro('contacto') === '1') casilla.checked = true;
-      casilla.addEventListener('change', actualizarContacto);
+    if (bloque) {
+      form.querySelectorAll('input[name="quiere_contacto"]').forEach(function (r) {
+        r.addEventListener('change', actualizarContacto);
+      });
       actualizarContacto();
     }
+    form.querySelectorAll('.eleccion').forEach(function (f) {
+      f.addEventListener('change', function () { f.removeAttribute('aria-invalid'); });
+    });
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
@@ -67,7 +74,14 @@
       if (el.tipo_centro && el.tipo_centro.tagName === 'SELECT') {
         marcar(el.tipo_centro, !el.tipo_centro.value); if (!el.tipo_centro.value) faltan.push('el tipo de centro');
       }
-      var contacto = casilla && casilla.checked;
+      ['quiere_contacto', 'acepta_emails'].forEach(function (n) {
+        var grupo = form.querySelector('[data-grupo="' + n + '"]');
+        if (!eleccion(n)) {
+          if (grupo) grupo.setAttribute('aria-invalid', 'true');
+          faltan.push(n === 'quiere_contacto' ? 'decir si quieres que te llamen' : 'decir si quieres los 4 emails');
+        }
+      });
+      var contacto = eleccion('quiere_contacto') === 'si';
       if (contacto) {
         marcar(el.nombre, !el.nombre.value.trim()); if (!el.nombre.value.trim()) faltan.push('tu nombre');
         var okTel = telefonoValido(el.telefono.value); marcar(el.telefono, !okTel); if (!okTel) faltan.push('un teléfono válido');
@@ -76,6 +90,7 @@
       if (faltan.length) {
         mensaje(form, 'Revisa el formulario: falta ' + lista(faltan) + '.', false);
         var primero = form.querySelector('[aria-invalid="true"]');
+        if (primero && primero.tagName === 'FIELDSET') primero = primero.querySelector('input');
         if (primero) primero.focus();
         return;
       }
@@ -105,7 +120,7 @@
             if (!n.classList.contains('form-mensaje')) n.hidden = true;
           });
           var texto = 'Hecho. En unos minutos te llegará la guía a ' + email + '. Si no la ves, mira en spam o promociones.';
-          if (el.acepta_emails.checked) texto += ' Si todavía no habías confirmado los 4 emails, en ese mismo email tienes el enlace para hacerlo.';
+          if (eleccion('acepta_emails') === 'si') texto += ' Si todavía no habías confirmado los 4 emails, en ese mismo email tienes el enlace para hacerlo.';
           if (res.contacto) texto += ' Hemos pasado tus datos a un mediador de seguros, que se pondrá en contacto contigo.';
           var nodo = mensaje(form, texto, true);
           if (nodo) { nodo.tabIndex = -1; nodo.focus(); }

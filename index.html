@@ -9,7 +9,7 @@
 <title>Entrena Seguro · Qué exige la ley al seguro de tu centro deportivo</title>
 <meta name="description" content="Qué exige la ley al seguro de un centro deportivo, con la norma citada: Madrid y Andalucía. Guía gratis y contacto con un mediador de seguros si lo pides.">
 <link rel="icon" href="data:,">
-<link rel="stylesheet" href="css/estilos.css?v=4">
+<link rel="stylesheet" href="css/estilos.css?v=5">
 </head>
 <body class="con-barra">
 <a class="salto" href="#contenido">Saltar al contenido</a>
@@ -56,7 +56,13 @@
           <label class="campo">Tipo de centro
               <select name="tipo_centro" required><option value="">Elige una opción</option><option>Box de CrossFit o funcional</option><option>Gimnasio</option><option>Estudio de pilates, yoga o boutique</option><option>Club deportivo</option><option>Entrenador personal</option><option>Otro</option></select>
             </label>
-          <label class="check"><input type="checkbox" name="quiere_contacto" value="si" data-toggle-contacto>Quiero que un mediador de seguros me llame para revisar el seguro de mi centro. (Opcional)</label>
+          <fieldset class="eleccion" data-grupo="quiere_contacto">
+            <legend>¿Quieres que te llame un mediador de seguros para revisar el seguro de tu centro?</legend>
+            <div class="eleccion__opciones">
+              <label><input type="radio" name="quiere_contacto" value="si" required>Sí, que me llamen</label>
+              <label><input type="radio" name="quiere_contacto" value="no">No, solo la guía</label>
+            </div>
+          </fieldset>
           <div class="campos-contacto" data-campos-contacto hidden>
             <div class="comprobador__campos comprobador__campos--2">
               <label class="campo">Tu nombre
@@ -72,16 +78,23 @@
             <label class="campo">¿Algo que quieras contarle? (Opcional)
               <input type="text" name="mensaje" maxlength="500">
             </label>
-            <p class="comprobador__nota" style="text-align:left">Al marcar esta casilla aceptas que pasemos tu nombre, centro, tipo de centro, comunidad, email, teléfono y mensaje a un mediador de seguros inscrito en la DGSFP para que te contacte. El mediador se identificará al llamarte.</p>
+            <p class="comprobador__nota" style="text-align:left">Al elegir «sí» aceptas que pasemos tu nombre, centro, tipo de centro, comunidad, email, teléfono y mensaje a un mediador de seguros inscrito en la DGSFP para que te contacte. El mediador se identificará al llamarte.</p>
           </div>
-          <label class="check"><input type="checkbox" name="acepta_emails" value="si">Quiero recibir 4 emails de Entrena Seguro sobre renuncias, coaches autónomos, entrenos fuera del centro y preguntas para tu mediador. El último incluye la opción de pedir que te llame un mediador. Te pediremos confirmarlo por email y podrás darte de baja desde cualquiera. (Opcional)</label>
+          <fieldset class="eleccion" data-grupo="acepta_emails">
+            <legend>¿Quieres recibir también 4 emails de Entrena Seguro sobre renuncias, coaches autónomos, entrenos fuera del centro y preguntas para tu mediador?</legend>
+            <div class="eleccion__opciones">
+              <label><input type="radio" name="acepta_emails" value="si" required>Sí, envíamelos</label>
+              <label><input type="radio" name="acepta_emails" value="no">No, gracias</label>
+            </div>
+            <p class="comprobador__nota" style="text-align:left">El último incluye la opción de pedir que te llame un mediador. Te pediremos confirmarlo por email y podrás darte de baja desde cualquiera.</p>
+          </fieldset>
           <div class="sr-only" aria-hidden="true"><label>No rellenes este campo<input type="text" name="hp_campo" tabindex="-1" autocomplete="off"></label></div>
           <input type="hidden" name="ms" value="">
           <input type="hidden" name="canal" value="directo">
           <input type="hidden" name="campana" value="">
           <input type="hidden" name="pagina" value="inicio">
           <button type="submit" class="btn btn--lima btn--bloque btn--grande" data-cta-principal>Quiero la guía →</button>
-          <p class="comprobador__nota" style="text-align:left">Responsable: Entrenaseguro.es (info@entrenaseguro.es). Usamos tu email para enviarte la guía. Lo demás, solo si marcas la casilla correspondiente. <a href="privacidad.html" style="color:#fff">Privacidad</a>.</p>
+          <p class="comprobador__nota" style="text-align:left">Responsable: Entrenaseguro.es (info@entrenaseguro.es). Usamos tu email para enviarte la guía. Lo demás, solo si eliges «sí». <a href="privacidad.html" style="color:#fff">Privacidad</a>.</p>
           <p class="comprobador__nota form-mensaje" role="status" aria-live="polite" hidden></p>
         </form>
       </div>
@@ -105,7 +118,7 @@
       <div class="seccion__cabeza"><h2 class="display display-m">Cómo funciona</h2></div>
       <div class="rejilla rejilla--3">
         <div class="tarjeta"><div class="numero">01</div><h3 class="display-xs">Pides la guía</h3><p>Te llega por email. Solo necesitamos tu email, tu comunidad y el tipo de centro.</p></div>
-        <div class="tarjeta"><div class="numero">02</div><h3 class="display-xs">Si quieres, te llaman</h3><p>Si marcas la casilla, pasamos tus datos a un mediador de seguros inscrito en la DGSFP.</p></div>
+        <div class="tarjeta"><div class="numero">02</div><h3 class="display-xs">Si quieres, te llaman</h3><p>Si eliges que te llamen, pasamos tus datos a un mediador de seguros inscrito en la DGSFP.</p></div>
         <div class="tarjeta"><div class="numero">03</div><h3 class="display-xs">El mediador revisa tu caso</h3><p>Trabaja con varias aseguradoras: te informa y, si te interesa, te presenta las opciones que encajen con tu centro. Pedir la llamada no te obliga a nada.</p></div>
       </div>
     </div>
@@ -116,7 +129,7 @@
       <div class="seccion__cabeza"><h2 class="display display-m">Preguntas</h2></div>
       <div class="faq">
         <details><summary>¿Qué es Entrena Seguro?</summary><p>Un proyecto para explicar con claridad qué exige la ley al seguro de un centro deportivo y, a quien lo pida, ponerle en contacto con un mediador de seguros. No somos aseguradora ni mediador: no vendemos seguros ni damos presupuestos.</p></details>
-        <details><summary>¿Me vais a llamar?</summary><p>Nosotros no. Solo te llamará un mediador de seguros, y solo si marcas la casilla para que te llamen.</p></details>
+        <details><summary>¿Me vais a llamar?</summary><p>Nosotros no. Solo te llamará un mediador de seguros, y solo si eliges que te llamen.</p></details>
         <details><summary>¿Quién me llamaría?</summary><p>Un mediador de seguros inscrito en el registro de la Dirección General de Seguros y Fondos de Pensiones. Trabaja con varias aseguradoras y te presentará las opciones que encajen con tu centro. Al contactarte te dirá quién es.</p></details>
         <details><summary>¿Cuesta algo?</summary><p>No. La guía es gratis, y pedir que te llamen no te compromete a contratar nada.</p></details>
         <details><summary>¿Cómo gana dinero Entrena Seguro?</summary><p>Si al final contratas un seguro con el mediador, él nos paga una pequeña parte de su comisión. Tú no pagas nada por la guía ni por pedir que te llamen, y el precio de tu seguro no sube por haber llegado a través de nosotros. Si no contratas, no cobramos nada.</p></details>
@@ -136,6 +149,6 @@
 </footer>
 <script src="js/web.js?v=4"></script>
 <script src="js/config.js?v=1"></script>
-<script src="js/formulario.js?v=2"></script>
+<script src="js/formulario.js?v=3"></script>
 </body>
 </html>

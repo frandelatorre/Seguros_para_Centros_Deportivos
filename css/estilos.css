@@ -1,3 +1,10 @@
+/* Tipografías alojadas en la propia web (sin Google Fonts) */
+@font-face { font-family: "Barlow"; src: url(../fonts/barlow-latin-400-normal.woff2) format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Barlow"; src: url(../fonts/barlow-latin-600-normal.woff2) format("woff2"); font-weight: 500 600; font-display: swap; }
+@font-face { font-family: "Barlow"; src: url(../fonts/barlow-latin-700-normal.woff2) format("woff2"); font-weight: 700; font-display: swap; }
+@font-face { font-family: "Barlow Condensed"; src: url(../fonts/barlow-condensed-latin-700-normal.woff2) format("woff2"); font-weight: 700; font-display: swap; }
+@font-face { font-family: "Barlow Condensed"; src: url(../fonts/barlow-condensed-latin-800-normal.woff2) format("woff2"); font-weight: 800; font-display: swap; }
+
 /* Blanco con carácter · versión de prueba
    Tokens y componentes sacados del Design System del lienzo de maquetas. */
 
@@ -305,3 +312,12 @@ legend { padding: 0; }
   .barra-fija.visible { transform: none; }
   .con-barra .pie { padding-bottom: 110px; }
 }
+
+/* Formulario de la guía y de contacto (v3) */
+.form-lead { display: flex; flex-direction: column; gap: 14px; }
+.campos-contacto { display: flex; flex-direction: column; gap: 12px; padding: 16px; border: 1px solid var(--negro-3); border-radius: var(--radius-m); }
+.form-mensaje { font-size: 16px; color: var(--lima); }
+.form-mensaje--error { color: #ffb4a8; }
+.oscuro .campo input[aria-invalid="true"], .oscuro .campo select[aria-invalid="true"] { border-color: #ffb4a8; }
+.tarjeta--enlace { text-decoration: none; }
+.tarjeta--enlace:hover { border-color: var(--negro); }

@@ -3,31 +3,27 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Quitar noindex solo al publicar en entrenaseguro.es (ver README) -->
 <meta name="robots" content="noindex, nofollow">
-<meta name="referrer" content="no-referrer">
-<title>Seguros para boxes de CrossFit · Entrena Seguro (versión de prueba)</title>
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Seguro para boxes de CrossFit: qué exige la ley · Entrena Seguro</title>
+<meta name="description" content="Qué exige la ley al seguro de un box de CrossFit o funcional en Madrid y Andalucía, con la norma citada. Guía gratis.">
 <link rel="icon" href="data:,">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="css/estilos.css?v=2">
+<link rel="stylesheet" href="css/estilos.css?v=4">
 </head>
 <body class="con-barra">
 <a class="salto" href="#contenido">Saltar al contenido</a>
-<div class="aviso-prueba" role="note"><span><strong>Versión de prueba.</strong> Web en preparación: no vende seguros ni da presupuestos, y no envía ni guarda lo que escribas.<span class="ocultar-movil"> Todo lo que va entre corchetes es provisional.</span></span></div>
-
 <header class="cabecera">
   <div class="contenedor cabecera__fila">
     <a class="logo" href="index.html">Entrena Seguro</a>
-    <nav id="menu" class="menu" aria-label="Principal">
-      <a href="box.html" aria-current="page">Tipos de centro</a>
-      <a href="#coberturas">Coberturas</a>
-      <a href="#comunidad">¿Es obligatorio?</a>
-      <a href="#precios">Precios</a>
-      <a href="#contacto">Contacto</a>
+    <button class="menu-boton" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <nav class="menu" id="menu" aria-label="Principal">
+      <a href="box.html" aria-current="page">Boxes</a>
+      <a href="index.html#centros">Otros centros</a>
+      <a href="box.html#ley">Qué exige la ley</a>
+      <a href="index.html#como-funciona">Cómo funciona</a>
+      <a href="box.html#guia">Guía gratis</a>
     </nav>
-    <a class="btn cabecera__cta" href="diagnostico.html">Haz el diagnóstico</a>
-    <button type="button" class="menu-boton" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#111311" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
   </div>
 </header>
 
@@ -35,165 +31,135 @@
   <div class="contenedor">
     <section class="hero">
       <div class="hero__texto">
-        <p class="migas ocultar-movil"><a href="index.html">Inicio</a> / Boxes de CrossFit y funcional</p>
-        <div class="antetitulo">Seguros para boxes de CrossFit y entrenamiento funcional</div>
-        <h1 class="display display-l">Tu box, asegurado <span class="marca-lima">como un box</span></h1>
-        <p class="entradilla">No como una tienda ni como un gimnasio cualquiera. Te preguntamos por tus WODs, tus coaches y tus competiciones, te decimos qué exige tu comunidad y te damos un rango de precio antes de pedirte el teléfono.</p>
+        <div class="antetitulo">Para boxes de CrossFit y entrenamiento funcional</div>
+        <h1 class="display display-l">¿Qué seguro exige la ley <span class="marca-lima">a tu box?</span></h1>
+        <p class="entradilla">WODs, coaches autónomos, throwdowns, entrenos en la calle. Un box no funciona como una tienda, y muchas pólizas pensadas para un comercio no contemplan lo que pasa en él. Te contamos qué exige la norma en Madrid y Andalucía, con el artículo citado. El resto de comunidades, en preparación.</p>
         <ul class="checks ocultar-movil">
-          <li>Coaches autónomos, open box, halterofilia y eventos: todo se pregunta</li>
-          <li>La norma de tu comunidad citada, con fecha de revisión</li>
-          <li>Propuesta de [CORREDURÍA], correduría de seguros, en [plazo]</li>
+          <li>Madrid: capital mínimo según cuántos atletas entrenan a la vez, y qué pasa si sales a la calle</li>
+          <li>Andalucía: qué exige la ley del deporte y qué la normativa de espectáculos</li>
+          <li>Coaches autónomos, throwdowns y la renuncia que firman tus atletas</li>
+          <li>Preguntas para hacerle a tu mediador antes de renovar</li>
         </ul>
+        <p class="nota">Información general elaborada a partir del texto oficial de cada norma, consultado el 23/09/2026. No es asesoramiento jurídico ni de seguros: para tu caso concreto, consúltalo con tu mediador.</p>
       </div>
-
-      <div class="comprobador oscuro" aria-labelledby="comprobador-titulo">
-        <h2 class="display-s" id="comprobador-titulo">Comprueba qué exige tu comunidad a tu box</h2>
-        <div class="comprobador__campos comprobador__campos--2">
-          <label class="campo">Comunidad autónoma
-            <select>
-              <option value="">Elige tu comunidad</option>
-              <option>Andalucía</option><option>Aragón</option><option>Asturias</option><option>Illes Balears</option><option>Canarias</option><option>Cantabria</option><option>Castilla-La Mancha</option><option>Castilla y León</option><option>Cataluña</option><option>Comunitat Valenciana</option><option>Extremadura</option><option>Galicia</option><option>Comunidad de Madrid</option><option>Región de Murcia</option><option>Navarra</option><option>País Vasco</option><option>La Rioja</option><option>Ceuta</option><option>Melilla</option>
-            </select>
-          </label>
-          <label class="campo">Tipo de centro
-            <select>
-              <option>Box de CrossFit o funcional</option>
-            </select>
-          </label>
-        </div>
-        <a class="btn btn--lima btn--bloque btn--grande" href="diagnostico.html" data-cta-principal>Haz el diagnóstico de tu box →</a>
-        <p class="comprobador__nota">Gratis · sin datos personales hasta el final · unos [2] minutos</p>
-        <p class="comprobador__nota">¿Prefieres hablar? Escríbenos por WhatsApp [número y horario]</p>
+      <div class="comprobador oscuro" id="guia" aria-labelledby="guia-titulo">
+        <h2 class="display-s" id="guia-titulo">Recibe la guía gratis</h2>
+        <p class="nota" style="color:var(--sobre-negro-2)">Te la mandamos por email. Madrid y Andalucía, con la norma citada.</p>
+        <form class="form-lead" method="post" novalidate data-pagina="box">
+          <div class="comprobador__campos comprobador__campos--2">
+            <label class="campo">Email
+              <input type="email" name="email" autocomplete="email" inputmode="email" required>
+            </label>
+            <label class="campo">Comunidad autónoma
+              <select name="comunidad" required><option value="">Elige tu comunidad</option><option>Andalucía</option><option>Aragón</option><option>Asturias</option><option>Illes Balears</option><option>Canarias</option><option>Cantabria</option><option>Castilla-La Mancha</option><option>Castilla y León</option><option>Cataluña</option><option>Comunitat Valenciana</option><option>Extremadura</option><option>Galicia</option><option>Comunidad de Madrid</option><option>Región de Murcia</option><option>Navarra</option><option>País Vasco</option><option>La Rioja</option><option>Ceuta</option><option>Melilla</option></select>
+            </label>
+          </div>
+          <input type="hidden" name="tipo_centro" value="Box de CrossFit o funcional">
+          <label class="check"><input type="checkbox" name="quiere_contacto" value="si" data-toggle-contacto>Quiero que un mediador de seguros me llame para revisar el seguro de mi centro. (Opcional)</label>
+          <div class="campos-contacto" data-campos-contacto hidden>
+            <div class="comprobador__campos comprobador__campos--2">
+              <label class="campo">Tu nombre
+                <input type="text" name="nombre" autocomplete="name">
+              </label>
+              <label class="campo">Teléfono
+                <input type="tel" name="telefono" autocomplete="tel" inputmode="tel">
+              </label>
+            </div>
+            <label class="campo">Nombre del centro
+              <input type="text" name="centro" autocomplete="organization">
+            </label>
+            <label class="campo">¿Algo que quieras contarle? (Opcional)
+              <input type="text" name="mensaje" maxlength="500">
+            </label>
+            <p class="comprobador__nota" style="text-align:left">Al marcar esta casilla aceptas que pasemos tu nombre, centro, tipo de centro, comunidad, email, teléfono y mensaje a un mediador de seguros inscrito en la DGSFP para que te contacte. El mediador se identificará al llamarte.</p>
+          </div>
+          <label class="check"><input type="checkbox" name="acepta_emails" value="si">Quiero recibir 4 emails de Entrena Seguro sobre renuncias, coaches autónomos, entrenos fuera del centro y preguntas para tu mediador. El último incluye la opción de pedir que te llame un mediador. Te pediremos confirmarlo por email y podrás darte de baja desde cualquiera. (Opcional)</label>
+          <div class="sr-only" aria-hidden="true"><label>No rellenes este campo<input type="text" name="hp_campo" tabindex="-1" autocomplete="off"></label></div>
+          <input type="hidden" name="ms" value="">
+          <input type="hidden" name="canal" value="directo">
+          <input type="hidden" name="campana" value="">
+          <input type="hidden" name="pagina" value="box">
+          <button type="submit" class="btn btn--lima btn--bloque btn--grande" data-cta-principal>Quiero la guía →</button>
+          <p class="comprobador__nota" style="text-align:left">Responsable: Francisco de la Torre Rodríguez. Usamos tu email para enviarte la guía. Lo demás, solo si marcas la casilla correspondiente. <a href="privacidad.html" style="color:#fff">Privacidad</a>.</p>
+          <p class="comprobador__nota form-mensaje" role="status" aria-live="polite" hidden></p>
+        </form>
       </div>
     </section>
   </div>
 
-  <div class="franja">
-    <div class="contenedor franja__fila">
-      <div class="pie__mediador"><strong>[CORREDURÍA]</strong>, correduría de seguros · Clave DGSFP <strong>[CLAVE DGSFP]</strong> · <a href="https://dgsfp.mineco.gob.es/es/Distribuidores/PUI/Paginas/pui.aspx" target="_blank" rel="noopener noreferrer">Compruébalo</a></div>
-      <div>Trabajamos con [n] aseguradoras que aceptan boxes</div>
-      <div>[Logos de aseguradoras, con autorización]</div>
-    </div>
-  </div>
-
-  <section class="seccion" id="riesgos">
+  <section class="seccion seccion--gris">
     <div class="contenedor">
-      <div class="seccion__cabeza">
-        <h2 class="display display-m">Lo que suele quedar fuera en un box</h2>
-        <p>Cuatro situaciones que vemos en las pólizas de comercio o de gimnasio genérico cuando las contrata un box. [Revisar con casos reales de la correduría.]</p>
+      <div class="seccion__cabeza"><h2 class="display display-m">Lo que suele quedar fuera en un box</h2><p class="entradilla">Situaciones de cada semana que una póliza genérica no siempre contempla. Información general: lo que cubre la tuya lo dice tu póliza.</p></div>
+      <div class="rejilla rejilla--3">
+        <div class="tarjeta"><h3 class="display-xs">Un atleta se lesiona en un WOD</h3><p>La RC responde cuando hay culpa del box o del coach: material en mal estado, mala programación, falta de supervisión. Si nadie tiene la culpa (un mal apoyo en un box jump), la RC no paga; eso lo cubre, si se contrata, un seguro de accidentes.</p><p class="nota"><strong>Pregúntale a tu mediador:</strong> ¿Qué pasa si un atleta se lesiona y no hay culpa del box?</p></div>
+        <div class="tarjeta"><h3 class="display-xs">Tus coaches son autónomos</h3><p>En Madrid, el seguro obligatorio del centro tiene que cubrir a los profesionales que trabajan en él, sea cual sea su contrato (Decreto 57/2024, art. 7.1). Muchas pólizas de comercio no los contemplan si no están declarados.</p><p class="nota"><strong>Pregúntale a tu mediador:</strong> ¿Están mis coaches autónomos incluidos como asegurados, con nombre?</p></div>
+        <div class="tarjeta"><h3 class="display-xs">Organizas un throwdown</h3><p>Una competición abierta no es una clase. En Andalucía, organizar competiciones y actividades deportivas de ocio está sujeto a seguro obligatorio de responsabilidad civil (Ley 5/2016, art. 45.1).</p><p class="nota"><strong>Pregúntale a tu mediador:</strong> ¿Mi póliza cubre las competiciones que organizo o hay que declararlas aparte?</p></div>
+        <div class="tarjeta"><h3 class="display-xs">Entrenáis en la calle o en la playa</h3><p>En Madrid, las actividades al aire libre suben el capital mínimo al tramo más alto, 2,4 millones de euros (Decreto 57/2024, art. 8.2). Y muchas pólizas solo cubren lo que pasa dentro del local.</p><p class="nota"><strong>Pregúntale a tu mediador:</strong> ¿Estoy cubierto cuando sacamos el WOD fuera del box?</p></div>
+        <div class="tarjeta"><h3 class="display-xs">Drop-ins y open box</h3><p>Atletas de otros boxes, gente que entrena por su cuenta en horario libre, invitados. No siempre son "usuarios" a efectos de tu póliza.</p><p class="nota"><strong>Pregúntale a tu mediador:</strong> ¿Quién cuenta como usuario asegurado en mi póliza?</p></div>
+        <div class="tarjeta"><h3 class="display-xs">«Mis atletas firman una renuncia»</h3><p>La renuncia sirve para informar del riesgo, no para librarte si hay culpa. Un caso publicado: en 2018 la Audiencia Provincial de Madrid confirmó la condena a la aseguradora de un gimnasio por las lesiones de un alumno en una clase con plataformas de step sin fijar (<a href="https://www.lawandtrends.com/noticias/civil/la-audiencia-provincial-de-madrid-confirma-condena-por-las-lesiones-sufridas-por-un-alumno-durante-un-entrenamiento-en-1.html">LawAndTrends, 25/02/2019</a>).</p><p class="nota"><strong>Pregúntale a tu mediador:</strong> Si hay una reclamación, ¿qué papel juega la renuncia que firman mis atletas?</p></div>
       </div>
+    </div>
+  </section>
+
+  <section class="seccion" id="ley">
+    <div class="contenedor">
+      <div class="seccion__cabeza"><h2 class="display display-m">Qué exige la ley</h2><p class="entradilla">De momento, Madrid y Andalucía. El resto de comunidades, en preparación: dinos la tuya al pedir la guía y la priorizamos.</p></div>
       <div class="rejilla rejilla--2">
-        <div class="tarjeta"><h3 class="display-xs">Un atleta se lesiona en un WOD</h3><p>Si hay culpa del box (programación, material, supervisión), responde la RC. Si no hay culpa, la RC no paga: para eso está el seguro de accidentes.</p></div>
-        <div class="tarjeta"><h3 class="display-xs">Tus coaches son autónomos</h3><p>Tu póliza puede no cubrirlos si no están declarados, y en muchas comunidades tienen que tener su propia RC profesional.</p></div>
-        <div class="tarjeta"><h3 class="display-xs">Organizas un throwdown o entrenas fuera</h3><p>Las competiciones y los entrenos en la calle o en la playa suelen necesitar cobertura aparte. En algunas comunidades suben el capital mínimo.</p></div>
-        <div class="tarjeta"><h3 class="display-xs">«Mis atletas firman una renuncia»</h3><p>Ese documento no te libra de responder si hay culpa del box. Te explicamos qué alcance tiene y qué no.</p></div>
+        <div class="recuadro">
+          <h3 class="display-xs">Comunidad de Madrid</h3>
+          <p>El seguro de responsabilidad civil es obligatorio para los profesionales del deporte (Ley 6/2016, art. 24) y el de los centros tiene que cubrir a quien trabaja en ellos (Decreto 57/2024, art. 7.1).</p>
+          <p>El capital mínimo depende de cuántos usuarios pueden entrenar a la vez: <strong>600.000 €</strong> hasta 50, <strong>1,2 millones</strong> de 51 a 250 y <strong>2,4 millones</strong> a partir de 251 o si la actividad es al aire libre u online, con un sublímite de 300.000 € por víctima (Decreto 57/2024, art. 8.2).</p>
+          <p class="nota">La Comunidad de Madrid tramita una modificación de este decreto (consulta pública de julio-agosto de 2026). A 23/09/2026 no está aprobada.</p>
+        </div>
+        <div class="recuadro">
+          <h3 class="display-xs">Andalucía</h3>
+          <p>La ley del deporte obliga a tener seguro de responsabilidad civil a quien explota un centro deportivo o presta servicios deportivos (Ley 5/2016, art. 45.1). El capital mínimo tiene que fijarlo un reglamento (art. 45.2) que, a 23/09/2026, no hemos encontrado aprobado.</p>
+          <p>Además, la normativa de espectáculos públicos asimila los gimnasios a establecimientos de actividades deportivas (Decreto 155/2018, disposición adicional novena), y el Decreto 109/2005 fija capitales mínimos según el aforo (Anexo, punto 4). En la guía te explicamos por qué puede aplicarse a un box y por qué no es seguro.</p>
+        </div>
       </div>
+      <p class="nota" style="margin-top:20px">Fuentes, consultadas el 23/09/2026: <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2017-3069">Ley 6/2016 de Madrid</a> · <a href="https://www.bocm.es/boletin/CM_Orden_BOCM/2024/06/05/BOCM-20240605-3.PDF">Decreto 57/2024 de Madrid</a> · <a href="https://www.comunidad.madrid/transparencia/proyecto-decreto-que-modifica-decreto-572024-que-se-aprueba-reglamento-desarrollo-parcial-ley-62016">proyecto de modificación</a> · <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2016-7566">Ley 5/2016 del Deporte de Andalucía</a> · <a href="https://www.juntadeandalucia.es/boja/2018/150/13">Decreto 155/2018</a> · <a href="https://www.juntadeandalucia.es/boja/2005/92/2">Decreto 109/2005</a>.</p>
+      <p style="margin-top:20px"><a class="btn" href="#guia">Quiero la guía completa</a></p>
     </div>
   </section>
 
-  <section class="seccion seccion--gris" id="coberturas">
-    <div class="contenedor">
-      <div class="seccion__cabeza">
-        <h2 class="display display-m">Coberturas para un box</h2>
-        <p>Qué suele necesitar un box. Lo que es obligatorio depende de tu comunidad y de tu aforo: el diagnóstico te lo dice para tu caso.</p>
-      </div>
-      <div class="leyenda">
-        <div><span class="tag tag--obligatorio">Obligatorio</span> lo exige una norma</div>
-        <div><span class="tag tag--recomendado">Recomendado</span> lo necesita casi cualquier box</div>
-        <div><span class="tag tag--opcional">Opcional</span> según tu local y tu material</div>
-      </div>
-      <div class="rejilla rejilla--3">
-        <div class="tarjeta"><div class="tarjeta__cabeza"><h3 class="display-xs">RC de explotación</h3><span class="tag tag--obligatorio">Obligatorio según tu comunidad</span></div><p>Daños a atletas y visitantes por la actividad o el local. El capital mínimo lo fija tu comunidad.</p></div>
-        <div class="tarjeta"><div class="tarjeta__cabeza"><h3 class="display-xs">RC profesional de los coaches</h3><span class="tag tag--obligatorio">Obligatorio según tu comunidad</span></div><p>Errores al programar o corregir un ejercicio. Comprueba si tu póliza incluye a los coaches o si cada uno tiene la suya.</p></div>
-        <div class="tarjeta"><div class="tarjeta__cabeza"><h3 class="display-xs">Accidentes de atletas</h3><span class="tag tag--recomendado">Recomendado</span></div><p>Lesiones sin culpa del box: una caída de la barra, un mal apoyo en un salto.</p></div>
-        <div class="tarjeta"><div class="tarjeta__cabeza"><h3 class="display-xs">Eventos y competiciones</h3><span class="tag tag--recomendado">Recomendado si organizas</span></div><p>RC y accidentes para throwdowns y competiciones que organizas.</p></div>
-        <div class="tarjeta"><div class="tarjeta__cabeza"><h3 class="display-xs">RC locativa</h3><span class="tag tag--recomendado">Recomendado si alquilas</span></div><p>Daños al local que alquilas: agua, incendio, desperfectos.</p></div>
-        <div class="tarjeta"><div class="tarjeta__cabeza"><h3 class="display-xs">Daños al local y al material</h3><span class="tag tag--opcional">Opcional</span></div><p>Racks, barras, remos, assault bikes. Incendio, agua, robo.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="seccion" id="comunidad">
-    <div class="contenedor rejilla rejilla--2" style="gap:48px">
-      <div class="seccion__cabeza" style="margin:0">
-        <h2 class="display display-m">¿Qué exige tu comunidad?</h2>
-        <p>En varias comunidades autónomas la ley obliga a tener un seguro de responsabilidad civil a quien presta servicios deportivos. En algunas, el capital mínimo cambia según el aforo, el número de centros o si entrenáis al aire libre.</p>
-        <div><a class="btn btn--secundario" href="guia-boxes.html">Ver la guía por comunidad</a></div>
-      </div>
-      <div class="recuadro recuadro--aviso">
-        <strong>Ejemplo · Comunidad de Madrid</strong>
-        <p>Capital mínimo por siniestro y año: <strong>600.000 €</strong> hasta 50 personas de aforo simultáneo, <strong>1,2 M€</strong> de 51 a 250, <strong>2,4 M€</strong> con más de 250 o si entrenáis al aire libre o dais clases online. Sublímite de 300.000 € por víctima; se dobla o triplica con varios centros. Decreto 57/2024 (BOCM 5/6/2024), arts. 6-8.</p>
-        <p class="nota">Dato verificado directamente sobre el BOCM el 19/09/2026 · pendiente de revisión por un abogado antes de publicarlo como definitivo · la Comunidad de Madrid ya ha abierto consulta pública para modificar este decreto</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="seccion seccion--gris" id="precios">
-    <div class="contenedor">
-      <div class="seccion__cabeza">
-        <h2 class="display display-m">Cuánto cuesta asegurar un box</h2>
-      </div>
-      <div class="rejilla rejilla--3">
-        <div class="tarjeta"><h3 class="display-xs">Box pequeño</h3><p>[150] m² · aforo [20] · [2] coaches autónomos · local alquilado</p><span class="precio">[X] – [Y] €/año</span></div>
-        <div class="tarjeta"><h3 class="display-xs">Box mediano</h3><p>[300] m² · aforo [40] · [4] coaches · [1] competición al año</p><span class="precio">[X] – [Y] €/año</span></div>
-        <div class="tarjeta"><h3 class="display-xs">Box con eventos y exterior</h3><p>[400] m² · aforo [60] · entrenos al aire libre · [3] eventos al año</p><span class="precio">[X] – [Y] €/año</span></div>
-      </div>
-      <p class="nota" style="margin-top:20px;max-width:880px">Rangos orientativos a partir de [cotizaciones reales de [fecha] para estos perfiles]. No son una oferta: el precio final depende de la aseguradora y de los datos de tu box. [Impuestos incluidos / no incluidos.] <a href="aviso-legal.html#precios">Cómo calculamos los rangos</a></p>
-    </div>
-  </section>
-
-  <section class="seccion" id="como-funciona">
+  <section class="seccion seccion--gris" id="como-funciona">
     <div class="contenedor">
       <div class="seccion__cabeza"><h2 class="display display-m">Cómo funciona</h2></div>
-      <div class="rejilla rejilla--4">
-        <div class="tarjeta"><span class="numero">01</span><h3 class="display-xs">Diagnóstico</h3><p>Unas preguntas sobre tu box. Unos [2] minutos, sin datos personales.</p></div>
-        <div class="tarjeta"><span class="numero">02</span><h3 class="display-xs">Orientación</h3><p>Qué suele necesitar un box como el tuyo y un rango de precio orientativo.</p></div>
-        <div class="tarjeta"><span class="numero">03</span><h3 class="display-xs">Propuesta</h3><p>[CORREDURÍA] prepara tu propuesta en [plazo] y te la envía por el canal que elijas.</p></div>
-        <div class="tarjeta"><span class="numero">04</span><h3 class="display-xs">Certificado</h3><p>Si contratas, recibes la póliza y el certificado para enseñarlo en el box.</p></div>
+      <div class="rejilla rejilla--3">
+        <div class="tarjeta"><div class="numero">01</div><h3 class="display-xs">Pides la guía</h3><p>Te llega por email. Solo necesitamos tu email y tu comunidad.</p></div>
+        <div class="tarjeta"><div class="numero">02</div><h3 class="display-xs">Si quieres, te llaman</h3><p>Si marcas la casilla, pasamos tus datos a un mediador de seguros inscrito en la DGSFP.</p></div>
+        <div class="tarjeta"><div class="numero">03</div><h3 class="display-xs">El mediador revisa tu caso</h3><p>Trabaja con varias aseguradoras: te informa y, si te interesa, te presenta las opciones que encajen con tu centro. Tú decides. Pedir la llamada no te obliga a nada.</p></div>
       </div>
     </div>
   </section>
 
-  <section class="seccion seccion--gris" id="preguntas">
+  <section class="seccion">
     <div class="contenedor">
-      <div class="seccion__cabeza"><h2 class="display display-m">Preguntas de boxes</h2></div>
+      <div class="seccion__cabeza"><h2 class="display display-m">Preguntas</h2></div>
       <div class="faq">
-        <details><summary>¿El seguro del box cubre a mis coaches autónomos?</summary><p>Depende de la póliza. Algunas los incluyen como asegurados si se declaran y otras no. El diagnóstico te lo pregunta y la propuesta te dice cómo queda.</p></details>
-        <details><summary>¿Sirve el documento de renuncia que firman los atletas?</summary><p>Sirve para informar de los riesgos, pero no te libra de responder si hay culpa del box. [Texto pendiente de revisión jurídica.]</p></details>
-        <details><summary>¿Qué diferencia hay entre RC y seguro de accidentes?</summary><p>La RC paga cuando el box tiene la culpa. El de accidentes paga la lesión del atleta aunque nadie tenga la culpa.</p></details>
-        <details><summary>¿Están cubiertos los entrenos al aire libre y las competiciones?</summary><p>No siempre. Hay que declararlos. Si los haces, márcalo en el diagnóstico.</p></details>
-      </div>
-    </div>
-  </section>
-
-  <section class="seccion seccion--oscura oscuro">
-    <div class="contenedor">
-      <div class="seccion__cabeza" style="margin-bottom:28px">
-        <h2 class="display display-m">Haz el diagnóstico de tu box</h2>
-        <p>Unos [2] minutos. Te decimos qué exige tu comunidad y cuánto puede costar, antes de pedirte ningún dato personal.</p>
-      </div>
-      <div style="display:flex;flex-wrap:wrap;gap:12px">
-        <a class="btn btn--lima btn--grande" href="diagnostico.html">Empezar el diagnóstico →</a>
-        <a class="btn btn--secundario btn--grande" href="guia-boxes.html">Ver la guía para boxes</a>
+        <details><summary>¿Qué es Entrena Seguro?</summary><p>Un proyecto para explicar con claridad qué exige la ley al seguro de un centro deportivo y, a quien lo pida, ponerle en contacto con un mediador de seguros. No somos aseguradora ni mediador: no vendemos seguros ni damos presupuestos.</p></details>
+        <details><summary>¿Me vais a llamar?</summary><p>Nosotros no. Solo te llamará un mediador de seguros, y solo si marcas la casilla para que te llamen. Si no, te enviamos la guía y, si los pides y lo confirmas, los 4 emails informativos.</p></details>
+        <details><summary>¿Quién me llamaría?</summary><p>Un mediador de seguros inscrito en el registro de la Dirección General de Seguros y Fondos de Pensiones. Trabaja con varias aseguradoras y te presentará las opciones que encajen con tu centro. Al contactarte te dirá quién es.</p></details>
+        <details><summary>¿Cuesta algo?</summary><p>No. La guía es gratis, y pedir que te llamen no te compromete a contratar nada.</p></details>
+        <details><summary>¿Cómo gana dinero Entrena Seguro?</summary><p>Si al final contratas un seguro con el mediador, él nos paga una pequeña parte de su comisión. Tú no pagas nada por la guía ni por pedir que te llamen, y el precio de tu seguro no sube por haber llegado a través de nosotros. Si no contratas, no cobramos nada.</p></details>
+        <details><summary>¿Por qué solo Madrid y Andalucía?</summary><p>Porque solo publicamos lo que hemos comprobado sobre el texto oficial de cada norma. Estamos revisando el resto de comunidades; si nos dices la tuya, la priorizamos.</p></details>
+        <details><summary>¿Esto es asesoramiento?</summary><p>No. Es información general sobre lo que dicen las normas. Para saber qué necesita tu box en concreto, habla con tu mediador o tu aseguradora.</p></details>
       </div>
     </div>
   </section>
 </main>
-
-<footer class="pie" id="contacto">
+<div class="barra-fija" aria-hidden="true">
+  <a class="btn btn--bloque btn--grande" href="#guia" tabindex="-1">Quiero la guía gratis →</a>
+</div>
+<footer class="pie">
   <div class="contenedor pie__bloques">
-    <p class="pie__mediador"><strong>[CORREDURÍA]</strong>, correduría de seguros · Inscrita en el registro de la DGSFP con la clave <strong>[CLAVE DGSFP]</strong> · <a href="https://dgsfp.mineco.gob.es/es/Distribuidores/PUI/Paginas/pui.aspx" target="_blank" rel="noopener noreferrer">Compruébalo en el registro</a></p>
-    <p>Entrena Seguro es una marca de [Nombre y apellidos], colaborador externo de [CORREDURÍA], que actúa por su cuenta. <a href="informacion-mediador.html">Información del mediador</a> · <a href="informacion-mediador.html#cobro">Cómo cobramos</a> · <a href="informacion-mediador.html#reclamaciones">Quejas y reclamaciones</a></p>
-    <p>Contacto: [email] · [teléfono] · [WhatsApp y horario]</p>
-    <div class="pie__enlaces"><a href="aviso-legal.html">Aviso legal</a><a href="privacidad.html">Privacidad</a><a href="cookies.html">Cookies</a><a href="cookies.html#configurar">Configurar cookies</a><a href="guia-boxes.html">Guía para boxes</a></div>
-    <p>Trabajamos con [n] aseguradoras · [Logos con autorización]</p>
-    <p><strong>Versión de prueba.</strong> Los textos legales son borradores pendientes de validación jurídica.</p>
+    <p class="pie__mediador">Entrena Seguro es un proyecto de Francisco de la Torre Rodríguez. No somos aseguradora ni mediador de seguros: no vendemos seguros ni damos presupuestos. Si pides que te contacten, pasamos tus datos a un mediador de seguros inscrito en la DGSFP, que es quien te informará y, si quieres, te hará una oferta.</p>
+    <p>Titular de la web: Francisco de la Torre Rodríguez · NIF 48940979S · Sevilla · <a href="mailto:info@entrenaseguro.es">info@entrenaseguro.es</a></p>
+    <div class="pie__enlaces"><a href="aviso-legal.html">Aviso legal</a><a href="privacidad.html">Privacidad</a><a href="cookies.html">Cookies</a></div>
   </div>
 </footer>
-
-<div class="barra-fija" aria-hidden="true">
-  <a class="btn btn--bloque btn--grande" href="diagnostico.html" tabindex="-1">Haz el diagnóstico de tu box →</a>
-</div>
-<script src="js/web.js?v=2"></script>
+<script src="js/web.js?v=4"></script>
+<script src="js/config.js?v=1"></script>
+<script src="js/formulario.js?v=2"></script>
 </body>
 </html>

@@ -3,65 +3,58 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Quitar noindex solo al publicar en entrenaseguro.es (ver README) -->
 <meta name="robots" content="noindex, nofollow">
-<meta name="referrer" content="no-referrer">
-<title>Aviso legal · Entrena Seguro (versión de prueba)</title>
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Aviso legal · Entrena Seguro</title>
+<meta name="description" content="Aviso legal de Entrena Seguro.">
 <link rel="icon" href="data:,">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="css/estilos.css?v=2">
+<link rel="stylesheet" href="css/estilos.css?v=4">
 </head>
 <body>
 <a class="salto" href="#contenido">Saltar al contenido</a>
-<div class="aviso-prueba" role="note"><span><strong>Versión de prueba.</strong> Web en preparación: no vende seguros ni da presupuestos, y no envía ni guarda lo que escribas.<span class="ocultar-movil"> Todo lo que va entre corchetes es provisional.</span></span></div>
-
 <header class="cabecera">
   <div class="contenedor cabecera__fila">
     <a class="logo" href="index.html">Entrena Seguro</a>
-    <nav id="menu" class="menu" aria-label="Principal">
-      <a href="box.html">Tipos de centro</a>
-      <a href="box.html#coberturas">Coberturas</a>
-      <a href="box.html#comunidad">¿Es obligatorio?</a>
-      <a href="box.html#precios">Precios</a>
-      <a href="#contacto">Contacto</a>
+    <button class="menu-boton" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <nav class="menu" id="menu" aria-label="Principal">
+      <a href="box.html">Boxes</a>
+      <a href="index.html#centros">Otros centros</a>
+      <a href="box.html#ley">Qué exige la ley</a>
+      <a href="index.html#como-funciona">Cómo funciona</a>
+      <a href="box.html#guia">Guía gratis</a>
     </nav>
-    <a class="btn cabecera__cta" href="diagnostico.html">Haz el diagnóstico</a>
-    <button type="button" class="menu-boton" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#111311" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
   </div>
 </header>
 
-<main id="contenido" class="contenedor">
-  <article class="legal">
-    <span class="pendiente">Borrador pendiente de validación jurídica · no es el texto definitivo</span>
-    <h1 class="display display-l">Aviso legal</h1>
-    <h2>Titular de la web</h2>
-    <p>En cumplimiento del artículo 10 de la Ley 34/2002, de servicios de la sociedad de la información y de comercio electrónico, te informamos de que esta web, entrenaseguro.es, es titularidad de [Nombre y apellidos], con NIF [NIF] y domicilio en [dirección]. Contacto: [email] · [teléfono].</p>
-    <h2>Actividad</h2>
-    <p>[Nombre y apellidos] actúa bajo la marca Entrena Seguro como colaborador externo de [CORREDURÍA], correduría de seguros inscrita en el registro de la Dirección General de Seguros y Fondos de Pensiones con la clave [CLAVE DGSFP]. La supervisión de la actividad de distribución de seguros corresponde a la Dirección General de Seguros y Fondos de Pensiones. Toda la información sobre el mediador está en <a href="informacion-mediador.html">Información del mediador</a>.</p>
-    <h2>Qué es y qué no es esta web</h2>
-    <p>Los contenidos (guías, calculadoras, explicaciones de la normativa por comunidad autónoma, ejemplos de precio) son información general, con la fecha de su última revisión. No son asesoramiento jurídico ni sustituyen la propuesta personalizada que te hará [CORREDURÍA] con los datos de tu centro. La normativa cambia; si ves algo desactualizado, avísanos en [email].</p>
-    <h2 id="precios">Precios orientativos</h2>
-    <p>Los rangos y ejemplos de precio se basan en [cotizaciones reales de fecha X para perfiles concretos / precios públicos]. Son orientativos: el precio final depende de la aseguradora y de los datos de tu centro. Salvo que se indique lo contrario, [incluyen / no incluyen] impuestos y recargos aplicables.</p>
-    <h2>Propiedad intelectual</h2>
-    <p>Los textos, diseños, logotipos y herramientas de esta web son de [Nombre y apellidos] o se usan con autorización. Los logotipos de aseguradoras se muestran con su permiso. Puedes citar nuestros contenidos con enlace a la fuente; para cualquier otro uso, pídenos permiso.</p>
-    <h2>Enlaces</h2>
-    <p>Enlazamos a normas, registros oficiales y otras webs para que puedas comprobar lo que decimos. No controlamos esas webs.</p>
-    <h2>Ley aplicable</h2>
-    <p>Este aviso se rige por la ley española. [Cláusula de jurisdicción pendiente del abogado.]</p>
-    <p class="nota">Última actualización: [fecha].</p>
-  </article>
-</main>
+<main id="contenido">
+  <div class="contenedor legal">
+    <h1 class="display display-m">Aviso legal</h1>
 
-<footer class="pie" id="contacto">
+    <h2>Titular</h2>
+    <p>Esta web (entrenaseguro.es) es de <strong>Francisco de la Torre Rodríguez</strong>, con NIF 48940979S, domicilio en Calle El Bierzo, Sevilla, y email <a href="mailto:info@entrenaseguro.es">info@entrenaseguro.es</a>.</p>
+    <h2>Qué es y qué no es Entrena Seguro</h2>
+    <p>Entrena Seguro publica información general sobre las obligaciones de seguro de los centros deportivos y, a quien lo solicita de forma expresa, pone sus datos en conocimiento de un mediador de seguros inscrito en el registro de la Dirección General de Seguros y Fondos de Pensiones para que le contacte.</p>
+    <p>Entrena Seguro no es una entidad aseguradora ni un mediador de seguros. No ofrece, vende ni contrata seguros, no da presupuestos y no asesora sobre qué seguro contratar. Cualquier información sobre productos, precios o condiciones te la dará, en su caso, el mediador, bajo su propia responsabilidad.</p>
+    <h2>Contenido informativo</h2>
+    <p>Los contenidos de la web y de la guía se elaboran a partir del texto oficial de las normas citadas, en la fecha que se indica en cada caso. Son información general, no asesoramiento jurídico ni de seguros, y pueden quedar desactualizados si la norma cambia. Para decisiones sobre tu caso concreto, consulta con un profesional.</p>
+    <h2>Propiedad intelectual</h2>
+    <p>Los textos, el diseño y la guía son de Francisco de la Torre Rodríguez. Puedes enlazarlos y citarlos indicando la fuente. Las normas citadas son de dominio público.</p>
+    <h2>Enlaces</h2>
+    <p>Los enlaces a boletines oficiales y otras webs se incluyen para que puedas comprobar las fuentes. No somos responsables de su contenido.</p>
+    <h2>Ley aplicable</h2>
+    <p>Este aviso se rige por la ley española. Si utilizas la web como profesional o empresa, cualquier controversia se someterá a los juzgados y tribunales de Sevilla. Si eres consumidor, a los de tu domicilio.</p>
+
+    <p class="nota">Última actualización: 23/09/2026.</p>
+  </div>
+</main>
+<footer class="pie">
   <div class="contenedor pie__bloques">
-    <p class="pie__mediador"><strong>[CORREDURÍA]</strong>, correduría de seguros · Inscrita en el registro de la DGSFP con la clave <strong>[CLAVE DGSFP]</strong> · <a href="https://dgsfp.mineco.gob.es/es/Distribuidores/PUI/Paginas/pui.aspx" target="_blank" rel="noopener noreferrer">Compruébalo en el registro</a></p>
-    <p>Entrena Seguro es una marca de [Nombre y apellidos], colaborador externo de [CORREDURÍA], que actúa por su cuenta. <a href="informacion-mediador.html">Información del mediador</a> · <a href="informacion-mediador.html#cobro">Cómo cobramos</a> · <a href="informacion-mediador.html#reclamaciones">Quejas y reclamaciones</a></p>
-    <p>Contacto: [email] · [teléfono] · [WhatsApp y horario]</p>
-    <div class="pie__enlaces"><a href="aviso-legal.html">Aviso legal</a><a href="privacidad.html">Privacidad</a><a href="cookies.html">Cookies</a><a href="cookies.html#configurar">Configurar cookies</a><a href="guia-boxes.html">Guía para boxes</a></div>
-    <p><strong>Versión de prueba.</strong> Los textos legales son borradores pendientes de validación jurídica.</p>
+    <p class="pie__mediador">Entrena Seguro es un proyecto de Francisco de la Torre Rodríguez. No somos aseguradora ni mediador de seguros: no vendemos seguros ni damos presupuestos. Si pides que te contacten, pasamos tus datos a un mediador de seguros inscrito en la DGSFP, que es quien te informará y, si quieres, te hará una oferta.</p>
+    <p>Titular de la web: Francisco de la Torre Rodríguez · NIF 48940979S · Sevilla · <a href="mailto:info@entrenaseguro.es">info@entrenaseguro.es</a></p>
+    <div class="pie__enlaces"><a href="aviso-legal.html">Aviso legal</a><a href="privacidad.html">Privacidad</a><a href="cookies.html">Cookies</a></div>
   </div>
 </footer>
-<script src="js/web.js?v=2"></script>
+<script src="js/web.js?v=4"></script>
 </body>
 </html>

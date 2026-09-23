@@ -1,48 +1,45 @@
-# Seguros para Centros Deportivos
+# Entrena Seguro · web
 
-Web para contratar y gestionar seguros de centros deportivos.
-
-**Estado: versión de prueba.** Web estática (HTML + CSS + JS mínimo), sin build ni dependencias. No vende seguros, no da presupuestos y no envía ni guarda datos. Todo lo que va entre corchetes (`[CORREDURÍA]`, `[CLAVE DGSFP]`, precios, normas…) es provisional. Marca: **Entrena Seguro**; dominio previsto: **entrenaseguro.es** (pendiente de compra). Los textos legales son borradores pendientes de validación jurídica.
+Web estática (HTML + CSS + JS mínimo), sin build ni dependencias. Informa de lo que exige la ley al seguro de un centro deportivo y, a quien lo pide, le pone en contacto con un mediador de seguros. **No vende seguros, no da presupuestos y no asesora.** Las reglas de lo que la web puede y no puede decir están en `docs/validacion-fase-1/fase-1-reglas-copy.md` (fuera del repositorio).
 
 ## Páginas
 
 | Archivo | Contenido |
 |---|---|
-| `index.html` | Home (hero T2 · "¿Tu centro cumple lo que exige tu comunidad?") |
-| `box.html` | Página de tipo de centro: boxes de CrossFit y funcional |
-| `diagnostico.html` | Wizard de diagnóstico en 7 pasos (el envío está desactivado) |
-| `guia-boxes.html` | Landing de prueba sin cotizar: guía + lista de espera. Formulario preparado pero desactivado (ver más abajo) |
-| `guia-boxes-contenido.html` | Adelanto del contenido de la guía (Madrid con detalle verificado en el BOCM, Andalucía parcial, resto pendiente) |
-| `aviso-legal.html`, `privacidad.html`, `cookies.html`, `informacion-mediador.html` | Textos legales provisionales |
+| `index.html` | Portada general para centros deportivos + formulario (con tipo de centro) |
+| `box.html` | Landing de boxes: riesgos habituales, qué exige la ley (Madrid y Andalucía) y formulario. **Destino de emails en frío, Instagram y anuncios.** |
+| `privacidad.html`, `aviso-legal.html`, `cookies.html` | Textos legales (titular: Francisco de la Torre Rodríguez) |
+| `emails.html` | Confirmar la serie de emails (`?confirmar=`) o darse de baja (`?baja=`); enlazada desde los emails |
+| `guia/entrena-seguro-guia-boxes-madrid-andalucia.pdf` | La guía que se envía por email |
+| `guia-boxes.html`, `guia-boxes-contenido.html`, `diagnostico.html`, `informacion-mediador.html`, `privacidad-guia.html` | Páginas retiradas: redirigen a las nuevas. Se pueden borrar cuando nadie las enlace |
 
-`css/estilos.css` lleva los tokens del Design System "Blanco con carácter". `js/web.js` (menú móvil, banner de cookies de demostración, barra fija) no hace peticiones de red ni usa cookies o almacenamiento del navegador. `js/guia-boxes.js` sí está pensado para enviar datos (ver abajo).
+`js/web.js`: menú móvil y botón fijo en móvil. `js/config.js`: URL del Apps Script. `js/formulario.js`: formulario de la guía y de contacto. `js/emails.js`: página `emails.html`. `js/guia-boxes.js` y `js/diagnostico.js`: obsoletos, ya no se cargan.
 
-## Formulario de `guia-boxes.html`: cómo activarlo
+Las tipografías (Barlow y Barlow Condensed, licencia OFL) están en `fonts/`: la web no carga nada de Google Fonts ni de terceros, salvo el envío del formulario a Google Apps Script.
 
-El HTML y el JS ya están montados (envían por `fetch` a un Google Apps Script que guarda cada alta en una Hoja de cálculo), pero **sigue desactivado a propósito**. Para activarlo de verdad:
+## Formulario
 
-1. Desplegar el script de `../mantenimiento/apps-script-guia-boxes.gs` (instrucciones dentro del propio archivo) y copiar la URL del "Web app" que da Google al terminar.
-2. Pegar esa URL en `js/guia-boxes.js`, en la constante `APPS_SCRIPT_URL` (sustituye el placeholder `[PEGA_AQUI_LA_URL_DEL_WEB_APP_DE_APPS_SCRIPT]`).
-3. Quitar el atributo `disabled` del botón de envío en `guia-boxes.html`.
-4. Rellenar `[RESPONSABLE]` en `privacidad.html` y `[NIF]` / `[email]` en el pie de `guia-boxes.html`, porque en ese momento la web empieza a recoger datos reales de personas de verdad.
-5. Solo entonces, quitar o reescribir el aviso de "formulario desactivado" que hoy aparece encima del formulario.
+1. Instalar el Apps Script: `mantenimiento/apps-script/INSTALAR.md` (fuera del repositorio).
+2. Pegar la URL de la aplicación web (termina en `/exec`) en `js/config.js`, constante `APPS_SCRIPT_URL`.
+3. Mientras la URL no esté pegada, el formulario valida los datos pero no envía nada y lo dice.
 
-Mientras el paso 2 no esté hecho (la URL siga con el placeholder), el formulario no envía nada: avisa con una alerta en vez de fallar en silencio.
+Canal de entrada: el formulario guarda `utm_source` y `utm_campaign` del enlace. Ejemplo: `box.html?utm_source=email&utm_campaign=frio-madrid-oct`. Con `&contacto=1` la casilla de contacto aparece ya marcada.
 
-**Limitación conocida:** el `fetch` usa `mode: 'no-cors'` porque Google Apps Script no da una respuesta legible entre orígenes distintos sin más configuración. Eso significa que el navegador no puede saber si el envío ha funcionado de verdad del lado del servidor: siempre muestra el mensaje de éxito tras enviarlo. Si hay altas que no llegan a la hoja, revisa primero el propio Apps Script (que esté bien implementado y con los permisos concedidos) antes que este JS.
+El formulario lee la respuesta JSON del script (Apps Script la sirve con `Access-Control-Allow-Origin: *` tras su redirección). **Comprobarlo en la primera prueba real:** si el navegador no pudiera leerla, la web mostraría "No hemos podido confirmar el envío" aunque los datos sí se hayan guardado. Los fallos internos del script quedan en la pestaña "Errores" de la hoja.
 
-## Reglas de la versión de prueba
+## Antes de publicar en entrenaseguro.es
 
-- Todas las páginas llevan `<meta name="robots" content="noindex, nofollow">`; `robots.txt` bloquea todo y `.htaccess` añade la cabecera `X-Robots-Tag`. Esto no impide que la web reciba tráfico directo (mails en frío, anuncios): solo evita que aparezca en buscadores.
-- Ningún formulario tiene `action` ni envía nada, salvo `guia-boxes.html` una vez completados los 5 pasos de arriba.
-- Sin analítica, píxeles ni scripts de terceros. Solo Google Fonts (y, una vez activado, el Apps Script del formulario).
-- Rutas relativas: la web funciona en la raíz de cualquier subdominio.
-- Se despliega solo en un subdominio de pruebas, nunca en el dominio principal.
+- [ ] Formulario conectado y probado de principio a fin (ver INSTALAR.md, paso 8).
+- [ ] Quitar `<meta name="robots" content="noindex, nofollow">` de `index.html`, `box.html` y las páginas legales (dejarlo en las redirecciones).
+- [ ] `robots.txt`: cambiar `Disallow: /` por `Allow: /` y añadir `Sitemap: https://entrenaseguro.es/sitemap.xml`.
+- [ ] `.htaccess`: quitar la cabecera `X-Robots-Tag`.
+- [ ] Crear `sitemap.xml` con `index.html` y `box.html`.
+- [ ] Revisar la checklist de las reglas de copy página por página.
 
 ## Caché del CDN de Hostinger
 
-El CDN guarda los CSS y JS durante 7 días (el HTML no). Al cambiar un CSS o JS, sube el número de versión en los enlaces de todas las páginas (`estilos.css?v=2` → `?v=3`) o purga la caché del CDN en hPanel.
+El CDN guarda CSS y JS 7 días. Al cambiar uno, sube la versión en los enlaces (`estilos.css?v=3` → `?v=4`) o purga la caché en hPanel.
 
 ## Probar en local
 
-Abrir `index.html` en el navegador o servir la carpeta con cualquier servidor estático.
+Servir la carpeta con cualquier servidor estático (por ejemplo `python -m http.server`) y abrir `index.html`.

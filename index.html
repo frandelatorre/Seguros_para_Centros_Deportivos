@@ -3,42 +3,27 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Quitar noindex solo al publicar en entrenaseguro.es (ver README) -->
 <meta name="robots" content="noindex, nofollow">
-<meta name="referrer" content="no-referrer">
-<title>Entrena Seguro · Seguros para centros deportivos (versión de prueba)</title>
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Entrena Seguro · Qué exige la ley al seguro de tu centro deportivo</title>
+<meta name="description" content="Qué exige la ley al seguro de un centro deportivo, con la norma citada: Madrid y Andalucía. Guía gratis y contacto con un mediador de seguros si lo pides.">
 <link rel="icon" href="data:,">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="css/estilos.css?v=2">
+<link rel="stylesheet" href="css/estilos.css?v=4">
 </head>
-<body>
+<body class="con-barra">
 <a class="salto" href="#contenido">Saltar al contenido</a>
-<div class="aviso-prueba" role="note"><span><strong>Versión de prueba.</strong> Web en preparación: no vende seguros ni da presupuestos, y no envía ni guarda lo que escribas.<span class="ocultar-movil"> Todo lo que va entre corchetes es provisional.</span></span></div>
-
-<div class="cookies" id="cookies" role="region" aria-label="Aviso de cookies">
-  <div class="contenedor cookies__fila">
-    <p class="cookies__texto"><span class="ocultar-movil">Usamos cookies propias necesarias para que la web funcione y, si nos dejas, cookies [propias / de terceros] para medir cómo se usa la web. Puedes aceptarlas, rechazarlas o elegir cuáles. <a href="cookies.html">Más información</a>. <strong>Demostración: esta versión de prueba no usa cookies ni guarda tu elección.</strong></span><span class="solo-movil">Usamos cookies necesarias y, si nos dejas, de medición. <a href="cookies.html">Más información</a>. <strong>Demostración: esta versión no usa cookies.</strong></span></p>
-    <div class="cookies__acciones">
-      <button type="button" class="btn btn--secundario" data-cookies>Rechazar</button>
-      <a class="btn btn--secundario" href="cookies.html#configurar">Configurar</a>
-      <button type="button" class="btn btn--secundario" data-cookies>Aceptar</button>
-    </div>
-  </div>
-</div>
-
 <header class="cabecera">
   <div class="contenedor cabecera__fila">
     <a class="logo" href="index.html">Entrena Seguro</a>
-    <nav id="menu" class="menu" aria-label="Principal">
-      <a href="box.html">Tipos de centro</a>
-      <a href="box.html#coberturas">Coberturas</a>
-      <a href="box.html#comunidad">¿Es obligatorio?</a>
-      <a href="box.html#precios">Precios</a>
-      <a href="#contacto">Contacto</a>
+    <button class="menu-boton" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <nav class="menu" id="menu" aria-label="Principal">
+      <a href="box.html">Boxes</a>
+      <a href="index.html#centros">Otros centros</a>
+      <a href="box.html#ley">Qué exige la ley</a>
+      <a href="index.html#como-funciona">Cómo funciona</a>
+      <a href="box.html#guia">Guía gratis</a>
     </nav>
-    <a class="btn cabecera__cta" href="diagnostico.html">Haz el diagnóstico</a>
-    <button type="button" class="menu-boton" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#111311" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
   </div>
 </header>
 
@@ -46,100 +31,111 @@
   <div class="contenedor">
     <section class="hero">
       <div class="hero__texto">
-        <div class="antetitulo ocultar-movil">Seguros para gimnasios, boxes, estudios y clubes</div>
-        <h1 class="display display-xl">¿Tu centro cumple lo que exige <span class="marca-lima">tu comunidad?</span></h1>
-        <p class="entradilla"><span class="ocultar-movil">Elige tu comunidad y tu tipo de centro. Te decimos qué seguro es obligatorio, qué capital mínimo pide la norma y qué te conviene además. Con la norma citada y la fecha de revisión.</span><span class="solo-movil">Te decimos qué seguro es obligatorio, qué capital pide la norma y un rango de precio.</span></p>
+        <div class="antetitulo">Boxes · gimnasios · estudios · clubes</div>
+        <h1 class="display display-l">Lo que exige la ley al seguro de <span class="marca-lima">tu centro deportivo</span></h1>
+        <p class="entradilla">Aforo, monitores autónomos, eventos, clases al aire libre. Cada comunidad pide cosas distintas. Aquí lo explicamos con la norma delante, empezando por Madrid y Andalucía. Y si quieres, te ponemos en contacto con un mediador de seguros.</p>
         <ul class="checks ocultar-movil">
-          <li>Revisado por [jurista] · última revisión [fecha]</li>
-          <li>Rango de precio orientativo antes de pedirte el teléfono</li>
-          <li>Propuesta de [CORREDURÍA], correduría de seguros, en [48 h laborables]</li>
+          <li>La norma de Madrid y Andalucía, citada y con fecha (el resto, en preparación)</li>
+          <li>Los riesgos que una póliza de comercio no siempre contempla</li>
+          <li>Qué preguntarle a tu mediador antes de renovar</li>
         </ul>
+        <p class="nota">Información general elaborada a partir del texto oficial de cada norma, consultado el 23/09/2026. No es asesoramiento jurídico ni de seguros: para tu caso concreto, consúltalo con tu mediador.</p>
       </div>
-
-      <div class="comprobador oscuro" aria-labelledby="comprobador-titulo">
-        <div class="comprobador__cabeza">
-          <h2 class="display-s" id="comprobador-titulo">Comprueba qué exige tu comunidad</h2>
-          <span class="distintivo ocultar-movil">Sin datos personales hasta el final</span>
-        </div>
-        <div class="comprobador__campos">
-          <label class="campo">Comunidad
-            <select>
-              <option value="">Elige tu comunidad</option>
-              <option>Andalucía</option><option>Aragón</option><option>Asturias</option><option>Illes Balears</option><option>Canarias</option><option>Cantabria</option><option>Castilla-La Mancha</option><option>Castilla y León</option><option>Cataluña</option><option>Comunitat Valenciana</option><option>Extremadura</option><option>Galicia</option><option>Comunidad de Madrid</option><option>Región de Murcia</option><option>Navarra</option><option>País Vasco</option><option>La Rioja</option><option>Ceuta</option><option>Melilla</option>
-            </select>
-          </label>
+      <div class="comprobador oscuro" id="guia" aria-labelledby="guia-titulo">
+        <h2 class="display-s" id="guia-titulo">Recibe la guía gratis</h2>
+        <p class="nota" style="color:var(--sobre-negro-2)">Te la mandamos por email. Madrid y Andalucía, con la norma citada.</p>
+        <form class="form-lead" method="post" novalidate data-pagina="inicio">
+          <div class="comprobador__campos comprobador__campos--2">
+            <label class="campo">Email
+              <input type="email" name="email" autocomplete="email" inputmode="email" required>
+            </label>
+            <label class="campo">Comunidad autónoma
+              <select name="comunidad" required><option value="">Elige tu comunidad</option><option>Andalucía</option><option>Aragón</option><option>Asturias</option><option>Illes Balears</option><option>Canarias</option><option>Cantabria</option><option>Castilla-La Mancha</option><option>Castilla y León</option><option>Cataluña</option><option>Comunitat Valenciana</option><option>Extremadura</option><option>Galicia</option><option>Comunidad de Madrid</option><option>Región de Murcia</option><option>Navarra</option><option>País Vasco</option><option>La Rioja</option><option>Ceuta</option><option>Melilla</option></select>
+            </label>
+          </div>
           <label class="campo">Tipo de centro
-            <select>
-              <option value="">Elige el tipo</option>
-              <option>Gimnasio</option><option>Box de CrossFit o funcional</option><option>Estudio de pilates, yoga o boutique</option><option>Artes marciales o contacto</option><option>Club deportivo</option><option>Academia o escuela</option><option>Entrenador sin local</option><option>Otro</option>
-            </select>
-          </label>
-          <label class="campo ocultar-movil">Aforo
-            <input type="number" inputmode="numeric" min="0" placeholder="Ej.: 120">
-          </label>
-        </div>
-        <a class="btn btn--lima btn--bloque btn--grande" href="diagnostico.html">Comprobar mi centro →</a>
-        <p class="comprobador__nota">Sin datos personales hasta el final. <span class="ocultar-movil">Versión de prueba: lo que elijas aquí no se envía ni se guarda.</span></p>
-        <div class="ejemplo">
-          <div class="ejemplo__titulo">Ejemplo de resultado</div>
-          <div class="fila-cobertura"><div>Responsabilidad civil de explotación<small>Capital mínimo: [según aforo] · [norma y artículo]</small></div><span class="tag tag--obligatorio">Obligatorio</span></div>
-          <div class="fila-cobertura"><div>Accidentes de usuarios<small>Lesiones en clase o en sala</small></div><span class="tag tag--recomendado">Recomendado</span></div>
-          <div class="fila-cobertura"><div>Daños al local y maquinaria<small>Incendio, agua, avería de equipos</small></div><span class="tag tag--opcional">Opcional</span></div>
-        </div>
+              <select name="tipo_centro" required><option value="">Elige una opción</option><option>Box de CrossFit o funcional</option><option>Gimnasio</option><option>Estudio de pilates, yoga o boutique</option><option>Club deportivo</option><option>Entrenador personal</option><option>Otro</option></select>
+            </label>
+          <label class="check"><input type="checkbox" name="quiere_contacto" value="si" data-toggle-contacto>Quiero que un mediador de seguros me llame para revisar el seguro de mi centro. (Opcional)</label>
+          <div class="campos-contacto" data-campos-contacto hidden>
+            <div class="comprobador__campos comprobador__campos--2">
+              <label class="campo">Tu nombre
+                <input type="text" name="nombre" autocomplete="name">
+              </label>
+              <label class="campo">Teléfono
+                <input type="tel" name="telefono" autocomplete="tel" inputmode="tel">
+              </label>
+            </div>
+            <label class="campo">Nombre del centro
+              <input type="text" name="centro" autocomplete="organization">
+            </label>
+            <label class="campo">¿Algo que quieras contarle? (Opcional)
+              <input type="text" name="mensaje" maxlength="500">
+            </label>
+            <p class="comprobador__nota" style="text-align:left">Al marcar esta casilla aceptas que pasemos tu nombre, centro, tipo de centro, comunidad, email, teléfono y mensaje a un mediador de seguros inscrito en la DGSFP para que te contacte. El mediador se identificará al llamarte.</p>
+          </div>
+          <label class="check"><input type="checkbox" name="acepta_emails" value="si">Quiero recibir 4 emails de Entrena Seguro sobre renuncias, coaches autónomos, entrenos fuera del centro y preguntas para tu mediador. El último incluye la opción de pedir que te llame un mediador. Te pediremos confirmarlo por email y podrás darte de baja desde cualquiera. (Opcional)</label>
+          <div class="sr-only" aria-hidden="true"><label>No rellenes este campo<input type="text" name="hp_campo" tabindex="-1" autocomplete="off"></label></div>
+          <input type="hidden" name="ms" value="">
+          <input type="hidden" name="canal" value="directo">
+          <input type="hidden" name="campana" value="">
+          <input type="hidden" name="pagina" value="inicio">
+          <button type="submit" class="btn btn--lima btn--bloque btn--grande" data-cta-principal>Quiero la guía →</button>
+          <p class="comprobador__nota" style="text-align:left">Responsable: Francisco de la Torre Rodríguez. Usamos tu email para enviarte la guía. Lo demás, solo si marcas la casilla correspondiente. <a href="privacidad.html" style="color:#fff">Privacidad</a>.</p>
+          <p class="comprobador__nota form-mensaje" role="status" aria-live="polite" hidden></p>
+        </form>
       </div>
     </section>
   </div>
 
-  <div class="franja">
-    <div class="contenedor franja__fila">
-      <div class="pie__mediador"><strong>[CORREDURÍA]</strong>, correduría de seguros · Clave DGSFP <strong>[CLAVE DGSFP]</strong></div>
-      <div>Trabajamos con [n] aseguradoras</div>
-      <div>[Logos de aseguradoras]</div>
-    </div>
-  </div>
-
-  <section class="seccion">
+  <section class="seccion seccion--gris" id="centros">
     <div class="contenedor">
-      <div class="seccion__cabeza">
-        <h2 class="display display-m">Tipos de centro</h2>
-        <p>Cada tipo de centro tiene sus riesgos. En esta versión de prueba solo está preparada la página de boxes.</p>
-      </div>
+      <div class="seccion__cabeza"><h2 class="display display-m">Cada centro tiene sus riesgos</h2><p class="entradilla">Empezamos por los boxes. Mientras preparamos el resto, la guía de Madrid y Andalucía te sirve igual: esas normas se aplican a cualquier centro deportivo, no solo a los boxes.</p></div>
       <div class="rejilla rejilla--4">
-        <a class="tarjeta tarjeta--enlace" href="box.html">
-          <div class="tarjeta__cabeza"><h3 class="display-xs">Boxes de CrossFit y funcional</h3></div>
-          <p>WODs, coaches autónomos, open box, halterofilia y competiciones.</p>
-          <span class="btn btn--secundario">Ver seguros para boxes →</span>
-        </a>
-        <div class="tarjeta"><div class="tarjeta__cabeza"><h3 class="display-xs">Gimnasios</h3><span class="tag tag--opcional">Próximamente</span></div><p>Sala, clases dirigidas y entrenamiento personal.</p></div>
-        <div class="tarjeta"><div class="tarjeta__cabeza"><h3 class="display-xs">Estudios de pilates y yoga</h3><span class="tag tag--opcional">Próximamente</span></div><p>Estudios boutique y clases reducidas.</p></div>
-        <div class="tarjeta"><div class="tarjeta__cabeza"><h3 class="display-xs">Artes marciales y clubes</h3><span class="tag tag--opcional">Próximamente</span></div><p>Deportes de contacto, clubes y escuelas.</p></div>
+        <a class="tarjeta tarjeta--enlace" href="box.html"><h3 class="display-xs">Boxes de CrossFit y funcional</h3><p>WODs, coaches autónomos, throwdowns, open box.</p><p><strong>Ver página para boxes →</strong></p></a>
+        <div class="tarjeta"><h3 class="display-xs">Gimnasios</h3><p>Sala, clases dirigidas, entrenadores personales externos.</p><p class="nota">Página en preparación.</p></div>
+        <div class="tarjeta"><h3 class="display-xs">Estudios de pilates, yoga y boutique</h3><p>Grupos reducidos, reformers, clases en exterior u online.</p><p class="nota">Página en preparación.</p></div>
+        <div class="tarjeta"><h3 class="display-xs">Clubes y entrenadores</h3><p>Entrenamientos, competiciones y entrenadores que trabajan por su cuenta.</p><p class="nota">Página en preparación.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion" id="como-funciona">
+    <div class="contenedor">
+      <div class="seccion__cabeza"><h2 class="display display-m">Cómo funciona</h2></div>
+      <div class="rejilla rejilla--3">
+        <div class="tarjeta"><div class="numero">01</div><h3 class="display-xs">Pides la guía</h3><p>Te llega por email. Solo necesitamos tu email, tu comunidad y el tipo de centro.</p></div>
+        <div class="tarjeta"><div class="numero">02</div><h3 class="display-xs">Si quieres, te llaman</h3><p>Si marcas la casilla, pasamos tus datos a un mediador de seguros inscrito en la DGSFP.</p></div>
+        <div class="tarjeta"><div class="numero">03</div><h3 class="display-xs">El mediador revisa tu caso</h3><p>Te informa y, si te interesa, te hace una oferta. Pedir la llamada no te obliga a nada.</p></div>
       </div>
     </div>
   </section>
 
   <section class="seccion seccion--gris">
     <div class="contenedor">
-      <div class="seccion__cabeza"><h2 class="display display-m">Cómo funciona</h2></div>
-      <div class="rejilla rejilla--4">
-        <div class="tarjeta"><span class="numero">01</span><h3 class="display-xs">Diagnóstico</h3><p>Unas preguntas sobre tu centro. Unos [2] minutos, sin datos personales.</p></div>
-        <div class="tarjeta"><span class="numero">02</span><h3 class="display-xs">Orientación</h3><p>Qué suele necesitar un centro como el tuyo y un rango de precio orientativo.</p></div>
-        <div class="tarjeta"><span class="numero">03</span><h3 class="display-xs">Propuesta</h3><p>[CORREDURÍA] prepara tu propuesta en [plazo] y te la envía por el canal que elijas.</p></div>
-        <div class="tarjeta"><span class="numero">04</span><h3 class="display-xs">Certificado</h3><p>Si contratas, recibes la póliza y el certificado para enseñarlo en tu centro.</p></div>
+      <div class="seccion__cabeza"><h2 class="display display-m">Preguntas</h2></div>
+      <div class="faq">
+        <details><summary>¿Qué es Entrena Seguro?</summary><p>Un proyecto para explicar con claridad qué exige la ley al seguro de un centro deportivo y, a quien lo pida, ponerle en contacto con un mediador de seguros. No somos aseguradora ni mediador: no vendemos seguros ni damos presupuestos.</p></details>
+        <details><summary>¿Me vais a llamar?</summary><p>Nosotros no. Solo te llamará un mediador de seguros, y solo si marcas la casilla para que te llamen.</p></details>
+        <details><summary>¿Quién me llamaría?</summary><p>Un mediador de seguros inscrito en el registro de la Dirección General de Seguros y Fondos de Pensiones. Al contactarte te dirá quién es y con qué entidad trabaja.</p></details>
+        <details><summary>¿Cuesta algo?</summary><p>No. La guía es gratis, y pedir que te llamen no te compromete a contratar nada.</p></details>
+        <details><summary>¿Cómo gana dinero Entrena Seguro?</summary><p>Si al final contratas un seguro con el mediador, él nos paga una pequeña parte de su comisión. Tú no pagas nada por la guía ni por pedir que te llamen, y el precio de tu seguro no sube por haber llegado a través de nosotros. Si no contratas, no cobramos nada.</p></details>
       </div>
     </div>
   </section>
 </main>
-
-<footer class="pie" id="contacto">
+<div class="barra-fija" aria-hidden="true">
+  <a class="btn btn--bloque btn--grande" href="#guia" tabindex="-1">Quiero la guía gratis →</a>
+</div>
+<footer class="pie">
   <div class="contenedor pie__bloques">
-    <p class="pie__mediador"><strong>[CORREDURÍA]</strong>, correduría de seguros · Inscrita en el registro de la DGSFP con la clave <strong>[CLAVE DGSFP]</strong> · <a href="https://dgsfp.mineco.gob.es/es/Distribuidores/PUI/Paginas/pui.aspx" target="_blank" rel="noopener noreferrer">Compruébalo en el registro</a></p>
-    <p>Entrena Seguro es una marca de [Nombre y apellidos], colaborador externo de [CORREDURÍA], que actúa por su cuenta. <a href="informacion-mediador.html">Información del mediador</a> · <a href="informacion-mediador.html#cobro">Cómo cobramos</a> · <a href="informacion-mediador.html#reclamaciones">Quejas y reclamaciones</a></p>
-    <p>Contacto: [email] · [teléfono] · [WhatsApp y horario]</p>
-    <div class="pie__enlaces"><a href="aviso-legal.html">Aviso legal</a><a href="privacidad.html">Privacidad</a><a href="cookies.html">Cookies</a><a href="cookies.html#configurar">Configurar cookies</a><a href="guia-boxes.html">Guía para boxes</a></div>
-    <p>Trabajamos con [n] aseguradoras · [Logos con autorización]</p>
-    <p><strong>Versión de prueba.</strong> Los textos legales son borradores pendientes de validación jurídica.</p>
+    <p class="pie__mediador">Entrena Seguro es un proyecto de Francisco de la Torre Rodríguez. No somos aseguradora ni mediador de seguros: no vendemos seguros ni damos presupuestos. Si pides que te contacten, pasamos tus datos a un mediador de seguros inscrito en la DGSFP, que es quien te informará y, si quieres, te hará una oferta.</p>
+    <p>Titular de la web: Francisco de la Torre Rodríguez · NIF 48940979S · Sevilla · <a href="mailto:info@entrenaseguro.es">info@entrenaseguro.es</a></p>
+    <div class="pie__enlaces"><a href="aviso-legal.html">Aviso legal</a><a href="privacidad.html">Privacidad</a><a href="cookies.html">Cookies</a></div>
   </div>
 </footer>
-<script src="js/web.js?v=2"></script>
+<script src="js/web.js?v=4"></script>
+<script src="js/config.js?v=1"></script>
+<script src="js/formulario.js?v=2"></script>
 </body>
 </html>

@@ -6,8 +6,8 @@
 <!-- Quitar noindex solo al publicar en entrenaseguro.es (ver README) -->
 <meta name="robots" content="noindex, nofollow">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<title>Cookies · Entrena Seguro</title>
-<meta name="description" content="Política de cookies de Entrena Seguro.">
+<title>Emails de Entrena Seguro</title>
+<meta name="description" content="Confirmar o darse de baja de los emails de Entrena Seguro.">
 <link rel="icon" href="data:,">
 <link rel="stylesheet" href="css/estilos.css?v=4">
 </head>
@@ -29,13 +29,9 @@
 
 <main id="contenido">
   <div class="contenedor legal">
-    <h1 class="display display-m">Cookies</h1>
-
-    <p>Esta web no usa cookies de análisis, publicidad ni seguimiento, y no instala cookies propias.</p>
-    <p>Las tipografías están alojadas en la propia web: tu navegador no se conecta a servidores de terceros para mostrarlas.</p>
-    <p>Si en el futuro añadimos analítica o publicidad que use cookies, te pediremos antes el consentimiento, con las opciones de aceptar y rechazar al mismo nivel.</p>
-
-    <p class="nota">Última actualización: 23/09/2026.</p>
+    <h1 class="display display-m">Emails de Entrena Seguro</h1>
+    <p id="emails-texto" role="status" aria-live="polite">Cargando…</p>
+    <p><button id="emails-boton" class="btn" type="button" hidden>Continuar</button></p>
   </div>
 </main>
 <footer class="pie">
@@ -46,5 +42,7 @@
   </div>
 </footer>
 <script src="js/web.js?v=4"></script>
+<script src="js/config.js?v=1"></script>
+<script src="js/emails.js?v=1"></script>
 </body>
 </html>

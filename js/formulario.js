@@ -62,6 +62,18 @@
       });
       actualizarContacto();
     }
+    // El mes de renovación solo se pide a quien quiere emails o que le llamen.
+    var campoMes = form.querySelector('[data-campo-renovacion]');
+    function actualizarMes() {
+      if (!campoMes) return;
+      var on = eleccion('quiere_contacto') === 'si' || eleccion('acepta_emails') === 'si';
+      campoMes.hidden = !on;
+      el.mes_renovacion.disabled = !on;
+    }
+    form.querySelectorAll('input[name="quiere_contacto"], input[name="acepta_emails"]').forEach(function (r) {
+      r.addEventListener('change', actualizarMes);
+    });
+    actualizarMes();
     form.querySelectorAll('.eleccion').forEach(function (f) {
       f.addEventListener('change', function () { f.removeAttribute('aria-invalid'); });
     });
@@ -78,7 +90,7 @@
         var grupo = form.querySelector('[data-grupo="' + n + '"]');
         if (!eleccion(n)) {
           if (grupo) grupo.setAttribute('aria-invalid', 'true');
-          faltan.push(n === 'quiere_contacto' ? 'decir si quieres que te llamen' : 'decir si quieres los 4 emails');
+          faltan.push(n === 'quiere_contacto' ? 'decir si quieres que te llamen' : 'decir si quieres recibir nuestros emails');
         }
       });
       var contacto = eleccion('quiere_contacto') === 'si';
@@ -120,7 +132,7 @@
             if (!n.classList.contains('form-mensaje')) n.hidden = true;
           });
           var texto = 'Hecho. En unos minutos te llegará la guía a ' + email + '. Si no la ves, mira en spam o promociones.';
-          if (eleccion('acepta_emails') === 'si') texto += ' Si todavía no habías confirmado los 4 emails, en ese mismo email tienes el enlace para hacerlo.';
+          if (eleccion('acepta_emails') === 'si') texto += ' Si todavía no lo habías confirmado, en ese mismo email tienes el enlace para confirmar que quieres recibir nuestras novedades.';
           if (res.contacto) texto += ' Hemos pasado tus datos a un mediador de seguros, que se pondrá en contacto contigo.';
           var nodo = mensaje(form, texto, true);
           if (nodo) { nodo.tabIndex = -1; nodo.focus(); }

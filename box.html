@@ -77,16 +77,19 @@
             <label class="campo">¿Algo que quieras contarle? (Opcional)
               <input type="text" name="mensaje" maxlength="500">
             </label>
-            <p class="comprobador__nota" style="text-align:left">Al elegir «sí» aceptas que pasemos tu nombre, centro, tipo de centro, comunidad, email, teléfono y mensaje a un mediador de seguros inscrito en la DGSFP para que te contacte. El mediador se identificará al llamarte.</p>
+            <p class="comprobador__nota" style="text-align:left">Al elegir «sí» aceptas que pasemos tu nombre, centro, tipo de centro, comunidad, mes de renovación, email, teléfono y mensaje a un mediador de seguros inscrito en la DGSFP para que te contacte. El mediador se identificará al llamarte.</p>
           </div>
           <fieldset class="eleccion" data-grupo="acepta_emails">
-            <legend>¿Quieres recibir también 4 emails de Entrena Seguro sobre renuncias, coaches autónomos, entrenos fuera del centro y preguntas para tu mediador?</legend>
+            <legend>¿Quieres recibir por email novedades, avisos y ofertas de Entrena Seguro para tu centro?</legend>
             <div class="eleccion__opciones">
               <label><input type="radio" name="acepta_emails" value="si" required>Sí, envíamelos</label>
               <label><input type="radio" name="acepta_emails" value="no">No, gracias</label>
             </div>
-            <p class="comprobador__nota" style="text-align:left">El último incluye la opción de pedir que te llame un mediador. Te pediremos confirmarlo por email y podrás darte de baja desde cualquiera.</p>
+            <p class="comprobador__nota" style="text-align:left">Cambios en la normativa de tu comunidad, un recordatorio antes de renovar y la opción de que un mediador revise tu seguro. Uno o dos al mes como mucho. Te pediremos confirmarlo por email y podrás darte de baja con un clic desde cualquiera.</p>
           </fieldset>
+          <label class="campo" data-campo-renovacion hidden>¿En qué mes renuevas el seguro de tu centro? (Opcional)
+            <select name="mes_renovacion"><option value="">Elige un mes</option><option>Enero</option><option>Febrero</option><option>Marzo</option><option>Abril</option><option>Mayo</option><option>Junio</option><option>Julio</option><option>Agosto</option><option>Septiembre</option><option>Octubre</option><option>Noviembre</option><option>Diciembre</option><option>No lo sé</option></select>
+          </label>
           <div class="sr-only" aria-hidden="true"><label>No rellenes este campo<input type="text" name="hp_campo" tabindex="-1" autocomplete="off"></label></div>
           <input type="hidden" name="ms" value="">
           <input type="hidden" name="canal" value="directo">
@@ -151,7 +154,7 @@
       <div class="seccion__cabeza"><h2 class="display display-m">Preguntas</h2></div>
       <div class="faq">
         <details><summary>¿Qué es Entrena Seguro?</summary><p>Un proyecto para explicar con claridad qué exige la ley al seguro de un centro deportivo y, a quien lo pida, ponerle en contacto con un mediador de seguros. No somos aseguradora ni mediador: no vendemos seguros ni damos presupuestos.</p></details>
-        <details><summary>¿Me vais a llamar?</summary><p>Nosotros no. Solo te llamará un mediador de seguros, y solo si eliges que te llamen. Si no, te enviamos la guía y, si los pides y lo confirmas, los 4 emails informativos.</p></details>
+        <details><summary>¿Me vais a llamar?</summary><p>Nosotros no. Solo te llamará un mediador de seguros, y solo si eliges que te llamen. Si no, te enviamos la guía y, si los pides y lo confirmas, nuestros emails de novedades y avisos.</p></details>
         <details><summary>¿Quién me llamaría?</summary><p>Un mediador de seguros inscrito en el registro de la Dirección General de Seguros y Fondos de Pensiones. Trabaja con varias aseguradoras y te presentará las opciones que encajen con tu centro. Al contactarte te dirá quién es.</p></details>
         <details><summary>¿Cuesta algo?</summary><p>No. La guía es gratis, y pedir que te llamen no te compromete a contratar nada.</p></details>
         <details><summary>¿Cómo gana dinero Entrena Seguro?</summary><p>Si al final contratas un seguro con el mediador, él nos paga una pequeña parte de su comisión. Tú no pagas nada por la guía ni por pedir que te llamen, y el precio de tu seguro no sube por haber llegado a través de nosotros. Si no contratas, no cobramos nada.</p></details>
@@ -173,6 +176,6 @@
 </footer>
 <script src="js/web.js?v=4"></script>
 <script src="js/config.js?v=1"></script>
-<script src="js/formulario.js?v=3"></script>
+<script src="js/formulario.js?v=4"></script>
 </body>
 </html>

@@ -22,7 +22,7 @@
 
   if (!/\/exec$/.test(URL)) { texto.textContent = 'Esta página todavía no está conectada. Escríbenos a info@entrenaseguro.es.'; return; }
   if (confirmar) {
-    texto.textContent = 'Confirma que quieres recibir los 4 emails informativos de Entrena Seguro. Podrás darte de baja desde cualquiera de ellos.';
+    texto.textContent = 'Confirma que quieres recibir por email novedades, avisos y ofertas de Entrena Seguro para tu centro (uno o dos al mes como mucho). Podrás darte de baja con un clic desde cualquiera de ellos.';
     boton.textContent = 'Sí, quiero recibirlos';
     boton.hidden = false;
     boton.addEventListener('click', function () { enviar('confirmar', confirmar.slice(0, 64)); });

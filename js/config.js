@@ -2,5 +2,5 @@
 // Pega aquí la URL de la aplicación web de Apps Script (termina en /exec).
 // Instrucciones: mantenimiento/apps-script/INSTALAR.md (fuera del repositorio).
 window.ENTRENA_CONFIG = {
-  APPS_SCRIPT_URL: 'https://script.google.com/macros/s/AKfycbwKSm2ZQSWQSPq4KQQP0_mEMQPu77jEW5JqFRBlpLqC_XLBGAzvceSKFUMcgy5F7I5mkg/exec'
+  APPS_SCRIPT_URL: 'https://script.google.com/macros/s/AKfycbxripCOtSBlMbDc_DQ1D3TjMRVtl0b5q5fBr4DtOFTN1tIc14l2VY6E2YepE_OwHg39/exec'
 };

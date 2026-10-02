@@ -62,15 +62,15 @@
       });
       actualizarContacto();
     }
-    // El mes de renovación solo se pide a quien quiere que le llamen.
+    // El mes de renovación solo se pide a quien quiere emails o que le llamen.
     var campoMes = form.querySelector('[data-campo-renovacion]');
     function actualizarMes() {
       if (!campoMes) return;
-      var on = eleccion('quiere_contacto') === 'si';
+      var on = eleccion('quiere_contacto') === 'si' || eleccion('acepta_emails') === 'si';
       campoMes.hidden = !on;
       el.mes_renovacion.disabled = !on;
     }
-    form.querySelectorAll('input[name="quiere_contacto"]').forEach(function (r) {
+    form.querySelectorAll('input[name="quiere_contacto"], input[name="acepta_emails"]').forEach(function (r) {
       r.addEventListener('change', actualizarMes);
     });
     actualizarMes();
@@ -86,11 +86,13 @@
       if (el.tipo_centro && el.tipo_centro.tagName === 'SELECT') {
         marcar(el.tipo_centro, !el.tipo_centro.value); if (!el.tipo_centro.value) faltan.push('el tipo de centro');
       }
-      if (!eleccion('quiere_contacto')) {
-        var grupo = form.querySelector('[data-grupo="quiere_contacto"]');
-        if (grupo) grupo.setAttribute('aria-invalid', 'true');
-        faltan.push('decir si quieres que te llamen');
-      }
+      ['quiere_contacto', 'acepta_emails'].forEach(function (n) {
+        var grupo = form.querySelector('[data-grupo="' + n + '"]');
+        if (!eleccion(n)) {
+          if (grupo) grupo.setAttribute('aria-invalid', 'true');
+          faltan.push(n === 'quiere_contacto' ? 'decir si quieres que te llamen' : 'decir si quieres recibir nuestros emails');
+        }
+      });
       var contacto = eleccion('quiere_contacto') === 'si';
       if (contacto) {
         marcar(el.nombre, !el.nombre.value.trim()); if (!el.nombre.value.trim()) faltan.push('tu nombre');
@@ -130,6 +132,7 @@
           });
           var email = el.email.value.trim();
           var texto = 'Hecho. Te hemos enviado la guía a ' + email + '. Si no la ves en unos minutos, mira en spam o promociones.';
+          if (eleccion('acepta_emails') === 'si') texto += ' Para recibir nuestras novedades, confirma tu email con el enlace que verás en ese mensaje.';
           if (res.contacto) texto += ' Un mediador de seguros se pondrá en contacto contigo.';
           var nodo = mensaje(form, texto, true);
           if (nodo) { nodo.tabIndex = -1; nodo.focus(); }

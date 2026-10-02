@@ -1,4 +1,4 @@
-// Entrena Seguro · formulario de la guía y de contacto. Envía a Google Apps Script (ver js/config.js).
+// Entrena Seguro · formulario de la guía y de contacto. Envía a Google Apps Script (ver js/config.js), que guarda una fila por envío.
 (function () {
   'use strict';
 
@@ -127,20 +127,18 @@
         .then(function (r) { return r.json(); })
         .then(function (res) {
           if (!res || !res.ok) { fallo(ERRORES[res && res.error] || ERRORES.interno); return; }
-          var email = el.email.value.trim();
           Array.prototype.forEach.call(form.children, function (n) {
             if (!n.classList.contains('form-mensaje')) n.hidden = true;
           });
-          var texto = 'Hecho. En unos minutos te llegará la guía a ' + email + '. Si no la ves, mira en spam o promociones.';
-          if (eleccion('acepta_emails') === 'si') texto += ' Si todavía no lo habías confirmado, en ese mismo email tienes el enlace para confirmar que quieres recibir nuestras novedades.';
-          if (res.contacto) texto += ' Hemos pasado tus datos a un mediador de seguros, que se pondrá en contacto contigo.';
+          var texto = 'Hecho. Hemos recibido tus datos. Gracias.';
+          if (res.contacto) texto += ' Un mediador de seguros se pondrá en contacto contigo.';
           var nodo = mensaje(form, texto, true);
           if (nodo) { nodo.tabIndex = -1; nodo.focus(); }
           var barra = document.querySelector('.barra-fija');
           if (barra) barra.remove();
         })
         .catch(function () {
-          fallo('No hemos podido confirmar el envío. Si en unos minutos no te llega la guía, vuelve a intentarlo o escríbenos a info@entrenaseguro.es.');
+          fallo('No hemos podido confirmar el envío. Vuelve a intentarlo o escríbenos a info@entrenaseguro.es.');
         });
     });
   });

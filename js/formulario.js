@@ -130,7 +130,8 @@
           Array.prototype.forEach.call(form.children, function (n) {
             if (!n.classList.contains('form-mensaje')) n.hidden = true;
           });
-          var texto = 'Hecho. Hemos recibido tus datos. Gracias.';
+          var email = el.email.value.trim();
+          var texto = 'Hecho. Te hemos enviado la guía a ' + email + '. Si no la ves en unos minutos, mira en spam o promociones.';
           if (res.contacto) texto += ' Un mediador de seguros se pondrá en contacto contigo.';
           var nodo = mensaje(form, texto, true);
           if (nodo) { nodo.tabIndex = -1; nodo.focus(); }

@@ -42,6 +42,14 @@
     var el = form.elements;
     if (parametro('utm_source')) el.canal.value = parametro('utm_source');
     if (parametro('utm_campaign')) el.campana.value = parametro('utm_campaign');
+    // Enlaces del PDF de la guía: capítulo de origen, comunidad ya elegida y aviso visual en la pregunta de contacto.
+    if (el.capitulo && parametro('utm_content')) el.capitulo.value = parametro('utm_content');
+    var comunidadUrl = parametro('comunidad');
+    if (comunidadUrl && el.comunidad && el.comunidad.tagName === 'SELECT') {
+      Array.prototype.forEach.call(el.comunidad.options, function (o) {
+        if (o.value && o.text === comunidadUrl) el.comunidad.value = o.value;   // solo si coincide exactamente con una opción
+      });
+    }
 
     var bloque = form.querySelector('[data-campos-contacto]');
     function eleccion(nombre) {
@@ -77,6 +85,19 @@
     form.querySelectorAll('.eleccion').forEach(function (f) {
       f.addEventListener('change', function () { f.removeAttribute('aria-invalid'); });
     });
+
+    // contacto=1: lleva a la persona al formulario y resalta la pregunta. NO marca ninguna respuesta: el consentimiento lo da ella.
+    if (parametro('contacto') === '1') {
+      var pregunta = form.querySelector('[data-grupo="quiere_contacto"]');
+      if (pregunta) {
+        pregunta.classList.add('eleccion--destacada');
+        setTimeout(function () { pregunta.classList.remove('eleccion--destacada'); }, 6000);
+        var formularioSeccion = document.getElementById('guia') || form;
+        setTimeout(function () {
+          try { formularioSeccion.scrollIntoView({ behavior: 'auto', block: 'start' }); } catch (e) { formularioSeccion.scrollIntoView(); }
+        }, 50);
+      }
+    }
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();

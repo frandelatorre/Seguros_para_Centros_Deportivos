@@ -335,3 +335,8 @@ legend { padding: 0; }
 .eleccion__opciones label:focus-within { outline: 3px solid var(--lima); outline-offset: 1px; }
 .eleccion[aria-invalid="true"] .eleccion__opciones label { border-color: #ffb4a8; }
 @media (max-width: 640px) { .eleccion__opciones { grid-template-columns: 1fr; } }
+
+/* Enlaces del PDF (contacto=1): resalta unos segundos la pregunta de contacto, sin marcar ninguna respuesta. */
+.eleccion--destacada { outline: 3px solid var(--lima); outline-offset: 8px; border-radius: var(--radius-m); transition: outline-color .3s; }
+@media (prefers-reduced-motion: no-preference) { .eleccion--destacada { animation: eleccion-pulso 1.2s ease-in-out 3; } }
+@keyframes eleccion-pulso { 50% { outline-offset: 12px; } }

@@ -15,6 +15,8 @@ Web estática (HTML + CSS + JS mínimo), sin build ni dependencias. Informa de l
 
 `js/web.js`: menú móvil y botón fijo en móvil. `js/config.js`: URL del Apps Script. `js/formulario.js`: formulario de la guía y de contacto. `js/emails.js`: página `emails.html`.
 
+`img/`: logo horizontal (cabecera y pie) y favicon, copiados de `docs/marca-logo/final/` sin los metadatos C2PA. Si cambia el logo, regenerarlos desde ahí.
+
 Las tipografías (Barlow y Barlow Condensed, licencia OFL) están en `fonts/`: la web no carga nada de Google Fonts ni de terceros, salvo el envío del formulario a Google Apps Script.
 
 ## Formulario

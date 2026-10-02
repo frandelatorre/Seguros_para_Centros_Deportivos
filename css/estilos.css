@@ -73,7 +73,8 @@ p { margin: 0; }
 /* Cabecera */
 .cabecera { border-bottom: 1px solid var(--linea); background: var(--blanco); }
 .cabecera__fila { display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 84px; }
-.logo { font-family: var(--display); font-weight: 800; font-size: 28px; letter-spacing: .04em; text-decoration: none; }
+.logo { display: inline-flex; align-items: center; line-height: 0; text-decoration: none; }
+.logo img { display: block; height: 50px; width: auto; }
 .menu { display: flex; gap: 32px; font-size: 17px; font-weight: 500; }
 .menu a { text-decoration: none; padding: 4px 0; border-bottom: 2px solid transparent; }
 .menu a:hover, .menu a[aria-current="page"] { border-bottom-color: var(--negro); }
@@ -194,6 +195,8 @@ legend { padding: 0; }
 /* Pie */
 .pie { border-top: 1px solid var(--linea); color: var(--texto-3); font: 400 15px/1.6 var(--texto); padding: 40px 0 48px; }
 .pie__bloques { display: flex; flex-direction: column; gap: 14px; }
+.pie__logo { display: inline-block; line-height: 0; margin-bottom: 20px; }
+.pie__logo img { height: 40px; width: auto; }
 .pie__mediador { color: var(--negro); }
 .pie a { color: var(--negro); }
 .pie__enlaces { display: flex; flex-wrap: wrap; gap: 8px 20px; }
@@ -283,7 +286,7 @@ legend { padding: 0; }
   body { font-size: 17px; }
   .aviso-prueba { font-size: 13px; padding: 8px 16px; }
   .cabecera__fila { min-height: 64px; }
-  .logo { font-size: 24px; }
+  .logo img { height: 40px; }
   .estado-prueba { font-size: 12px; padding: 5px 8px; }
   .hero { padding: 20px 0 32px; gap: 20px; }
   .hero__texto { gap: 12px; }

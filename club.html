@@ -6,8 +6,8 @@
 <!-- Quitar noindex solo al publicar en entrenaseguro.es (ver README) -->
 <meta name="robots" content="noindex, nofollow">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<title>Entrena Seguro · Qué exige la ley al seguro de tu centro deportivo</title>
-<meta name="description" content="Qué exige la ley al seguro de un centro deportivo, con la norma citada, en todas las comunidades. Guía gratis y contacto con un mediador de seguros si lo pides.">
+<title>Seguro para clubes deportivos y entrenadores: qué exige la ley · Entrena Seguro</title>
+<meta name="description" content="Qué exige la ley al seguro de un club deportivo o de un entrenador que trabaja por su cuenta, con la norma citada. Guía gratis.">
 <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="img/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
@@ -22,9 +22,9 @@
     <nav class="menu" id="menu" aria-label="Principal">
       <a href="box.html">Boxes</a>
       <a href="index.html#centros">Otros centros</a>
-      <a href="box.html#ley">Qué exige la ley</a>
+      <a href="#ley">Qué exige la ley</a>
       <a href="index.html#como-funciona">Cómo funciona</a>
-      <a href="box.html#guia">Guía gratis</a>
+      <a href="#guia">Guía gratis</a>
     </nav>
   </div>
 </header>
@@ -33,20 +33,20 @@
   <div class="contenedor">
     <section class="hero">
       <div class="hero__texto">
-        <div class="antetitulo">Boxes · gimnasios · estudios · clubes</div>
-        <h1 class="display display-l">Lo que exige la ley al seguro de <span class="marca-lima">tu centro deportivo</span></h1>
-        <p class="entradilla">Aforo, monitores autónomos, eventos, clases al aire libre. Cada comunidad pide cosas distintas. Aquí lo explicamos con la norma delante, comunidad por comunidad. Y si quieres, te ponemos en contacto con un mediador de seguros.</p>
+        <div class="antetitulo">Para clubes deportivos y entrenadores</div>
+        <h1 class="display display-l">¿Qué seguro exige la ley <span class="marca-lima">a tu club o a ti?</span></h1>
+        <p class="entradilla">Entrenamientos, competiciones y entrenadores que trabajan por su cuenta. La licencia federativa cubre una parte, pero no todo, y cada comunidad regula distinto a los profesionales. Te contamos qué exige la norma en cada una, con el artículo citado.</p>
         <ul class="checks ocultar-movil">
-          <li>La norma de cada comunidad autónoma, citada y con fecha</li>
-          <li>Los riesgos que una póliza de comercio no siempre contempla</li>
-          <li>Qué preguntarle a tu mediador antes de renovar</li>
+          <li>Qué cubre el seguro de la licencia federativa y qué no, con el artículo citado</li>
+          <li>Qué exige la norma de tu comunidad a clubes y entrenadores</li>
+          <li>Preguntas para hacerle a tu mediador antes de renovar</li>
         </ul>
         <p class="nota">Información general elaborada a partir del texto oficial de cada norma, consultado el 23/09/2026. No es asesoramiento jurídico ni de seguros: para tu caso concreto, consúltalo con tu mediador.</p>
       </div>
       <div class="comprobador oscuro" id="guia" aria-labelledby="guia-titulo">
         <h2 class="display-s" id="guia-titulo">Recibe la guía gratis</h2>
         <p class="nota" style="color:var(--sobre-negro-2)">Te la mandamos por email. Todas las comunidades, con la norma citada.</p>
-        <form class="form-lead" method="post" novalidate data-pagina="inicio">
+        <form class="form-lead" method="post" novalidate data-pagina="club">
           <div class="comprobador__campos comprobador__campos--2">
             <label class="campo">Email
               <input type="email" name="email" autocomplete="email" inputmode="email" required>
@@ -56,7 +56,7 @@
             </label>
           </div>
           <label class="campo">Tipo de centro
-              <select name="tipo_centro" required><option value="">Elige una opción</option><option>Box de CrossFit o funcional</option><option>Gimnasio</option><option>Estudio de pilates, yoga o boutique</option><option>Club deportivo</option><option>Entrenador personal</option><option>Otro</option></select>
+              <select name="tipo_centro" required><option value="">Elige una opción</option><option>Club deportivo</option><option>Entrenador personal</option><option>Otro</option></select>
             </label>
           <fieldset class="eleccion" data-grupo="quiere_contacto">
             <legend>¿Quieres que te llame un mediador de seguros para revisar el seguro de tu centro?</legend>
@@ -80,6 +80,7 @@
             <label class="campo">¿Algo que quieras contarle? (Opcional)
               <input type="text" name="mensaje" maxlength="500">
             </label>
+            <p class="comprobador__nota" style="text-align:left">No incluyas datos de deportistas, y menos de menores: solo los del club o los tuyos.</p>
             <p class="comprobador__nota" style="text-align:left">Al elegir «sí» aceptas que pasemos tu nombre, centro, tipo de centro, comunidad, mes de renovación, email, teléfono y mensaje a un mediador de seguros inscrito en la DGSFP para que te contacte. El mediador se identificará al llamarte.</p>
           </div>
           <fieldset class="eleccion" data-grupo="acepta_emails">
@@ -98,7 +99,7 @@
           <input type="hidden" name="canal" value="directo">
           <input type="hidden" name="campana" value="">
           <input type="hidden" name="capitulo" value="">
-          <input type="hidden" name="pagina" value="inicio">
+          <input type="hidden" name="pagina" value="club">
           <button type="submit" class="btn btn--lima btn--bloque btn--grande" data-cta-principal>Quiero la guía →</button>
           <p class="comprobador__nota" style="text-align:left">Responsable: Entrenaseguro.es (info@entrenaseguro.es). Usamos tu email para enviarte la guía. Lo demás, solo si eliges «sí». <a href="privacidad.html" style="color:#fff">Privacidad</a>.</p>
           <p class="comprobador__nota form-mensaje" role="status" aria-live="polite" hidden></p>
@@ -107,38 +108,62 @@
     </section>
   </div>
 
-  <section class="seccion seccion--gris" id="centros">
+  <section class="seccion seccion--gris">
     <div class="contenedor">
-      <div class="seccion__cabeza"><h2 class="display display-m">Cada centro tiene sus riesgos</h2><p class="entradilla">Elige tu tipo de centro. La guía es la misma para todos: recoge las normas de cada comunidad, que se aplican a cualquier centro deportivo.</p></div>
-      <div class="rejilla rejilla--4">
-        <a class="tarjeta tarjeta--enlace" href="box.html"><h3 class="display-xs">Boxes de CrossFit y funcional</h3><p>WODs, coaches autónomos, throwdowns, open box.</p><p><strong>Ver página para boxes →</strong></p></a>
-        <a class="tarjeta tarjeta--enlace" href="gimnasio.html"><h3 class="display-xs">Gimnasios</h3><p>Sala, clases dirigidas, entrenadores personales externos.</p><p><strong>Ver página para gimnasios →</strong></p></a>
-        <a class="tarjeta tarjeta--enlace" href="estudio.html"><h3 class="display-xs">Estudios de pilates, yoga y boutique</h3><p>Grupos reducidos, reformers, clases en exterior u online.</p><p><strong>Ver página para estudios →</strong></p></a>
-        <a class="tarjeta tarjeta--enlace" href="club.html"><h3 class="display-xs">Clubes y entrenadores</h3><p>Entrenamientos, competiciones y entrenadores que trabajan por su cuenta.</p><p><strong>Ver página para clubes →</strong></p></a>
+      <div class="seccion__cabeza"><h2 class="display display-m">Lo que suele quedar fuera en un club o con un entrenador</h2><p class="entradilla">Situaciones habituales que una póliza genérica no siempre contempla. Información general: lo que cubre la tuya lo dice tu póliza.</p></div>
+      <div class="rejilla rejilla--3">
+        <div class="tarjeta"><h3 class="display-xs">«Mis deportistas ya tienen licencia»</h3><p>El seguro de la licencia cubre la salud del deportista en competiciones oficiales de ámbito estatal, incluido el entrenamiento, pero según el texto de la ley no cubre la responsabilidad civil del club (Ley 39/2022, art. 23.2.e).</p><p class="nota"><strong>Pregúntale a tu mediador:</strong> ¿Qué cubre la licencia federativa de mis deportistas y qué queda para el club?</p></div>
+        <div class="tarjeta"><h3 class="display-xs">Un entrenador trabaja por su cuenta</h3><p>En Madrid, el seguro de responsabilidad civil es obligatorio para los profesionales del deporte (Ley 6/2016, art. 24). Otras comunidades fijan además capitales mínimos para los entrenadores, y la guía las recoge.</p><p class="nota"><strong>Pregúntale a tu mediador:</strong> ¿Qué RC tengo que tener como entrenador en mi comunidad?</p></div>
+        <div class="tarjeta"><h3 class="display-xs">Entrenar en una instalación que no es tuya</h3><p>Un campo municipal, un pabellón alquilado o un parque. La póliza puede cubrir solo la sede del club o la actividad, y no siempre los dos sitios.</p><p class="nota"><strong>Pregúntale a tu mediador:</strong> ¿Estoy cubierto cuando entrenamos o competimos fuera de nuestra sede?</p></div>
+        <div class="tarjeta"><h3 class="display-xs">Organizas un torneo o una competición</h3><p>En Andalucía, organizar competiciones y actividades deportivas de ocio está sujeto a seguro obligatorio de responsabilidad civil (Ley 5/2016, art. 45.1).</p><p class="nota"><strong>Pregúntale a tu mediador:</strong> ¿Mi póliza cubre las competiciones que organizo o hay que declararlas aparte?</p></div>
+        <div class="tarjeta"><h3 class="display-xs">Los directivos y la junta</h3><p>Una reclamación puede llegar por una decisión de la junta, no solo por una lesión en un entrenamiento. Es un riesgo distinto y no siempre está en la póliza del club.</p><p class="nota"><strong>Pregúntale a tu mediador:</strong> ¿Cubre mi póliza la responsabilidad de los miembros de la junta directiva?</p></div>
+        <div class="tarjeta"><h3 class="display-xs">Entrenas para varios clubes o centros</h3><p>Un entrenador que trabaja en varios sitios puede tener una póliza propia o depender de la de cada centro, y no siempre coinciden.</p><p class="nota"><strong>Pregúntale a tu mediador:</strong> Si trabajo para varios centros, ¿qué póliza responde en cada caso?</p></div>
       </div>
     </div>
   </section>
 
-  <section class="seccion" id="como-funciona">
+  <section class="seccion" id="ley">
+    <div class="contenedor">
+      <div class="seccion__cabeza"><h2 class="display display-m">Qué exige la ley</h2><p class="entradilla">Dos ejemplos: licencias federativas y entrenadores. La guía recoge todas las comunidades autónomas, cada una con su norma citada.</p></div>
+      <div class="rejilla rejilla--2">
+        <div class="recuadro">
+          <h3 class="display-xs">Licencia federativa y club</h3>
+          <p>Los deportistas federados que participan en competiciones oficiales de ámbito estatal tienen que tener un seguro obligatorio que cubre los riesgos para su salud, incluido el entrenamiento (Ley 39/2022, del Deporte, art. 23.2.e). Según el texto de la ley, no cubre la responsabilidad civil del club.</p>
+          <p>Las cuantías mínimas siguen siendo las de 1993 (Real Decreto 849/1993): el Gobierno tenía hasta enero de 2026 para actualizarlas y, a 24/09/2026, no hemos encontrado que lo haya hecho.</p>
+        </div>
+        <div class="recuadro">
+          <h3 class="display-xs">Entrenadores y competiciones</h3>
+          <p>En Madrid, el seguro de responsabilidad civil es obligatorio para los profesionales del deporte (Ley 6/2016, art. 24). Otras comunidades tienen sus propias reglas: la Comunitat Valenciana, el País Vasco, Extremadura y Navarra fijan además un capital mínimo para los entrenadores.</p>
+          <p>En Andalucía, organizar competiciones y actividades deportivas de ocio está sujeto a seguro obligatorio de responsabilidad civil (Ley 5/2016, art. 45.1). Cada comunidad lo regula distinto: la guía las recoge todas, con la norma citada.</p>
+        </div>
+      </div>
+      <p class="nota" style="margin-top:20px">Fuentes, consultadas entre el 23/09 y el 02/10/2026: <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2022-24430">Ley 39/2022 del Deporte</a> · <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2017-3069">Ley 6/2016 de Madrid</a> · <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2016-7566">Ley 5/2016 del Deporte de Andalucía</a>.</p>
+      <p style="margin-top:20px"><a class="btn" href="#guia">Quiero la guía completa</a></p>
+    </div>
+  </section>
+
+  <section class="seccion seccion--gris" id="como-funciona">
     <div class="contenedor">
       <div class="seccion__cabeza"><h2 class="display display-m">Cómo funciona</h2></div>
       <div class="rejilla rejilla--3">
-        <div class="tarjeta"><div class="numero">01</div><h3 class="display-xs">Pides la guía</h3><p>Te llega por email. Solo necesitamos tu email, tu comunidad y el tipo de centro.</p></div>
+        <div class="tarjeta"><div class="numero">01</div><h3 class="display-xs">Pides la guía</h3><p>Te llega por email. Solo necesitamos tu email y tu comunidad.</p></div>
         <div class="tarjeta"><div class="numero">02</div><h3 class="display-xs">Si quieres, te llaman</h3><p>Si eliges que te llamen, pasamos tus datos a un mediador de seguros inscrito en la DGSFP.</p></div>
-        <div class="tarjeta"><div class="numero">03</div><h3 class="display-xs">El mediador revisa tu caso</h3><p>Trabaja con varias aseguradoras: te informa y, si te interesa, te presenta las opciones que encajen con tu centro. Pedir la llamada no te obliga a nada.</p></div>
+        <div class="tarjeta"><div class="numero">03</div><h3 class="display-xs">El mediador revisa tu caso</h3><p>Trabaja con varias aseguradoras: te informa y, si te interesa, te presenta las opciones que encajen con tu centro. Tú decides. Pedir la llamada no te obliga a nada.</p></div>
       </div>
     </div>
   </section>
 
-  <section class="seccion seccion--gris">
+  <section class="seccion">
     <div class="contenedor">
       <div class="seccion__cabeza"><h2 class="display display-m">Preguntas</h2></div>
       <div class="faq">
         <details><summary>¿Qué es Entrena Seguro?</summary><p>Un proyecto para explicar con claridad qué exige la ley al seguro de un centro deportivo y, a quien lo pida, ponerle en contacto con un mediador de seguros. No somos aseguradora ni mediador: no vendemos seguros ni damos presupuestos.</p></details>
-        <details><summary>¿Me vais a llamar?</summary><p>Nosotros no. Solo te llamará un mediador de seguros, y solo si eliges que te llamen.</p></details>
+        <details><summary>¿Me vais a llamar?</summary><p>Nosotros no. Solo te llamará un mediador de seguros, y solo si eliges que te llamen. Si no, te enviamos la guía y, si los pides y lo confirmas, nuestros emails de novedades y avisos.</p></details>
         <details><summary>¿Quién me llamaría?</summary><p>Un mediador de seguros inscrito en el registro de la Dirección General de Seguros y Fondos de Pensiones. Trabaja con varias aseguradoras y te presentará las opciones que encajen con tu centro. Al contactarte te dirá quién es.</p></details>
         <details><summary>¿Cuesta algo?</summary><p>No. La guía es gratis, y pedir que te llamen no te compromete a contratar nada.</p></details>
         <details><summary>¿Cómo gana dinero Entrena Seguro?</summary><p>Si al final contratas un seguro con el mediador, él nos paga una pequeña parte de su comisión. Tú no pagas nada por la guía ni por pedir que te llamen, y el precio de tu seguro no sube por haber llegado a través de nosotros. Si no contratas, no cobramos nada.</p></details>
+        <details><summary>¿Qué comunidades cubre la guía?</summary><p>Todas las comunidades autónomas, más Ceuta y Melilla. Solo publicamos lo que hemos comprobado sobre el texto oficial de cada norma, y cada una lleva su fecha de consulta (entre el 23/09 y el 02/10/2026).</p></details>
+        <details><summary>¿Esto es asesoramiento?</summary><p>No. Es información general sobre lo que dicen las normas. Para saber qué necesita tu club o tu actividad en concreto, habla con tu mediador o tu aseguradora.</p></details>
       </div>
     </div>
   </section>

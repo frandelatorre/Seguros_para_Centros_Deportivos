@@ -6,8 +6,8 @@
 <!-- Quitar noindex solo al publicar en entrenaseguro.es (ver README) -->
 <meta name="robots" content="noindex, nofollow">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<title>Entrena Seguro · Qué exige la ley al seguro de tu centro deportivo</title>
-<meta name="description" content="Qué exige la ley al seguro de un centro deportivo, con la norma citada, en todas las comunidades. Guía gratis y contacto con un mediador de seguros si lo pides.">
+<title>Seguro para gimnasios: qué exige la ley · Entrena Seguro</title>
+<meta name="description" content="Qué exige la ley al seguro de un gimnasio en cada comunidad autónoma, con la norma citada. Guía gratis.">
 <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="img/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
@@ -22,9 +22,9 @@
     <nav class="menu" id="menu" aria-label="Principal">
       <a href="box.html">Boxes</a>
       <a href="index.html#centros">Otros centros</a>
-      <a href="box.html#ley">Qué exige la ley</a>
+      <a href="#ley">Qué exige la ley</a>
       <a href="index.html#como-funciona">Cómo funciona</a>
-      <a href="box.html#guia">Guía gratis</a>
+      <a href="#guia">Guía gratis</a>
     </nav>
   </div>
 </header>
@@ -33,20 +33,20 @@
   <div class="contenedor">
     <section class="hero">
       <div class="hero__texto">
-        <div class="antetitulo">Boxes · gimnasios · estudios · clubes</div>
-        <h1 class="display display-l">Lo que exige la ley al seguro de <span class="marca-lima">tu centro deportivo</span></h1>
-        <p class="entradilla">Aforo, monitores autónomos, eventos, clases al aire libre. Cada comunidad pide cosas distintas. Aquí lo explicamos con la norma delante, comunidad por comunidad. Y si quieres, te ponemos en contacto con un mediador de seguros.</p>
+        <div class="antetitulo">Para gimnasios</div>
+        <h1 class="display display-l">¿Qué seguro exige la ley <span class="marca-lima">a tu gimnasio?</span></h1>
+        <p class="entradilla">Sala, clases dirigidas, entrenadores personales que trabajan por su cuenta. Un gimnasio tiene máquinas, socios y monitores a la vez, y cada comunidad pide cosas distintas. Te contamos qué exige la norma en cada una, con el artículo citado.</p>
         <ul class="checks ocultar-movil">
-          <li>La norma de cada comunidad autónoma, citada y con fecha</li>
-          <li>Los riesgos que una póliza de comercio no siempre contempla</li>
-          <li>Qué preguntarle a tu mediador antes de renovar</li>
+          <li>Qué exige la norma de tu comunidad autónoma, con el artículo citado</li>
+          <li>Monitores y entrenadores personales autónomos, y el aforo que marca el capital</li>
+          <li>Preguntas para hacerle a tu mediador antes de renovar</li>
         </ul>
         <p class="nota">Información general elaborada a partir del texto oficial de cada norma, consultado el 23/09/2026. No es asesoramiento jurídico ni de seguros: para tu caso concreto, consúltalo con tu mediador.</p>
       </div>
       <div class="comprobador oscuro" id="guia" aria-labelledby="guia-titulo">
         <h2 class="display-s" id="guia-titulo">Recibe la guía gratis</h2>
         <p class="nota" style="color:var(--sobre-negro-2)">Te la mandamos por email. Todas las comunidades, con la norma citada.</p>
-        <form class="form-lead" method="post" novalidate data-pagina="inicio">
+        <form class="form-lead" method="post" novalidate data-pagina="gimnasio">
           <div class="comprobador__campos comprobador__campos--2">
             <label class="campo">Email
               <input type="email" name="email" autocomplete="email" inputmode="email" required>
@@ -55,9 +55,7 @@
               <select name="comunidad" required><option value="">Elige tu comunidad</option><option>Andalucía</option><option>Aragón</option><option>Asturias</option><option>Illes Balears</option><option>Canarias</option><option>Cantabria</option><option>Castilla-La Mancha</option><option>Castilla y León</option><option>Cataluña</option><option>Comunitat Valenciana</option><option>Extremadura</option><option>Galicia</option><option>Comunidad de Madrid</option><option>Región de Murcia</option><option>Navarra</option><option>País Vasco</option><option>La Rioja</option><option>Ceuta</option><option>Melilla</option></select>
             </label>
           </div>
-          <label class="campo">Tipo de centro
-              <select name="tipo_centro" required><option value="">Elige una opción</option><option>Box de CrossFit o funcional</option><option>Gimnasio</option><option>Estudio de pilates, yoga o boutique</option><option>Club deportivo</option><option>Entrenador personal</option><option>Otro</option></select>
-            </label>
+          <input type="hidden" name="tipo_centro" value="Gimnasio">
           <fieldset class="eleccion" data-grupo="quiere_contacto">
             <legend>¿Quieres que te llame un mediador de seguros para revisar el seguro de tu centro?</legend>
             <div class="eleccion__opciones">
@@ -98,7 +96,7 @@
           <input type="hidden" name="canal" value="directo">
           <input type="hidden" name="campana" value="">
           <input type="hidden" name="capitulo" value="">
-          <input type="hidden" name="pagina" value="inicio">
+          <input type="hidden" name="pagina" value="gimnasio">
           <button type="submit" class="btn btn--lima btn--bloque btn--grande" data-cta-principal>Quiero la guía →</button>
           <p class="comprobador__nota" style="text-align:left">Responsable: Entrenaseguro.es (info@entrenaseguro.es). Usamos tu email para enviarte la guía. Lo demás, solo si eliges «sí». <a href="privacidad.html" style="color:#fff">Privacidad</a>.</p>
           <p class="comprobador__nota form-mensaje" role="status" aria-live="polite" hidden></p>
@@ -107,38 +105,64 @@
     </section>
   </div>
 
-  <section class="seccion seccion--gris" id="centros">
+  <section class="seccion seccion--gris">
     <div class="contenedor">
-      <div class="seccion__cabeza"><h2 class="display display-m">Cada centro tiene sus riesgos</h2><p class="entradilla">Elige tu tipo de centro. La guía es la misma para todos: recoge las normas de cada comunidad, que se aplican a cualquier centro deportivo.</p></div>
-      <div class="rejilla rejilla--4">
-        <a class="tarjeta tarjeta--enlace" href="box.html"><h3 class="display-xs">Boxes de CrossFit y funcional</h3><p>WODs, coaches autónomos, throwdowns, open box.</p><p><strong>Ver página para boxes →</strong></p></a>
-        <a class="tarjeta tarjeta--enlace" href="gimnasio.html"><h3 class="display-xs">Gimnasios</h3><p>Sala, clases dirigidas, entrenadores personales externos.</p><p><strong>Ver página para gimnasios →</strong></p></a>
-        <a class="tarjeta tarjeta--enlace" href="estudio.html"><h3 class="display-xs">Estudios de pilates, yoga y boutique</h3><p>Grupos reducidos, reformers, clases en exterior u online.</p><p><strong>Ver página para estudios →</strong></p></a>
-        <a class="tarjeta tarjeta--enlace" href="club.html"><h3 class="display-xs">Clubes y entrenadores</h3><p>Entrenamientos, competiciones y entrenadores que trabajan por su cuenta.</p><p><strong>Ver página para clubes →</strong></p></a>
+      <div class="seccion__cabeza"><h2 class="display display-m">Lo que suele quedar fuera en un gimnasio</h2><p class="entradilla">Situaciones de cada semana que una póliza genérica no siempre contempla. Información general: lo que cubre la tuya lo dice tu póliza.</p></div>
+      <div class="rejilla rejilla--3">
+        <div class="tarjeta"><h3 class="display-xs">Un socio se lesiona en la sala</h3><p>La RC responde cuando hay culpa del gimnasio o del monitor: máquina en mal estado, falta de supervisión, un consejo mal dado. Si nadie tiene la culpa (un mal gesto con una mancuerna), la RC no paga; eso lo cubre, si se contrata, un seguro de accidentes.</p><p class="nota"><strong>Pregúntale a tu mediador:</strong> ¿Qué pasa si un socio se lesiona y no hay culpa del gimnasio?</p></div>
+        <div class="tarjeta"><h3 class="display-xs">Una máquina falla en pleno uso</h3><p>Si una máquina se rompe y un socio sale dañado, se mira si el mantenimiento fue el adecuado. El daño a la propia máquina es otra cosa: depende de si la póliza incluye daños materiales, y no es lo mismo que la RC.</p><p class="nota"><strong>Pregúntale a tu mediador:</strong> ¿Quedan cubiertos los daños a un socio por un fallo de maquinaria, y los daños a la propia máquina?</p></div>
+        <div class="tarjeta"><h3 class="display-xs">Entrenadores personales que trabajan por su cuenta</h3><p>Muchos gimnasios dejan entrenar a profesionales externos con sus clientes. En Madrid, el seguro obligatorio del centro tiene que cubrir a los profesionales que trabajan en él, sea cual sea su contrato (Decreto 57/2024, art. 7.1). Muchas pólizas no los contemplan si no están declarados.</p><p class="nota"><strong>Pregúntale a tu mediador:</strong> ¿Están incluidos como asegurados mis monitores y los entrenadores externos que trabajan en la sala?</p></div>
+        <div class="tarjeta"><h3 class="display-xs">El aforo marca el capital mínimo</h3><p>En Madrid, el capital mínimo depende de cuántos usuarios pueden entrenar a la vez: 600.000 € hasta 50, 1,2 millones de 51 a 250 y 2,4 millones a partir de 251 (Decreto 57/2024, art. 8.2). Si el aforo cambia, la póliza puede tener que cambiar.</p><p class="nota"><strong>Pregúntale a tu mediador:</strong> ¿Con qué aforo está calculada mi póliza y cuándo tengo que actualizarlo?</p></div>
+        <div class="tarjeta"><h3 class="display-xs">Un empleado se lesiona trabajando</h3><p>El riesgo del trabajador no es el mismo que el de un socio. Algunas pólizas lo incluyen como cobertura aparte y otras no.</p><p class="nota"><strong>Pregúntale a tu mediador:</strong> ¿Tiene mi póliza cobertura de responsabilidad civil patronal?</p></div>
+        <div class="tarjeta"><h3 class="display-xs">Pertenencias en taquillas y vestuarios</h3><p>La ropa, el móvil o las llaves que desaparecen o se dañan en el vestuario son reclamaciones habituales. No siempre entran en la RC de la póliza.</p><p class="nota"><strong>Pregúntale a tu mediador:</strong> ¿Qué pasa si un socio reclama por objetos perdidos o robados en las taquillas?</p></div>
       </div>
     </div>
   </section>
 
-  <section class="seccion" id="como-funciona">
+  <section class="seccion" id="ley">
+    <div class="contenedor">
+      <div class="seccion__cabeza"><h2 class="display display-m">Qué exige la ley</h2><p class="entradilla">Dos ejemplos: Madrid y la normativa estatal. La guía recoge todas las comunidades autónomas, cada una con su norma citada.</p></div>
+      <div class="rejilla rejilla--2">
+        <div class="recuadro">
+          <h3 class="display-xs">Comunidad de Madrid</h3>
+          <p>El seguro de responsabilidad civil es obligatorio para los profesionales del deporte (Ley 6/2016, art. 24) y el de los centros tiene que cubrir a quien trabaja en ellos (Decreto 57/2024, art. 7.1).</p>
+          <p>El capital mínimo depende de cuántos usuarios pueden entrenar a la vez: <strong>600.000 €</strong> hasta 50, <strong>1,2 millones</strong> de 51 a 250 y <strong>2,4 millones</strong> a partir de 251 o si la actividad es al aire libre u online, con un sublímite de 300.000 € por víctima (Decreto 57/2024, art. 8.2).</p>
+          <p class="nota">La Comunidad de Madrid tramita una modificación de este decreto (consulta pública de julio-agosto de 2026). A 23/09/2026 no está aprobada.</p>
+        </div>
+        <div class="recuadro">
+          <h3 class="display-xs">Normativa estatal</h3>
+          <p>La ley estatal del deporte (Ley 39/2022) no obliga a los gimnasios ni a los centros deportivos a tener un seguro de responsabilidad civil; sus seguros obligatorios son los de los deportistas federados y las competiciones oficiales.</p>
+          <p>El reglamento estatal de espectáculos incluye los gimnasios y menciona el «aseguramiento obligatorio» de los daños (Real Decreto 2816/1982, art. 51.d), pero no dice qué seguro, ni con qué capital, ni quién tiene que contratarlo. Lo que concreta cada obligación es la norma de tu comunidad.</p>
+          <p class="nota">Consultada el 02/10/2026.</p>
+        </div>
+      </div>
+      <p class="nota" style="margin-top:20px">Fuentes, consultadas entre el 23/09 y el 02/10/2026: <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2017-3069">Ley 6/2016 de Madrid</a> · <a href="https://www.bocm.es/boletin/CM_Orden_BOCM/2024/06/05/BOCM-20240605-3.PDF">Decreto 57/2024 de Madrid</a> · <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2022-24430">Ley 39/2022 del Deporte</a> · <a href="https://www.boe.es/buscar/act.php?id=BOE-A-1982-28915">Real Decreto 2816/1982</a>.</p>
+      <p style="margin-top:20px"><a class="btn" href="#guia">Quiero la guía completa</a></p>
+    </div>
+  </section>
+
+  <section class="seccion seccion--gris" id="como-funciona">
     <div class="contenedor">
       <div class="seccion__cabeza"><h2 class="display display-m">Cómo funciona</h2></div>
       <div class="rejilla rejilla--3">
-        <div class="tarjeta"><div class="numero">01</div><h3 class="display-xs">Pides la guía</h3><p>Te llega por email. Solo necesitamos tu email, tu comunidad y el tipo de centro.</p></div>
+        <div class="tarjeta"><div class="numero">01</div><h3 class="display-xs">Pides la guía</h3><p>Te llega por email. Solo necesitamos tu email y tu comunidad.</p></div>
         <div class="tarjeta"><div class="numero">02</div><h3 class="display-xs">Si quieres, te llaman</h3><p>Si eliges que te llamen, pasamos tus datos a un mediador de seguros inscrito en la DGSFP.</p></div>
-        <div class="tarjeta"><div class="numero">03</div><h3 class="display-xs">El mediador revisa tu caso</h3><p>Trabaja con varias aseguradoras: te informa y, si te interesa, te presenta las opciones que encajen con tu centro. Pedir la llamada no te obliga a nada.</p></div>
+        <div class="tarjeta"><div class="numero">03</div><h3 class="display-xs">El mediador revisa tu caso</h3><p>Trabaja con varias aseguradoras: te informa y, si te interesa, te presenta las opciones que encajen con tu centro. Tú decides. Pedir la llamada no te obliga a nada.</p></div>
       </div>
     </div>
   </section>
 
-  <section class="seccion seccion--gris">
+  <section class="seccion">
     <div class="contenedor">
       <div class="seccion__cabeza"><h2 class="display display-m">Preguntas</h2></div>
       <div class="faq">
         <details><summary>¿Qué es Entrena Seguro?</summary><p>Un proyecto para explicar con claridad qué exige la ley al seguro de un centro deportivo y, a quien lo pida, ponerle en contacto con un mediador de seguros. No somos aseguradora ni mediador: no vendemos seguros ni damos presupuestos.</p></details>
-        <details><summary>¿Me vais a llamar?</summary><p>Nosotros no. Solo te llamará un mediador de seguros, y solo si eliges que te llamen.</p></details>
+        <details><summary>¿Me vais a llamar?</summary><p>Nosotros no. Solo te llamará un mediador de seguros, y solo si eliges que te llamen. Si no, te enviamos la guía y, si los pides y lo confirmas, nuestros emails de novedades y avisos.</p></details>
         <details><summary>¿Quién me llamaría?</summary><p>Un mediador de seguros inscrito en el registro de la Dirección General de Seguros y Fondos de Pensiones. Trabaja con varias aseguradoras y te presentará las opciones que encajen con tu centro. Al contactarte te dirá quién es.</p></details>
         <details><summary>¿Cuesta algo?</summary><p>No. La guía es gratis, y pedir que te llamen no te compromete a contratar nada.</p></details>
         <details><summary>¿Cómo gana dinero Entrena Seguro?</summary><p>Si al final contratas un seguro con el mediador, él nos paga una pequeña parte de su comisión. Tú no pagas nada por la guía ni por pedir que te llamen, y el precio de tu seguro no sube por haber llegado a través de nosotros. Si no contratas, no cobramos nada.</p></details>
+        <details><summary>¿Qué comunidades cubre la guía?</summary><p>Todas las comunidades autónomas, más Ceuta y Melilla. Solo publicamos lo que hemos comprobado sobre el texto oficial de cada norma, y cada una lleva su fecha de consulta (entre el 23/09 y el 02/10/2026).</p></details>
+        <details><summary>¿Esto es asesoramiento?</summary><p>No. Es información general sobre lo que dicen las normas. Para saber qué necesita tu gimnasio en concreto, habla con tu mediador o tu aseguradora.</p></details>
       </div>
     </div>
   </section>

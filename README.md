@@ -7,6 +7,7 @@ Web estática (HTML + CSS + JS mínimo), sin build ni dependencias. Informa de l
 | Archivo | Contenido |
 |---|---|
 | `index.html` | Portada general para centros deportivos + formulario (con tipo de centro) |
+| `gimnasio.html`, `estudio.html`, `club.html` | Landings de gimnasios, estudios de pilates/yoga/boutique y clubes/entrenadores, con la misma estructura que `box.html`. Cada una rellena `pagina` y el tipo de centro. |
 | `box.html` | Landing de boxes: riesgos habituales, qué exige la ley (todas las comunidades) y formulario. **Destino de emails en frío, Instagram y anuncios.** |
 | `privacidad.html`, `aviso-legal.html`, `cookies.html` | Textos legales (titular: Francisco de la Torre Rodríguez) |
 | `emails.html` | Confirmar la serie de emails (`?confirmar=`) o darse de baja (`?baja=`); enlazada desde los emails |
@@ -32,10 +33,10 @@ El formulario lee la respuesta JSON del script (Apps Script la sirve con `Access
 ## Antes de publicar en entrenaseguro.es
 
 - [ ] Formulario conectado y probado de principio a fin (ver INSTALAR.md, paso 8).
-- [ ] Quitar `<meta name="robots" content="noindex, nofollow">` de `index.html`, `box.html` y las páginas legales (dejarlo en las redirecciones).
+- [ ] Quitar `<meta name="robots" content="noindex, nofollow">` de `index.html`, `box.html`, `gimnasio.html`, `estudio.html`, `club.html` y las páginas legales (dejarlo en las redirecciones).
 - [ ] `robots.txt`: cambiar `Disallow: /` por `Allow: /` y añadir `Sitemap: https://entrenaseguro.es/sitemap.xml`.
 - [ ] `.htaccess`: quitar la cabecera `X-Robots-Tag`.
-- [ ] Crear `sitemap.xml` con `index.html` y `box.html`.
+- [ ] Crear `sitemap.xml` con `index.html`, `box.html`, `gimnasio.html`, `estudio.html` y `club.html`.
 - [ ] Revisar la checklist de las reglas de copy página por página.
 
 ## Caché del CDN de Hostinger

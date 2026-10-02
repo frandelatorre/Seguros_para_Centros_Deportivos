@@ -9,11 +9,10 @@ Web estática (HTML + CSS + JS mínimo), sin build ni dependencias. Informa de l
 | `index.html` | Portada general para centros deportivos + formulario (con tipo de centro) |
 | `box.html` | Landing de boxes: riesgos habituales, qué exige la ley (Madrid y Andalucía) y formulario. **Destino de emails en frío, Instagram y anuncios.** |
 | `privacidad.html`, `aviso-legal.html`, `cookies.html` | Textos legales (titular: Francisco de la Torre Rodríguez) |
-| `emails.html` | Confirmar la serie de emails (`?confirmar=`) o darse de baja (`?baja=`); enlazada desde los emails |
 | `guia/entrena-seguro-guia-boxes-madrid-andalucia.pdf` | La guía que se envía por email |
 | `guia-boxes.html`, `guia-boxes-contenido.html`, `diagnostico.html`, `informacion-mediador.html`, `privacidad-guia.html` | Páginas retiradas: redirigen a las nuevas. Se pueden borrar cuando nadie las enlace |
 
-`js/web.js`: menú móvil y botón fijo en móvil. `js/config.js`: URL del Apps Script. `js/formulario.js`: formulario de la guía y de contacto. `js/emails.js`: página `emails.html`. `js/guia-boxes.js` y `js/diagnostico.js`: obsoletos, ya no se cargan.
+`js/web.js`: menú móvil y botón fijo en móvil. `js/config.js`: URL del Apps Script. `js/formulario.js`: formulario de la guía y de contacto.
 
 Las tipografías (Barlow y Barlow Condensed, licencia OFL) están en `fonts/`: la web no carga nada de Google Fonts ni de terceros, salvo el envío del formulario a Google Apps Script.
 

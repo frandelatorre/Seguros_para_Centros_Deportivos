@@ -13,10 +13,13 @@
     texto.textContent = 'Un momento…';
     fetch(URL, { method: 'POST', body: new URLSearchParams({ accion: accion, token: token }) })
       .then(function (r) { return r.json(); })
-      .then(function (res) { texto.textContent = (res && res.mensaje) || 'Hecho.'; boton.hidden = true; })
+      .then(function (res) {
+        if (!res || (res.ok === false && !res.mensaje)) throw new Error('sin confirmar');   // el servidor falló: no decir «Hecho.» si no se ha hecho
+        texto.textContent = res.mensaje || 'Hecho.'; boton.hidden = true;
+      })
       .catch(function () {
         boton.disabled = false;
-        texto.textContent = 'No hemos podido completarlo. Inténtalo de nuevo o escríbenos a info@entrenaseguro.es.';
+        texto.textContent = 'No hemos podido completarlo. Recarga la página para intentarlo de nuevo o escríbenos a info@entrenaseguro.es.';
       });
   }
 

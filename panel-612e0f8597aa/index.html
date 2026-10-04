@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow, noarchive">
 <meta name="referrer" content="no-referrer">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-ACJzByGloj6OTkXBNKVOq4toOEm/NVMXeUGsB0KKJ/0='; connect-src https://script.google.com https://*.googleusercontent.com; style-src 'unsafe-inline'; font-src 'self'; img-src data:; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-3tDmyWIVi1rat9s469Xv2kXnoTxe2XLbIxzuUJyEAwo='; connect-src https://script.google.com https://*.googleusercontent.com; style-src 'unsafe-inline'; font-src 'self'; img-src data:; base-uri 'none'; form-action 'none'">
 <title>Panel · Entrena Seguro</title>
 <style>
 /* Tipografías alojadas en la propia web (en esta maqueta, desde ../../web/fonts) */
@@ -217,6 +217,7 @@ footer { text-align: center; font-size: 13px; color: var(--texto-3); padding-bot
     <section id="embudo" aria-labelledby="t-embudo">
       <h2 id="t-embudo">Embudo</h2>
       <p class="sub">Del formulario a la comisión, en personas únicas. El porcentaje de cada barra es respecto al paso indicado debajo de la cifra.</p>
+      <div class="tarjeta" style="margin-bottom:14px"><h3>De la visita al formulario</h3><div id="visitas"></div></div>
       <div class="tarjeta"><div class="embudo" id="embudo-lista"></div></div>
     </section>
 
@@ -302,7 +303,7 @@ footer { text-align: center; font-size: 13px; color: var(--texto-3); padding-bot
   }
   // Al salir no se dejan las cifras en el DOM oculto.
   function limpiarPanel() {
-    ['kpis', 'grafico', 'embudo-lista', 'tabla-emails', 'comparativas', 'proximos', 'renovaciones', 'salud-lista', 'dinero-kpis', 'estados', 'periodo', 'actualizado'].forEach(function (id) { var e = el(id); if (e) { e.innerHTML = ''; e.textContent = ''; } });
+    ['kpis', 'grafico', 'visitas', 'embudo-lista', 'tabla-emails', 'comparativas', 'proximos', 'renovaciones', 'salud-lista', 'dinero-kpis', 'estados', 'periodo', 'actualizado'].forEach(function (id) { var e = el(id); if (e) { e.innerHTML = ''; e.textContent = ''; } });
     el('contenido').hidden = true; el('cargando').hidden = false; el('cargando').textContent = 'Cargando datos…'; avisoDatos('', false);
   }
   el('salir').addEventListener('click', function () {
@@ -383,6 +384,19 @@ footer { text-align: center; font-size: 13px; color: var(--texto-3); padding-bot
       return '<div class="paso"><div class="paso__n">' + esc(p.n) + '</div><div class="paso__barra"><i style="width:' + pct + '%"></i></div><div class="paso__v num">' + fmt(p.v) + (rel ? '<small>' + rel + '</small>' : '') + '</div></div>';
     }).join('');
   }
+  function pintarVisitas() {
+    var v = D.visitas;
+    if (!v || v.sinDatos) { el('visitas').innerHTML = '<p class="vacio">Todavía no hay visitas registradas. Se cuentan desde que se publica la web con el contador (páginas con formulario, sin cookies ni datos personales).</p>'; return; }
+    function fila(f, negrita) {
+      var tasa = f[1] ? fmt(f[3], 1) : '—';
+      return '<tr' + (negrita ? ' class="grupo"' : '') + '><td>' + esc(f[0]) + '</td><td class="d num">' + fmt(f[1]) + '</td><td class="d num">' + fmt(f[2]) + '</td><td class="d num">' + tasa + '</td></tr>';
+    }
+    function bloque(titulo, filas) { return filas.length ? '<tr class="grupo"><td colspan="4">' + titulo + '</td></tr>' + filas.map(function (f) { return fila(f, false); }).join('') : ''; }
+    var t = v.total || {};
+    el('visitas').innerHTML = '<p class="nota">Desde el ' + esc(v.desde) + ' (últimos 30 días como máximo). Visita = una carga de página con formulario; formulario = un envío por email y día. «Por 100 visitas» es el porcentaje que deja el formulario.</p>' +
+      '<div class="envol"><table><thead><tr><th></th><th class="d">Visitas</th><th class="d">Formularios</th><th class="d">Por 100 visitas</th></tr></thead><tbody>' +
+      fila(['Total', t.visitas || 0, t.formularios || 0, t.tasa || 0], true) + bloque('Por página', v.porPagina || []) + bloque('Por canal de entrada', v.porCanal || []) + '</tbody></table></div>';
+  }
   function estadoTasa(env, tasa) {
     if (env < 100) return ['poco', 'Pocos datos']; if (tasa > 1) return ['mal', 'Parar y revisar']; if (tasa >= 0.5) return ['aviso', 'Vigilar']; return ['ok', 'Bien'];
   }
@@ -421,7 +435,7 @@ footer { text-align: center; font-size: 13px; color: var(--texto-3); padding-bot
     el('estados').innerHTML = (D.estados || []).map(function (e) { return '<div class="estado"><b class="num">' + fmt(e[1]) + '</b><span>' + esc(e[0]) + '</span></div>'; }).join('');
   }
   function pintarTodo() {
-    pintarKpis(); pintarGrafico(); pintarEmbudo(); pintarEmails(); pintarComparativas(); pintarCalendario(); pintarSalud(); pintarDinero();
+    pintarKpis(); pintarGrafico(); pintarVisitas(); pintarEmbudo(); pintarEmails(); pintarComparativas(); pintarCalendario(); pintarSalud(); pintarDinero();
     el('actualizado').textContent = 'Actualizado: ' + (D.generadoTxt || '');
     el('cargando').hidden = true; el('contenido').hidden = false;
     var min = D.generado ? Math.round((Date.now() - new Date(D.generado).getTime()) / 60000) : 0;
@@ -468,6 +482,12 @@ footer { text-align: center; font-size: 13px; color: var(--texto-3); padding-bot
     var r = [['seccion', 'concepto', 'valor', 'unidad']];
     (D.kpis || []).forEach(function (k) { r.push(['Resumen', k.et, k.v, k.u || '']); });
     (D.embudo || []).forEach(function (e) { r.push(['Embudo', e.n, e.v, 'personas']); });
+    if (D.visitas && !D.visitas.sinDatos) {
+      var vt = D.visitas.total || {};
+      r.push(['Visitas', 'Visitas (desde ' + D.visitas.desde + ')', vt.visitas, 'visitas']);
+      r.push(['Visitas', 'Formularios en ese periodo', vt.formularios, 'formularios']);
+      r.push(['Visitas', 'Formularios por 100 visitas', vt.tasa, '%']);
+    }
     (D.dinero || []).forEach(function (d) { r.push(['Dinero', d.et, d.v, d.u || '']); });
     (D.estados || []).forEach(function (e) { r.push(['Contactos por estado', e[0], e[1], 'contactos']); });
     descargar('resumen-entrena-seguro-' + fechaArchivo() + '.csv', csv(r), 'text/csv;charset=utf-8');

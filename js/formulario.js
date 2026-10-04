@@ -38,9 +38,21 @@
     interno: 'Algo ha fallado. Inténtalo de nuevo o escríbenos a info@entrenaseguro.es.'
   };
 
+  // Cuenta la visita para medir de la visita al formulario. Sin cookies ni datos personales: solo la página y el canal.
+  // No se cuenta si la web no está conectada ni en navegadores automatizados.
+  var visitaContada = false;
+  function contarVisita(pagina, canal) {
+    if (visitaContada || !conectado() || navigator.webdriver) return;
+    visitaContada = true;
+    try {
+      fetch(URL, { method: 'POST', keepalive: true, body: new URLSearchParams({ accion: 'visita', pagina: pagina, canal: canal }) }).catch(function () {});
+    } catch (e) { /* una visita perdida no importa */ }
+  }
+
   document.querySelectorAll('form.form-lead').forEach(function (form) {
     var el = form.elements;
     if (parametro('utm_source')) el.canal.value = parametro('utm_source');
+    contarVisita(el.pagina.value, el.canal.value);
     if (parametro('utm_campaign')) el.campana.value = parametro('utm_campaign');
     // Enlaces del PDF de la guía: capítulo de origen, comunidad ya elegida y aviso visual en la pregunta de contacto.
     if (el.capitulo && parametro('utm_content')) el.capitulo.value = parametro('utm_content');

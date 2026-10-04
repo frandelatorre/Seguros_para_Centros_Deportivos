@@ -336,6 +336,14 @@ legend { padding: 0; }
 .eleccion[aria-invalid="true"] .eleccion__opciones label { border-color: #ffb4a8; }
 @media (max-width: 640px) { .eleccion__opciones { grid-template-columns: 1fr; } }
 
+/* Casilla de consentimiento de la guía y los emails: obligatoria, sin marcar de antemano. */
+.consentimiento { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.consentimiento label { display: flex; align-items: flex-start; gap: 12px; padding: 12px 14px; border: 1px solid var(--borde-control-oscuro); border-radius: var(--radius-m); background: var(--negro-2); color: var(--sobre-negro); font: 500 16px/1.4 var(--texto); cursor: pointer; }
+.consentimiento input { width: 22px; height: 22px; margin: 1px 0 0; flex: none; accent-color: var(--lima); }
+.consentimiento label:has(input:checked) { border-color: var(--lima); }
+.consentimiento label:focus-within { outline: 3px solid var(--lima); outline-offset: 1px; }
+.consentimiento label:has(input[aria-invalid="true"]) { border-color: #ffb4a8; }
+
 /* Enlaces del PDF (contacto=1): resalta unos segundos la pregunta de contacto, sin marcar ninguna respuesta. */
 .eleccion--destacada { outline: 3px solid var(--lima); outline-offset: 8px; border-radius: var(--radius-m); transition: outline-color .3s; }
 @media (prefers-reduced-motion: no-preference) { .eleccion--destacada { animation: eleccion-pulso 1.2s ease-in-out 3; } }

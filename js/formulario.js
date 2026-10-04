@@ -70,21 +70,18 @@
       });
       actualizarContacto();
     }
-    // El mes de renovación solo se pide a quien quiere emails o que le llamen.
-    var campoMes = form.querySelector('[data-campo-renovacion]');
-    function actualizarMes() {
-      if (!campoMes) return;
-      var on = eleccion('quiere_contacto') === 'si' || eleccion('acepta_emails') === 'si';
-      campoMes.hidden = !on;
-      el.mes_renovacion.disabled = !on;
+    // Quien llega desde el PDF ya tiene la guía: no se le obliga a aceptar los emails para nada (elige emails, llamada o las dos).
+    var desdeGuia = parametro('utm_source') === 'guia';
+    var casilla = el.acepta_emails;
+    if (desdeGuia && casilla) {
+      casilla.required = false;
+      var textoCasilla = casilla.parentNode.querySelector('[data-texto-guia]');
+      if (textoCasilla) textoCasilla.textContent = textoCasilla.getAttribute('data-texto-guia');
     }
-    form.querySelectorAll('input[name="quiere_contacto"], input[name="acepta_emails"]').forEach(function (r) {
-      r.addEventListener('change', actualizarMes);
-    });
-    actualizarMes();
     form.querySelectorAll('.eleccion').forEach(function (f) {
       f.addEventListener('change', function () { f.removeAttribute('aria-invalid'); });
     });
+    if (casilla) casilla.addEventListener('change', function () { marcar(casilla, false); });
 
     // contacto=1: lleva a la persona al formulario y resalta la pregunta. NO marca ninguna respuesta: el consentimiento lo da ella.
     if (parametro('contacto') === '1') {
@@ -107,14 +104,20 @@
       if (el.tipo_centro && el.tipo_centro.tagName === 'SELECT') {
         marcar(el.tipo_centro, !el.tipo_centro.value); if (!el.tipo_centro.value) faltan.push('el tipo de centro');
       }
-      ['quiere_contacto', 'acepta_emails'].forEach(function (n) {
-        var grupo = form.querySelector('[data-grupo="' + n + '"]');
-        if (!eleccion(n)) {
-          if (grupo) grupo.setAttribute('aria-invalid', 'true');
-          faltan.push(n === 'quiere_contacto' ? 'decir si quieres que te llamen' : 'decir si quieres recibir nuestros emails');
-        }
-      });
+      var grupo = form.querySelector('[data-grupo="quiere_contacto"]');
+      if (!eleccion('quiere_contacto')) {
+        if (grupo) grupo.setAttribute('aria-invalid', 'true');
+        faltan.push('decir si quieres que te llamen');
+      }
       var contacto = eleccion('quiere_contacto') === 'si';
+      var emails = eleccion('acepta_emails') === 'si';
+      if (!desdeGuia && !emails) {
+        marcar(casilla, true);
+        faltan.push('marcar la casilla para recibir la guía y los emails');
+      } else if (desdeGuia && !emails && !contacto) {
+        marcar(casilla, true);
+        faltan.push('marcar la casilla de los emails o pedir que te llamen');
+      }
       if (contacto) {
         marcar(el.nombre, !el.nombre.value.trim()); if (!el.nombre.value.trim()) faltan.push('tu nombre');
         var okTel = telefonoValido(el.telefono.value); marcar(el.telefono, !okTel); if (!okTel) faltan.push('un teléfono válido');
@@ -152,8 +155,10 @@
             if (!n.classList.contains('form-mensaje')) n.hidden = true;
           });
           var email = el.email.value.trim();
-          var texto = 'Hecho. Te hemos enviado la guía a ' + email + '. Si no la ves en unos minutos, mira en spam o promociones.';
-          if (eleccion('acepta_emails') === 'si') texto += ' Recibirás también nuestras novedades; puedes darte de baja con un clic desde cualquier email.';
+          var texto = desdeGuia
+            ? 'Hecho. Te hemos escrito a ' + email + '. Si no lo ves en unos minutos, mira en spam o promociones.'
+            : 'Hecho. Te hemos enviado la guía a ' + email + '. Si no la ves en unos minutos, mira en spam o promociones.';
+          if (emails) texto += ' Recibirás también nuestras novedades; puedes darte de baja con un clic desde cualquier email.';
           if (res.contacto) texto += ' Un mediador de seguros se pondrá en contacto contigo.';
           var nodo = mensaje(form, texto, true);
           if (nodo) { nodo.tabIndex = -1; nodo.focus(); }

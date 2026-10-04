@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow, noarchive">
 <meta name="referrer" content="no-referrer">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-3tDmyWIVi1rat9s469Xv2kXnoTxe2XLbIxzuUJyEAwo='; connect-src https://script.google.com https://*.googleusercontent.com; style-src 'unsafe-inline'; font-src 'self'; img-src data:; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-eCIx7LoMz5KoyXPfBe6fX1N4fn4hlZEox0GBlM7gwvA='; connect-src https://script.google.com https://*.googleusercontent.com; style-src 'unsafe-inline'; font-src 'self'; img-src data:; base-uri 'none'; form-action 'none'">
 <title>Panel · Entrena Seguro</title>
 <style>
 /* Tipografías alojadas en la propia web (en esta maqueta, desde ../../web/fonts) */
@@ -386,6 +386,7 @@ footer { text-align: center; font-size: 13px; color: var(--texto-3); padding-bot
   }
   function pintarVisitas() {
     var v = D.visitas;
+    if (v && v.sinDatos && v.empieza) { el('visitas').innerHTML = '<p class="vacio">El contador empezó el ' + esc(v.empieza) + '. Las cifras salen a partir del día siguiente, para no mezclar formularios anteriores al contador.</p>'; return; }
     if (!v || v.sinDatos) { el('visitas').innerHTML = '<p class="vacio">Todavía no hay visitas registradas. Se cuentan desde que se publica la web con el contador (páginas con formulario, sin cookies ni datos personales).</p>'; return; }
     function fila(f, negrita) {
       var tasa = f[1] ? fmt(f[3], 1) : '—';

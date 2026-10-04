@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow, noarchive">
 <meta name="referrer" content="no-referrer">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-G5z7Q2LviZ0LgxOyAiSlKpVbp/bp7gFf040MCGVRqVI='; connect-src https://script.google.com https://*.googleusercontent.com; style-src 'unsafe-inline'; font-src 'self'; img-src data:; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-ACJzByGloj6OTkXBNKVOq4toOEm/NVMXeUGsB0KKJ/0='; connect-src https://script.google.com https://*.googleusercontent.com; style-src 'unsafe-inline'; font-src 'self'; img-src data:; base-uri 'none'; form-action 'none'">
 <title>Panel · Entrena Seguro</title>
 <style>
 /* Tipografías alojadas en la propia web (en esta maqueta, desde ../../web/fonts) */
@@ -353,7 +353,11 @@ footer { text-align: center; font-size: 13px; color: var(--texto-3); padding-bot
   }
   function pintarKpis() {
     el('periodo').textContent = D.periodo || '';
+    var enviados = ((D.kpis || []).filter(function (x) { return x.id === 'enviados'; })[0] || {}).v;
     el('kpis').innerHTML = (D.kpis || []).map(function (k) {
+      if (k.id === 'tasa-baja' && !enviados) {   // sin ningún envío no hay tasa: un 0,00 % parecería una tasa perfecta
+        return '<div class="kpi"><div class="kpi__et">' + esc(k.et) + '</div><div class="kpi__v num">—</div><div><span class="chip">Sin envíos</span></div></div>';
+      }
       var dt = deltaTexto(k), dec = k.u === '%' ? 2 : 0;
       return '<div class="kpi"><div class="kpi__et">' + esc(k.et) + '</div><div class="kpi__v num">' + esc(fmt(k.v, dec)) + (k.u ? '<small> ' + esc(k.u) + '</small>' : '') + '</div>' +
         '<div><span class="chip ' + (dt[1] ? 'chip--' + dt[1] : '') + '">' + esc(dt[0]) + '</span></div>' + spark(k.spark) + '</div>';
@@ -362,18 +366,18 @@ footer { text-align: center; font-size: 13px; color: var(--texto-3); padding-bot
   function pintarGrafico() {
     var n = (D.semanas && D.semanas.nuevos) || [], b = (D.semanas && D.semanas.bajas) || [];
     if (n.length < 2) { el('grafico').innerHTML = '<p class="vacio">Aún no hay datos suficientes.</p>'; return; }
-    var W = 1000, H = 220, pl = 36, pb = 24, pt = 10, mx = Math.max(10, Math.ceil(Math.max.apply(null, n.concat(b)) / 10) * 10);
+    var W = 1000, H = 220, pl = 36, pb = 24, pt = 10, maxV = Math.max.apply(null, n.concat(b).map(Number)), salto = maxV <= 4 ? 1 : Math.ceil(maxV / 4), mx = salto * 4;   // eje en saltos enteros
     function x(i) { return pl + i * (W - pl - 10) / (n.length - 1); } function y(v) { return pt + (H - pt - pb) * (1 - v / mx); }
     var g = '';
     for (var t = 0; t <= 4; t++) { var v = mx * t / 4; g += '<line x1="' + pl + '" x2="' + (W - 10) + '" y1="' + y(v) + '" y2="' + y(v) + '" stroke="#e4e6e1"/><text x="' + (pl - 6) + '" y="' + (y(v) + 4) + '" text-anchor="end" font-size="12" fill="#4a504a">' + Math.round(v) + '</text>'; }
-    function linea(d, c, nom) { return '<polyline fill="none" stroke="' + c + '" stroke-width="3" stroke-linejoin="round" points="' + d.map(function (v, i) { return x(i) + ',' + y(v); }).join(' ') + '"/>' + d.map(function (v, i) { return '<circle cx="' + x(i) + '" cy="' + y(v) + '" r="4" fill="' + c + '"><title>' + nom + ', semana ' + (i + 1) + ': ' + Number(v) + '</title></circle>'; }).join(''); }
+    function linea(d, c, nom, trazo) { return '<polyline fill="none" stroke="' + c + '" stroke-width="3" stroke-linejoin="round"' + (trazo ? ' stroke-dasharray="' + trazo + '"' : '') + ' points="' + d.map(function (v, i) { return x(i) + ',' + y(v); }).join(' ') + '"/>' + d.map(function (v, i) { return '<circle cx="' + x(i) + '" cy="' + y(v) + '" r="4" fill="' + c + '"><title>' + nom + ', semana ' + (i + 1) + ': ' + Number(v) + '</title></circle>'; }).join(''); }
     var lab = ''; for (var i = 0; i < n.length; i++) lab += '<text x="' + x(i) + '" y="' + (H - 6) + '" text-anchor="middle" font-size="12" fill="#4a504a">S' + (i + 1) + '</text>';
-    el('grafico').innerHTML = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Altas y bajas por semana" style="width:100%;height:auto">' + g + lab + linea(n, '#111311', 'Altas') + linea(b, '#b42318', 'Bajas') + '</svg>';
+    el('grafico').innerHTML = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Altas y bajas por semana" style="width:100%;height:auto">' + g + lab + linea(b, '#b42318', 'Bajas', '7 6') + linea(n, '#111311', 'Altas') + '</svg>';
   }
   function pintarEmbudo() {
     var e = D.embudo || [], top = e.length ? e[0].v : 0;
     el('embudo-lista').innerHTML = e.map(function (p, i) {
-      var pct = top ? Math.max(2, p.v / top * 100) : 2;
+      var pct = top && p.v ? Math.max(2, p.v / top * 100) : 0;
       var base = (i > 0 && e[p.base] !== undefined) ? e[p.base].v : 0;
       var rel = i === 0 ? '' : (base ? fmt(p.v / base * 100, 0) + ' % ' + esc(p.ref || '') : '—');
       return '<div class="paso"><div class="paso__n">' + esc(p.n) + '</div><div class="paso__barra"><i style="width:' + pct + '%"></i></div><div class="paso__v num">' + fmt(p.v) + (rel ? '<small>' + rel + '</small>' : '') + '</div></div>';

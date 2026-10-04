@@ -153,7 +153,7 @@
           });
           var email = el.email.value.trim();
           var texto = 'Hecho. Te hemos enviado la guía a ' + email + '. Si no la ves en unos minutos, mira en spam o promociones.';
-          if (eleccion('acepta_emails') === 'si') texto += ' Para recibir nuestras novedades, confirma tu email con el enlace que verás en ese mensaje.';
+          if (eleccion('acepta_emails') === 'si') texto += ' Recibirás también nuestras novedades; puedes darte de baja con un clic desde cualquier email.';
           if (res.contacto) texto += ' Un mediador de seguros se pondrá en contacto contigo.';
           var nodo = mensaje(form, texto, true);
           if (nodo) { nodo.tabIndex = -1; nodo.focus(); }

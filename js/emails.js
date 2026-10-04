@@ -19,7 +19,9 @@
       })
       .catch(function () {
         boton.disabled = false;
-        texto.textContent = 'No hemos podido completarlo. Recarga la página para intentarlo de nuevo o escríbenos a info@entrenaseguro.es.';
+        boton.hidden = false;
+        if (accion === 'baja') { boton.textContent = 'Reintentar'; boton.onclick = function () { enviar(accion, token); }; }   // el botón de confirmar ya tiene su propio clic
+        texto.textContent = 'No hemos podido completarlo. Pulsa el botón para reintentarlo o escríbenos a info@entrenaseguro.es.';
       });
   }
 

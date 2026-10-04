@@ -1,0 +1,483 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-G5z7Q2LviZ0LgxOyAiSlKpVbp/bp7gFf040MCGVRqVI='; connect-src https://script.google.com https://*.googleusercontent.com; style-src 'unsafe-inline'; font-src 'self'; img-src data:; base-uri 'none'; form-action 'none'">
+<title>Panel · Entrena Seguro</title>
+<style>
+/* Tipografías alojadas en la propia web (en esta maqueta, desde ../../web/fonts) */
+@font-face { font-family: "Barlow"; src: url(../fonts/barlow-latin-400-normal.woff2) format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Barlow"; src: url(../fonts/barlow-latin-600-normal.woff2) format("woff2"); font-weight: 500 600; font-display: swap; }
+@font-face { font-family: "Barlow"; src: url(../fonts/barlow-latin-700-normal.woff2) format("woff2"); font-weight: 700; font-display: swap; }
+@font-face { font-family: "Barlow Condensed"; src: url(../fonts/barlow-condensed-latin-700-normal.woff2) format("woff2"); font-weight: 700; font-display: swap; }
+@font-face { font-family: "Barlow Condensed"; src: url(../fonts/barlow-condensed-latin-800-normal.woff2) format("woff2"); font-weight: 800; font-display: swap; }
+
+:root {
+  --blanco: #fff; --gris: #f4f5f2; --linea: #e4e6e1; --linea-2: #d5d8d2;
+  --negro: #111311; --negro-2: #1b1e1b; --texto-2: #3f443f; --texto-3: #4a504a;
+  --lima: #c8f03c; --lima-oscuro: #6f8a0c;
+  --ok: #1f7a3d; --ok-fondo: #e3f4e8; --aviso: #8a5a00; --aviso-fondo: #fff1d1; --mal: #b42318; --mal-fondo: #fde4e1;
+  --display: "Barlow Condensed", "Arial Narrow", sans-serif; --texto: "Barlow", system-ui, sans-serif;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body { margin: 0; background: var(--gris); color: var(--negro); font: 400 16px/1.5 var(--texto); }
+h1, h2, h3, p { margin: 0; }
+:focus-visible { outline: 3px solid var(--negro); outline-offset: 2px; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+[hidden] { display: none !important; }
+.num { font-variant-numeric: tabular-nums; }
+
+/* Aviso de maqueta */
+.demo { background: var(--negro); color: #fff; text-align: center; font-size: 14px; padding: 8px 16px; }
+.demo::before { content: ""; display: inline-block; width: 10px; height: 10px; border-radius: 2px; background: var(--lima); margin-right: 8px; }
+
+/* Acceso */
+#acceso { min-height: calc(100vh - 36px); display: grid; place-items: center; padding: 24px 16px; }
+.caja { width: 100%; max-width: 420px; background: var(--blanco); border-radius: 12px; overflow: hidden; box-shadow: 0 1px 0 var(--linea); }
+.caja__cab { padding: 24px 28px; display: flex; gap: 14px; align-items: center; border-bottom: 6px solid var(--lima); }
+.caja__cuerpo { padding: 28px; display: grid; gap: 16px; }
+label { display: grid; gap: 6px; font-weight: 600; font-size: 14px; }
+input { font: inherit; padding: 12px 14px; border: 1.5px solid #858b85; border-radius: 6px; background: #fff; }
+.btn { font: 700 16px var(--texto); background: var(--negro); color: var(--lima); border: 0; border-radius: 6px; padding: 14px 22px; cursor: pointer; }
+.btn:hover { background: var(--negro-2); }
+.btn--claro { background: var(--blanco); color: var(--negro); border: 1.5px solid var(--negro); padding: 8px 14px; font-size: 14px; }
+.nota { font-size: 13px; color: var(--texto-3); }
+.error { color: var(--mal); font-weight: 600; font-size: 14px; }
+
+/* Cabecera del panel */
+header.top { background: var(--blanco); border-bottom: 6px solid var(--lima); }
+.top__fila { max-width: 1200px; margin: 0 auto; padding: 14px 20px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+.marca { display: flex; align-items: center; gap: 12px; font: 800 24px/1 var(--display); text-transform: uppercase; letter-spacing: .02em; }
+.marca small { font: 600 13px var(--texto); letter-spacing: .12em; color: var(--texto-3); border-left: 2px solid var(--linea-2); padding-left: 12px; }
+.top__der { margin-left: auto; display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+.actualizado { font-size: 13px; color: var(--texto-3); }
+nav.indice { background: var(--negro); position: sticky; top: 0; z-index: 5; }
+nav.indice div { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; gap: 4px; overflow-x: auto; }
+nav.indice a { color: #c9ccc4; text-decoration: none; padding: 12px 14px; font-size: 14px; font-weight: 600; white-space: nowrap; border-bottom: 3px solid transparent; }
+nav.indice a:hover, nav.indice a.on { color: #fff; border-bottom-color: var(--lima); }
+
+main { max-width: 1200px; margin: 0 auto; padding: 28px 20px 60px; display: grid; gap: 40px; }
+section h2 { font: 800 34px/1 var(--display); text-transform: uppercase; margin-bottom: 6px; }
+section .sub { color: var(--texto-3); margin-bottom: 18px; max-width: 70ch; }
+.tarjeta { background: var(--blanco); border-radius: 12px; padding: 20px; }
+.tarjeta h3 { font: 700 13px var(--texto); letter-spacing: .12em; text-transform: uppercase; color: var(--texto-3); margin-bottom: 12px; }
+
+/* KPIs */
+.kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 14px; }
+.kpi { background: var(--blanco); border-radius: 12px; padding: 16px 18px 14px; display: grid; gap: 4px; }
+.kpi__et { font-size: 13px; font-weight: 600; color: var(--texto-3); }
+.kpi__v { font: 800 46px/1 var(--display); }
+.kpi__v small { font-size: 22px; font-weight: 700; }
+.chip { display: inline-block; font-size: 12px; font-weight: 700; padding: 2px 8px; border-radius: 999px; background: var(--gris); color: var(--texto-2); }
+.chip--ok { background: var(--ok-fondo); color: var(--ok); } .chip--aviso { background: var(--aviso-fondo); color: var(--aviso); } .chip--mal { background: var(--mal-fondo); color: var(--mal); }
+.kpi svg { width: 100%; height: 28px; margin-top: 4px; }
+
+.rejilla { display: grid; gap: 14px; }
+.rejilla--2 { grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); }
+.rejilla--3 { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+
+/* Embudo */
+.embudo { display: grid; gap: 8px; }
+.paso { display: grid; grid-template-columns: 170px 1fr 120px; gap: 12px; align-items: center; }
+.paso__n { font-weight: 600; font-size: 14px; }
+.paso__barra { background: var(--gris); border-radius: 6px; height: 30px; position: relative; overflow: hidden; }
+.paso__barra i { display: block; height: 100%; background: var(--negro); border-radius: 6px; }
+.paso:nth-child(n+5) .paso__barra i { background: var(--lima-oscuro); }
+.paso__v { font: 700 18px var(--texto); text-align: right; } .paso__v small { color: var(--texto-3); font-weight: 500; font-size: 13px; display: block; line-height: 1.1; }
+
+/* Tablas */
+.tabs { display: inline-flex; background: var(--gris); border-radius: 8px; padding: 3px; margin-bottom: 14px; }
+.tabs button { font: 600 14px var(--texto); border: 0; background: transparent; padding: 7px 16px; border-radius: 6px; cursor: pointer; color: var(--texto-2); }
+.tabs button[aria-selected="true"] { background: var(--negro); color: var(--lima); }
+.envol { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+th { text-align: left; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--texto-3); padding: 8px 10px; border-bottom: 2px solid var(--negro); white-space: nowrap; }
+td { padding: 9px 10px; border-bottom: 1px solid var(--linea); }
+td.d, th.d { text-align: right; }
+tr:hover td { background: #fafbf8; }
+.grupo td { background: var(--gris); font-weight: 700; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--texto-3); }
+.sem { display: inline-flex; align-items: center; gap: 6px; font-weight: 700; font-size: 13px; }
+.sem::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: currentColor; }
+.sem--ok { color: var(--ok); } .sem--aviso { color: var(--aviso); } .sem--mal { color: var(--mal); } .sem--poco { color: var(--texto-3); }
+.leyenda { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 12px; font-size: 13px; color: var(--texto-3); }
+
+/* Barras de comparativa */
+.cmp { display: grid; gap: 14px; }
+.cmp__fila { display: grid; gap: 4px; }
+.cmp__tit { display: flex; justify-content: space-between; font-size: 14px; font-weight: 600; }
+.cmp__barra { height: 14px; background: var(--gris); border-radius: 4px; overflow: hidden; }
+.cmp__barra i { display: block; height: 100%; }
+.i-neg { background: var(--negro); } .i-lima { background: var(--lima-oscuro); } .i-mal { background: var(--mal); }
+
+/* Calendario */
+.lista { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
+.lista li { display: flex; justify-content: space-between; gap: 12px; padding: 9px 0; border-bottom: 1px solid var(--linea); font-size: 14px; }
+.lista li:last-child { border-bottom: 0; }
+.lista b { font-weight: 700; }
+.dia { display: inline-block; min-width: 54px; font: 800 18px var(--display); text-transform: uppercase; }
+
+/* Medidor */
+.medidor { height: 18px; background: var(--gris); border-radius: 9px; overflow: hidden; margin: 8px 0 6px; }
+.medidor i { display: block; height: 100%; background: var(--lima-oscuro); }
+.estados { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 4px; }
+.estado { background: var(--gris); border-radius: 8px; padding: 8px 12px; min-width: 96px; }
+.estado b { display: block; font: 800 26px/1 var(--display); }
+.estado span { font-size: 12px; color: var(--texto-3); }
+.dinero { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px; }
+.dinero .kpi { background: var(--negro); color: #fff; } .dinero .kpi__et { color: #c9ccc4; } .dinero .kpi__v { color: var(--lima); }
+.dinero .kpi:nth-child(n+3) { background: var(--blanco); color: var(--negro); } .dinero .kpi:nth-child(n+3) .kpi__et { color: var(--texto-3); } .dinero .kpi:nth-child(n+3) .kpi__v { color: var(--negro); }
+footer { text-align: center; font-size: 13px; color: var(--texto-3); padding-bottom: 30px; }
+
+@media (max-width: 640px) {
+  .paso { grid-template-columns: 1fr 90px; } .paso__n { grid-column: 1 / -1; }
+  .paso__barra { grid-column: 1; }
+  .kpi__v { font-size: 38px; } section h2 { font-size: 28px; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+/* Añadidos de la versión real */
+.demo { display: none; }
+#acceso { min-height: 100vh; }
+.banner { background: var(--aviso-fondo); color: var(--aviso); font-weight: 600; font-size: 14px; text-align: center; padding: 8px 16px; }
+.banner--mal { background: var(--mal-fondo); color: var(--mal); }
+.cargando { text-align: center; padding: 80px 16px; color: var(--texto-3); font-weight: 600; }
+.menu-exp { position: relative; }
+.menu-exp ul { position: absolute; right: 0; top: 100%; margin: 4px 0 0; padding: 6px; list-style: none; background: var(--blanco); border: 1.5px solid var(--negro); border-radius: 8px; min-width: 190px; z-index: 10; box-shadow: 0 6px 20px rgba(0,0,0,.12); }
+.menu-exp button { width: 100%; text-align: left; font: 500 14px var(--texto); background: none; border: 0; padding: 9px 10px; border-radius: 6px; cursor: pointer; }
+.menu-exp button:hover { background: var(--gris); }
+.btn[disabled] { opacity: .6; cursor: progress; }
+.sem--ok2 { color: var(--ok); }
+.vacio { color: var(--texto-3); font-size: 14px; padding: 6px 0; }
+</style>
+</head>
+<body>
+
+<!-- ACCESO -->
+<div id="acceso">
+  <form class="caja" id="form-acceso" novalidate>
+    <div class="caja__cab">
+      <svg width="44" height="44" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="50" fill="#111311"/><circle cx="50" cy="50" r="32" fill="none" stroke="#C8F03C" stroke-width="10"/><circle cx="50" cy="50" r="9" fill="#fff"/></svg>
+      <div><div class="marca" style="font-size:26px">Entrena Seguro</div><div class="nota">Panel privado</div></div>
+    </div>
+    <div class="caja__cuerpo">
+      <label>Usuario<input id="usuario" name="usuario" autocomplete="username" autocapitalize="none" spellcheck="false" required></label>
+      <label>Contraseña<input id="clave" name="clave" type="password" autocomplete="current-password" required></label>
+      <p class="error" id="error" role="alert" hidden></p>
+      <button class="btn" id="entrar" type="submit">Entrar</button>
+      <p class="nota">La sesión caduca a las 8 horas. Tras 5 intentos fallidos, el acceso se bloquea 15 minutos.</p>
+    </div>
+  </form>
+</div>
+
+<!-- PANEL -->
+<div id="panel" hidden>
+  <header class="top">
+    <div class="top__fila">
+      <div class="marca">
+        <svg width="36" height="36" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="50" fill="#111311"/><circle cx="50" cy="50" r="32" fill="none" stroke="#C8F03C" stroke-width="10"/><circle cx="50" cy="50" r="9" fill="#fff"/></svg>
+        Entrena Seguro <small>PANEL</small>
+      </div>
+      <div class="top__der">
+        <span class="actualizado" id="actualizado" aria-live="polite"></span>
+        <button class="btn btn--claro" id="actualizar" type="button">Actualizar</button>
+        <div class="menu-exp">
+          <button class="btn btn--claro" id="exportar" type="button" aria-haspopup="true" aria-expanded="false">Exportar</button>
+          <ul id="menu-exportar" hidden>
+            <li><button type="button" data-exp="csv-emails">CSV · Emails</button></li>
+            <li><button type="button" data-exp="csv-resumen">CSV · Resumen</button></li>
+            <li><button type="button" data-exp="json">JSON · Todo el panel</button></li>
+          </ul>
+        </div>
+        <button class="btn btn--claro" id="salir" type="button">Salir</button>
+      </div>
+    </div>
+  </header>
+  <div id="aviso-datos" class="banner" role="status" hidden></div>
+  <nav class="indice" aria-label="Secciones"><div>
+    <a href="#resumen" class="on">Resumen</a><a href="#embudo">Embudo</a><a href="#emails">Emails</a><a href="#comparar">Comparativas</a><a href="#calendario">Calendario</a><a href="#salud">Salud técnica</a><a href="#dinero">Dinero</a>
+  </div></nav>
+
+  <div id="cargando" class="cargando">Cargando datos…</div>
+  <main id="contenido" hidden>
+    <section id="resumen" aria-labelledby="t-resumen">
+      <h2 id="t-resumen">Resumen</h2>
+      <p class="sub" id="periodo"></p>
+      <div class="kpis" id="kpis"></div>
+      <div class="tarjeta" style="margin-top:14px">
+        <h3>Altas y bajas por semana (últimas 12)</h3>
+        <div id="grafico"></div>
+        <div class="leyenda"><span><b style="color:var(--negro)">━</b> Nuevos suscriptores confirmados</span><span><b style="color:var(--mal)">━</b> Bajas</span></div>
+      </div>
+    </section>
+
+    <section id="embudo" aria-labelledby="t-embudo">
+      <h2 id="t-embudo">Embudo</h2>
+      <p class="sub">Del formulario a la comisión, en personas únicas. El porcentaje de cada barra es respecto al paso indicado debajo de la cifra.</p>
+      <div class="tarjeta"><div class="embudo" id="embudo-lista"></div></div>
+    </section>
+
+    <section id="emails" aria-labelledby="t-emails">
+      <h2 id="t-emails">Los emails, uno por uno</h2>
+      <p class="sub">Semáforo según el plan: baja por debajo del 0,5 % (verde), entre 0,5 % y 1 % (ámbar), por encima del 1 % (rojo, parar y revisar). Con menos de 100 envíos la tasa no es fiable y se marca como «pocos datos». Las peticiones se atribuyen al email por el enlace que pulsó la persona; las bajas, al último email que había recibido.</p>
+      <div class="tarjeta">
+        <div class="tabs" role="tablist" aria-label="Serie">
+          <button role="tab" aria-selected="true" data-serie="box">Boxes</button>
+          <button role="tab" aria-selected="false" data-serie="centros">Centros</button>
+        </div>
+        <div class="envol"><table>
+          <thead><tr><th>Email</th><th class="d">Enviados</th><th class="d">Peticiones</th><th class="d">Por 100 env.</th><th class="d">Bajas</th><th class="d">Tasa baja</th><th>Estado</th></tr></thead>
+          <tbody id="tabla-emails"></tbody>
+        </table></div>
+        <div class="leyenda"><span class="sem sem--ok">Verde: &lt; 0,5 %</span><span class="sem sem--aviso">Ámbar: 0,5–1 %</span><span class="sem sem--mal">Rojo: &gt; 1 %</span><span class="sem sem--poco">Pocos datos: &lt; 100 envíos</span></div>
+      </div>
+    </section>
+
+    <section id="comparar" aria-labelledby="t-comp">
+      <h2 id="t-comp">Comparativas</h2>
+      <p class="sub">Para decidir qué serie y qué tipo de email funcionan mejor.</p>
+      <div class="rejilla rejilla--3" id="comparativas"></div>
+    </section>
+
+    <section id="calendario" aria-labelledby="t-cal">
+      <h2 id="t-cal">Calendario</h2>
+      <div class="rejilla rejilla--2">
+        <div class="tarjeta"><h3>Próximos envíos (7 días)</h3><ul class="lista" id="proximos"></ul></div>
+        <div class="tarjeta"><h3>Renovaciones en los próximos 90 días</h3><ul class="lista" id="renovaciones"></ul><p class="nota" style="margin-top:10px">Personas activas que dieron el mes de renovación. Los avisos salen a 90, 60 y 30 días.</p></div>
+      </div>
+    </section>
+
+    <section id="salud" aria-labelledby="t-salud">
+      <h2 id="t-salud">Salud técnica</h2>
+      <div class="rejilla rejilla--3" id="salud-lista"></div>
+    </section>
+
+    <section id="dinero" aria-labelledby="t-din">
+      <h2 id="t-din">Dinero y contactos</h2>
+      <div class="dinero" id="dinero-kpis"></div>
+      <div class="tarjeta" style="margin-top:14px"><h3>Contactos por estado</h3><div class="estados" id="estados"></div></div>
+    </section>
+  </main>
+  <footer>Solo cifras agregadas: ningún nombre ni email de personas sale de la hoja.</footer>
+</div>
+
+<script src="../js/config.js"></script>
+<script>
+(function () {
+  'use strict';
+  var CLAVE_TOKEN = 'es_panel_token', URL = (window.ENTRENA_CONFIG || {}).APPS_SCRIPT_URL || '';
+  var D = null, serieActual = 'box', refresco = null;
+  function el(id) { return document.getElementById(id); }
+  function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
+  function fmt(n, dec) { return Number(n).toLocaleString('es-ES', { minimumFractionDigits: dec || 0, maximumFractionDigits: dec || 0 }); }
+  function clase(v, validas) { return validas.indexOf(v) !== -1 ? v : validas[0]; }
+  var tokenMemoria = '';
+  function guardarToken(t) { tokenMemoria = t || ''; try { if (t) sessionStorage.setItem(CLAVE_TOKEN, t); else sessionStorage.removeItem(CLAVE_TOKEN); } catch (e) {} }
+  function leerToken() { if (tokenMemoria) return tokenMemoria; try { return sessionStorage.getItem(CLAVE_TOKEN) || ''; } catch (e) { return ''; } }
+
+  // ---- Comunicación con el servidor (Apps Script) ----
+  function pedir(datos) {
+    return fetch(URL, { method: 'POST', body: new URLSearchParams(datos) }).then(function (r) { return r.json(); });
+  }
+
+  // ---- Acceso ----
+  function mostrarError(t) { var e = el('error'); e.textContent = t; e.hidden = !t; }
+  el('form-acceso').addEventListener('submit', function (ev) {
+    ev.preventDefault();
+    var u = el('usuario').value.trim(), c = el('clave').value;
+    if (!u || !c) { mostrarError('Escribe usuario y contraseña.'); return; }
+    var b = el('entrar'); b.disabled = true; mostrarError('');
+    pedir({ accion: 'panel_login', usuario: u, clave: c }).then(function (r) {
+      b.disabled = false;
+      if (r && r.ok && r.token) { guardarToken(r.token); el('clave').value = ''; entrarAlPanel(); return; }
+      mostrarError(r && r.error === 'bloqueado' ? 'Demasiados intentos. Espera 15 minutos.' : r && r.error === 'credenciales' ? 'Usuario o contraseña incorrectos.' : 'El servidor no ha podido atender la petición. Inténtalo de nuevo en un minuto.');
+    }).catch(function () { b.disabled = false; mostrarError('No se ha podido conectar. Inténtalo de nuevo.'); });
+  });
+  function mostrarAcceso(mensaje) {
+    if (refresco) { clearInterval(refresco); refresco = null; }
+    D = null; limpiarPanel(); el('panel').hidden = true; el('acceso').hidden = false; mostrarError(mensaje || '');
+  }
+  // Al salir no se dejan las cifras en el DOM oculto.
+  function limpiarPanel() {
+    ['kpis', 'grafico', 'embudo-lista', 'tabla-emails', 'comparativas', 'proximos', 'renovaciones', 'salud-lista', 'dinero-kpis', 'estados', 'periodo', 'actualizado'].forEach(function (id) { var e = el(id); if (e) { e.innerHTML = ''; e.textContent = ''; } });
+    el('contenido').hidden = true; el('cargando').hidden = false; el('cargando').textContent = 'Cargando datos…'; avisoDatos('', false);
+  }
+  el('salir').addEventListener('click', function () {
+    var t = leerToken(); guardarToken('');
+    if (t) { try { pedir({ accion: 'panel_salir', token: t }).catch(function () {}); } catch (e) {} }   // cierra la sesión también en el servidor
+    mostrarAcceso('');
+  });
+
+  // ---- Carga de datos ----
+  function entrarAlPanel() {
+    el('acceso').hidden = true; el('panel').hidden = false; window.scrollTo(0, 0);
+    cargar(false);
+    if (!refresco) refresco = setInterval(function () { if (!document.hidden) cargar(false); }, 300000);
+  }
+  function cargar(fresco) {
+    var token = leerToken();
+    if (!token) { mostrarAcceso(''); return; }
+    var b = el('actualizar'); b.disabled = true;
+    if (!D) { el('cargando').hidden = false; el('contenido').hidden = true; }
+    pedir({ accion: 'panel_datos', token: token, fresco: fresco ? '1' : '0' }).then(function (r) {
+      b.disabled = false;
+      if (r && r.ok && r.datos) { D = r.datos; pintarTodo(); return; }
+      if (r && r.error === 'sesion') { guardarToken(''); mostrarAcceso('La sesión ha caducado. Entra de nuevo.'); return; }
+      avisoDatos('No se han podido cargar los datos (' + String((r && r.error) || 'error').slice(0, 40) + ').', true);
+      el('cargando').hidden = !!D; if (!D) el('cargando').textContent = 'No se han podido cargar los datos.';
+    }).catch(function () {
+      b.disabled = false;
+      avisoDatos('Sin conexión con el servidor. Se muestran los últimos datos cargados.', true);
+      if (!D) el('cargando').textContent = 'No se ha podido conectar con el servidor.';
+    });
+  }
+  el('actualizar').addEventListener('click', function () { cargar(true); });
+  function avisoDatos(texto, grave) { var a = el('aviso-datos'); a.textContent = texto; a.className = 'banner' + (grave ? ' banner--mal' : ''); a.hidden = !texto; }
+
+  // ---- Pintado ----
+  function deltaTexto(k) {
+    var d = k.delta || {}, v = Number(d.valor) || 0;
+    if (v === 0) return ['0' + (d.tipo === 'pct' ? ' %' : d.tipo === 'pt' ? ' pt' : d.tipo === 'eur' ? ' €' : ''), ''];
+    var s = (v > 0 ? '+' : '−') + fmt(Math.abs(v), d.tipo === 'pt' ? 2 : 0) + (d.tipo === 'pct' ? ' %' : d.tipo === 'pt' ? ' pt' : d.tipo === 'eur' ? ' €' : '');
+    var bueno = k.mejor === 'baja' ? v < 0 : v > 0;
+    return [s, bueno ? 'ok' : 'mal'];
+  }
+  function spark(v) {
+    v = (v || []).map(Number); if (v.length < 2) return '';
+    var w = 200, h = 28, mx = Math.max.apply(null, v), mn = Math.min.apply(null, v), rg = mx - mn || 1;
+    var pts = v.map(function (y, i) { return (i * w / (v.length - 1)).toFixed(1) + ',' + (h - 3 - (y - mn) / rg * (h - 6)).toFixed(1); }).join(' ');
+    return '<svg viewBox="0 0 ' + w + ' ' + h + '" preserveAspectRatio="none" aria-hidden="true"><polyline points="' + pts + '" fill="none" stroke="#111311" stroke-width="2" vector-effect="non-scaling-stroke"/></svg>';
+  }
+  function pintarKpis() {
+    el('periodo').textContent = D.periodo || '';
+    el('kpis').innerHTML = (D.kpis || []).map(function (k) {
+      var dt = deltaTexto(k), dec = k.u === '%' ? 2 : 0;
+      return '<div class="kpi"><div class="kpi__et">' + esc(k.et) + '</div><div class="kpi__v num">' + esc(fmt(k.v, dec)) + (k.u ? '<small> ' + esc(k.u) + '</small>' : '') + '</div>' +
+        '<div><span class="chip ' + (dt[1] ? 'chip--' + dt[1] : '') + '">' + esc(dt[0]) + '</span></div>' + spark(k.spark) + '</div>';
+    }).join('');
+  }
+  function pintarGrafico() {
+    var n = (D.semanas && D.semanas.nuevos) || [], b = (D.semanas && D.semanas.bajas) || [];
+    if (n.length < 2) { el('grafico').innerHTML = '<p class="vacio">Aún no hay datos suficientes.</p>'; return; }
+    var W = 1000, H = 220, pl = 36, pb = 24, pt = 10, mx = Math.max(10, Math.ceil(Math.max.apply(null, n.concat(b)) / 10) * 10);
+    function x(i) { return pl + i * (W - pl - 10) / (n.length - 1); } function y(v) { return pt + (H - pt - pb) * (1 - v / mx); }
+    var g = '';
+    for (var t = 0; t <= 4; t++) { var v = mx * t / 4; g += '<line x1="' + pl + '" x2="' + (W - 10) + '" y1="' + y(v) + '" y2="' + y(v) + '" stroke="#e4e6e1"/><text x="' + (pl - 6) + '" y="' + (y(v) + 4) + '" text-anchor="end" font-size="12" fill="#4a504a">' + Math.round(v) + '</text>'; }
+    function linea(d, c, nom) { return '<polyline fill="none" stroke="' + c + '" stroke-width="3" stroke-linejoin="round" points="' + d.map(function (v, i) { return x(i) + ',' + y(v); }).join(' ') + '"/>' + d.map(function (v, i) { return '<circle cx="' + x(i) + '" cy="' + y(v) + '" r="4" fill="' + c + '"><title>' + nom + ', semana ' + (i + 1) + ': ' + Number(v) + '</title></circle>'; }).join(''); }
+    var lab = ''; for (var i = 0; i < n.length; i++) lab += '<text x="' + x(i) + '" y="' + (H - 6) + '" text-anchor="middle" font-size="12" fill="#4a504a">S' + (i + 1) + '</text>';
+    el('grafico').innerHTML = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Altas y bajas por semana" style="width:100%;height:auto">' + g + lab + linea(n, '#111311', 'Altas') + linea(b, '#b42318', 'Bajas') + '</svg>';
+  }
+  function pintarEmbudo() {
+    var e = D.embudo || [], top = e.length ? e[0].v : 0;
+    el('embudo-lista').innerHTML = e.map(function (p, i) {
+      var pct = top ? Math.max(2, p.v / top * 100) : 2;
+      var base = (i > 0 && e[p.base] !== undefined) ? e[p.base].v : 0;
+      var rel = i === 0 ? '' : (base ? fmt(p.v / base * 100, 0) + ' % ' + esc(p.ref || '') : '—');
+      return '<div class="paso"><div class="paso__n">' + esc(p.n) + '</div><div class="paso__barra"><i style="width:' + pct + '%"></i></div><div class="paso__v num">' + fmt(p.v) + (rel ? '<small>' + rel + '</small>' : '') + '</div></div>';
+    }).join('');
+  }
+  function estadoTasa(env, tasa) {
+    if (env < 100) return ['poco', 'Pocos datos']; if (tasa > 1) return ['mal', 'Parar y revisar']; if (tasa >= 0.5) return ['aviso', 'Vigilar']; return ['ok', 'Bien'];
+  }
+  function pintarEmails() {
+    var filas = (D.emails && D.emails[serieActual]) || [], ult = '', html = '';
+    filas.forEach(function (f) {
+      if (f.grupo !== ult) { html += '<tr class="grupo"><td colspan="7">' + (f.grupo === 'Confianza' ? 'Fase A · confianza (primer mes)' : f.grupo === 'Renovación' ? 'Avisos de renovación (cada año)' : 'Mensuales (ciclo de 12)') + '</td></tr>'; ult = f.grupo; }
+      var tb = f.enviados ? f.bajas / f.enviados * 100 : 0, p100 = f.enviados ? f.peticiones / f.enviados * 100 : 0, es = estadoTasa(f.enviados, tb);
+      html += '<tr><td><b>' + esc(f.id) + '</b> · ' + esc(f.nombre) + '</td><td class="d num">' + fmt(f.enviados) + '</td><td class="d num">' + fmt(f.peticiones) + '</td><td class="d num">' + fmt(p100, 1) + '</td><td class="d num">' + fmt(f.bajas) + '</td><td class="d num">' + fmt(tb, 2) + ' %</td><td><span class="sem sem--' + es[0] + '">' + es[1] + '</span></td></tr>';
+    });
+    el('tabla-emails').innerHTML = html || '<tr><td colspan="7" class="vacio">Sin datos.</td></tr>';
+  }
+  function pintarComparativas() {
+    el('comparativas').innerHTML = (D.comp || []).map(function (c) {
+      var filas = c.filas || [], mx = Math.max.apply(null, filas.map(function (f) { return f[1]; }).concat([0.1]));
+      return '<div class="tarjeta"><h3>' + esc(c.tit) + '</h3><div class="cmp">' + (filas.length ? filas.map(function (f, i) {
+        return '<div class="cmp__fila"><div class="cmp__tit"><span>' + esc(f[0]) + '</span><span class="num">' + fmt(f[1], 1) + ' ' + esc(c.unidad || '') + '</span></div><div class="cmp__barra"><i class="' + (i % 2 ? 'i-lima' : 'i-neg') + '" style="width:' + (f[1] / mx * 100) + '%"></i></div></div>';
+      }).join('') : '<p class="vacio">Aún no hay datos.</p>') + '</div></div>';
+    }).join('');
+  }
+  function pintarCalendario() {
+    var p = D.proximos || [], r = D.renovaciones || [];
+    el('proximos').innerHTML = p.length ? p.map(function (x) { return '<li><span><span class="dia">' + esc(String(x.dia).split(' ')[0]) + '</span> <span class="nota">' + esc(String(x.dia).split(' ')[1] || '') + '</span> · ' + esc(x.etiqueta) + '</span><b class="num">' + fmt(x.n) + ' personas</b></li>'; }).join('') : '<li class="vacio">No hay envíos previstos.</li>';
+    el('renovaciones').innerHTML = r.length ? r.map(function (x) { return '<li><span>' + esc(x.mes) + '</span><b class="num">' + fmt(x.n) + ' centros</b></li>'; }).join('') : '<li class="vacio">Ninguna renovación en los próximos 90 días.</li>';
+  }
+  function pintarSalud() {
+    el('salud-lista').innerHTML = (D.salud || []).map(function (s) {
+      var est = clase(s.est, ['ok', 'aviso', 'mal']);
+      return '<div class="tarjeta"><h3>' + esc(s.et) + '</h3><div class="kpi__v num">' + esc(s.v) + '</div>' +
+        (s.pct !== undefined ? '<div class="medidor" role="img" aria-label="' + Number(s.pct) + ' %"><i style="width:' + Math.max(0, Math.min(100, Number(s.pct))) + '%"></i></div>' : '<p style="margin-top:6px"><span class="chip chip--' + est + '">' + (est === 'ok' ? 'Todo bien' : est === 'aviso' ? 'Revisar' : 'Atención') + '</span></p>') +
+        '<p class="nota">' + esc(s.nota || '') + '</p></div>';
+    }).join('');
+  }
+  function pintarDinero() {
+    el('dinero-kpis').innerHTML = (D.dinero || []).map(function (d) { return '<div class="kpi"><div class="kpi__et">' + esc(d.et) + '</div><div class="kpi__v num">' + esc(fmt(d.v)) + (d.u ? '<small> ' + esc(d.u) + '</small>' : '') + '</div></div>'; }).join('');
+    el('estados').innerHTML = (D.estados || []).map(function (e) { return '<div class="estado"><b class="num">' + fmt(e[1]) + '</b><span>' + esc(e[0]) + '</span></div>'; }).join('');
+  }
+  function pintarTodo() {
+    pintarKpis(); pintarGrafico(); pintarEmbudo(); pintarEmails(); pintarComparativas(); pintarCalendario(); pintarSalud(); pintarDinero();
+    el('actualizado').textContent = 'Actualizado: ' + (D.generadoTxt || '');
+    el('cargando').hidden = true; el('contenido').hidden = false;
+    var min = D.generado ? Math.round((Date.now() - new Date(D.generado).getTime()) / 60000) : 0;
+    avisoDatos(min > 10 ? 'Datos de hace ' + min + ' minutos. Pulsa «Actualizar» para recalcular.' : '', false);
+  }
+
+  // ---- Pestañas, menú, índice ----
+  document.querySelectorAll('.tabs button').forEach(function (b) {
+    b.addEventListener('click', function () {
+      document.querySelectorAll('.tabs button').forEach(function (x) { x.setAttribute('aria-selected', x === b ? 'true' : 'false'); });
+      serieActual = b.getAttribute('data-serie'); if (D) pintarEmails();
+    });
+  });
+  var enlaces = document.querySelectorAll('nav.indice a');
+  window.addEventListener('scroll', function () {
+    var cur = 'resumen'; ['resumen', 'embudo', 'emails', 'comparar', 'calendario', 'salud', 'dinero'].forEach(function (id) { var e = el(id); if (e && e.getBoundingClientRect().top < 120) cur = id; });
+    enlaces.forEach(function (a) { a.classList.toggle('on', a.getAttribute('href') === '#' + cur); });
+  });
+
+  // ---- Exportar (se genera en el navegador con los datos ya cargados; no se pide nada más al servidor) ----
+  function celdaCsv(v) {
+    var t = typeof v === 'number' ? String(v).replace('.', ',') : String(v === undefined || v === null ? '' : v);
+    if (/^[=+\-@\t\r]/.test(t) && typeof v !== 'number') t = "'" + t;      // evita que una hoja de cálculo lo tome por fórmula
+    return /[;"\n\r]/.test(t) ? '"' + t.replace(/"/g, '""') + '"' : t;
+  }
+  function csv(filas) { return '﻿' + filas.map(function (f) { return f.map(celdaCsv).join(';'); }).join('\r\n'); }
+  function descargar(nombre, texto, tipo) {
+    var a = document.createElement('a'), url = URL_.createObjectURL(new Blob([texto], { type: tipo }));
+    a.href = url; a.download = nombre; document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    setTimeout(function () { URL_.revokeObjectURL(url); }, 1000);
+  }
+  var URL_ = window.URL || window.webkitURL;
+  function fechaArchivo() { var d = new Date(); function z(n) { return (n < 10 ? '0' : '') + n; } return d.getFullYear() + z(d.getMonth() + 1) + z(d.getDate()); }
+  function exportar(tipo) {
+    if (!D) return;
+    if (tipo === 'json') { descargar('panel-entrena-seguro-' + fechaArchivo() + '.json', JSON.stringify(D, null, 2), 'application/json'); return; }
+    if (tipo === 'csv-emails') {
+      var filas = [['serie', 'codigo', 'nombre', 'grupo', 'enviados', 'peticiones', 'peticiones_por_100', 'bajas', 'tasa_baja_pct']];
+      ['box', 'centros'].forEach(function (s) { ((D.emails || {})[s] || []).forEach(function (f) {
+        filas.push([s, f.id, f.nombre, f.grupo, f.enviados, f.peticiones, f.enviados ? Math.round(f.peticiones / f.enviados * 1000) / 10 : 0, f.bajas, f.enviados ? Math.round(f.bajas / f.enviados * 10000) / 100 : 0]);
+      }); });
+      descargar('emails-entrena-seguro-' + fechaArchivo() + '.csv', csv(filas), 'text/csv;charset=utf-8'); return;
+    }
+    var r = [['seccion', 'concepto', 'valor', 'unidad']];
+    (D.kpis || []).forEach(function (k) { r.push(['Resumen', k.et, k.v, k.u || '']); });
+    (D.embudo || []).forEach(function (e) { r.push(['Embudo', e.n, e.v, 'personas']); });
+    (D.dinero || []).forEach(function (d) { r.push(['Dinero', d.et, d.v, d.u || '']); });
+    (D.estados || []).forEach(function (e) { r.push(['Contactos por estado', e[0], e[1], 'contactos']); });
+    descargar('resumen-entrena-seguro-' + fechaArchivo() + '.csv', csv(r), 'text/csv;charset=utf-8');
+  }
+  var menu = el('menu-exportar'), btnExp = el('exportar');
+  function cerrarMenu() { menu.hidden = true; btnExp.setAttribute('aria-expanded', 'false'); }
+  btnExp.addEventListener('click', function (ev) { ev.stopPropagation(); menu.hidden = !menu.hidden; btnExp.setAttribute('aria-expanded', String(!menu.hidden)); });
+  menu.addEventListener('click', function (ev) { var t = ev.target.getAttribute && ev.target.getAttribute('data-exp'); if (t) { exportar(t); cerrarMenu(); } });
+  document.addEventListener('click', cerrarMenu);
+  document.addEventListener('keydown', function (ev) { if (ev.key === 'Escape') cerrarMenu(); });
+
+  // ---- Arranque: si hay sesión en esta pestaña, se entra directamente ----
+  if (leerToken()) entrarAlPanel();
+})();
+</script>
+</body>
+</html>

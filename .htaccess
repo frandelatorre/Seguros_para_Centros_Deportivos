@@ -1,6 +1,14 @@
-# Versión de prueba: que ningún buscador la indexe, aunque ignore robots.txt
-<IfModule mod_headers.c>
-  Header set X-Robots-Tag "noindex, nofollow"
+# Una sola dirección para la web: www.entrenaseguro.es -> entrenaseguro.es
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTP_HOST} ^www\.entrenaseguro\.es$ [NC]
+  RewriteRule ^(.*)$ https://entrenaseguro.es/$1 [R=301,L]
 </IfModule>
 # No listar el contenido de las carpetas
 Options -Indexes
+# La guía se entrega por email: que Google no indexe los PDF
+<IfModule mod_headers.c>
+  <FilesMatch "\.pdf$">
+    Header set X-Robots-Tag "noindex"
+  </FilesMatch>
+</IfModule>
